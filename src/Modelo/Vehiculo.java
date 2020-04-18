@@ -15,6 +15,58 @@ public class Vehiculo {
     private String marca;
     private String referencia;
     private int cilindraje;
+
+    public Vehiculo() {
+    }
+
+    public Vehiculo(float kilometraje, int year, String marca, String referencia, int cilindraje) {
+        this.kilometraje = kilometraje;
+        this.year = year;
+        this.marca = marca;
+        this.referencia = referencia;
+        this.cilindraje = cilindraje;
+    }
+
+    public float getKilometraje() {
+        return kilometraje;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public int getCilindraje() {
+        return cilindraje;
+    }
+
+    public void setKilometraje(float kilometraje) {
+        this.kilometraje = kilometraje;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
+    public void setCilindraje(int cilindraje) {
+        this.cilindraje = cilindraje;
+    }
     
     
 }
+
