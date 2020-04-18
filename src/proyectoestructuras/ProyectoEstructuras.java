@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package proyectoestructuras;
-import Vista.Principal;
+import Vista.*;
 
 /**
  *
@@ -19,9 +19,9 @@ public class ProyectoEstructuras {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Principal principal = new Principal();
+        Ingresar ingresar = new Ingresar();
         System.out.println("Hola");
-        principal.setVisible(true);
+        ingresar.setVisible(true);
         
         
     }
