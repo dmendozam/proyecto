@@ -16,6 +16,7 @@ public class Vehiculo {
     private String referencia;
     private int cilindraje;
     private int puestos;
+    private String placa;
 
     public Vehiculo() {
         this.kilometraje = 0;
@@ -23,14 +24,16 @@ public class Vehiculo {
         this.marca = "Ford";
         this.referencia = "F1";
         this.cilindraje = 2000;
+        this.placa ="AAA000";
     }
 
-    public Vehiculo(float kilometraje, int year, String marca, String referencia, int cilindraje) {
+    public Vehiculo(float kilometraje, int year, String marca, String referencia, int cilindraje, String placa) {
         this.kilometraje = kilometraje;
         this.year = year;
         this.marca = marca;
         this.referencia = referencia;
         this.cilindraje = cilindraje;
+        this.placa = placa;
     }
 
     public float getKilometraje() {
@@ -72,6 +75,23 @@ public class Vehiculo {
     public void setCilindraje(int cilindraje) {
         this.cilindraje = cilindraje;
     }
+
+    public int getPuestos() {
+        return puestos;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPuestos(int puestos) {
+        this.puestos = puestos;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+    
     
     
 }
