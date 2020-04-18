@@ -14,5 +14,7 @@ public class Vehiculo {
     private int year;
     private String marca;
     private String referencia;
+    private int cilindraje;
+    
     
 }
