@@ -15,8 +15,14 @@ public class Vehiculo {
     private String marca;
     private String referencia;
     private int cilindraje;
+    private int puestos;
 
     public Vehiculo() {
+        this.kilometraje = 0;
+        this.year = 1950;
+        this.marca = "Ford";
+        this.referencia = "F1";
+        this.cilindraje = 2000;
     }
 
     public Vehiculo(float kilometraje, int year, String marca, String referencia, int cilindraje) {

@@ -9,6 +9,8 @@ package Modelo;
  *
  * @author Santiago Mendoza
  */
-public class Camioneta {
+public class Camioneta extends Vehiculo {
+    //que tiene una camioneta que no un sedan o moto?
+    private boolean cuatrox4;
     
 }

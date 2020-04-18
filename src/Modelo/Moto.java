@@ -9,6 +9,6 @@ package Modelo;
  *
  * @author Santiago Mendoza
  */
-public class Moto {
-    
+public class Moto extends Vehiculo{
+    //que tiene una Moto que no una camioneta o sedan
 }

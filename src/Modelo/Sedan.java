@@ -9,6 +9,7 @@ package Modelo;
  *
  * @author Santiago Mendoza
  */
-public class Sedan {
+public class Sedan extends Vehiculo {
+    //que tiene un sedan que no una camioneta o moto?
     
 }

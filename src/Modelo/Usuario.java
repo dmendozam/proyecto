@@ -15,6 +15,7 @@ public class Usuario {
     private String nombre;
     private String usuario;                         //faltan atributos de la clase
     private String clave;
+    private LinkedList<Vehiculo> listaVehiculosArrendados;
     
 
     public Usuario() {
@@ -26,10 +27,11 @@ public class Usuario {
         
     }
 
-    public Usuario(String nombre, String usuario, String clave) {
+    public Usuario(String nombre, String usuario, String clave, LinkedList<Vehiculo> listaVehiculosArrendados) {
         this.nombre = nombre;
         this.usuario = usuario;
         this.clave = clave;
+        this.listaVehiculosArrendados= listaVehiculosArrendados;
         
     
 
