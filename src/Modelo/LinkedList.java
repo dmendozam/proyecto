@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author Santiago Mendoza
  */
-public class LinkedList {
+public class LinkedList<T> {
     Nodo<T> top;
     private int size;
 
