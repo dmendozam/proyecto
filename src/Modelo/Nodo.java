@@ -20,4 +20,9 @@ public class Nodo<T> {
         this.next = next;
         this.last = last;
     }
+    
+    public Nodo(){
+        this.next = null;
+        this.last = null;
+    }
 }
