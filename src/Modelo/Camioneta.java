@@ -10,5 +10,5 @@ package Modelo;
  * @author Santiago Mendoza
  */
 public class Camioneta extends Vehiculo {
-    
+    //que tiene una camioneta que no un sedan o moto?
 }
