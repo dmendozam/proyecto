@@ -10,5 +10,9 @@ package Modelo;
  * @author Santiago Mendoza
  */
 public class Vehiculo {
+    private float kilometraje;
+    private int year;
+    private String marca;
+    private String referencia;
     
 }

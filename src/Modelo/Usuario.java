@@ -15,6 +15,7 @@ public class Usuario {
     private String nombre;
     private String usuario;                         //faltan atributos de la clase
     private String clave;
+    
 
     public Usuario() {
         this.nombre = "John Doe";
