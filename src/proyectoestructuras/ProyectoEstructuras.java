@@ -4,19 +4,26 @@
  * and open the template in the editor.
  */
 package proyectoestructuras;
+import Vista.Principal;
 
 /**
  *
  * @author Santiago Mendoza
  */
 public class ProyectoEstructuras {
-
+    
+    
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Principal principal = new Principal();
         System.out.println("Hola");
+        principal.setVisible(true);
+        
+        
     }
     
 }
