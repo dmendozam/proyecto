@@ -27,10 +27,11 @@ public class Usuario {
         
     }
 
-    public Usuario(String nombre, String usuario, String clave) {
+    public Usuario(String nombre, String usuario, String clave, LinkedList<Vehiculo> listaVehiculosArrendados) {
         this.nombre = nombre;
         this.usuario = usuario;
         this.clave = clave;
+        this.listaVehiculosArrendados= listaVehiculosArrendados;
         
     
 
