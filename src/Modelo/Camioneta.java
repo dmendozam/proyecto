@@ -11,4 +11,6 @@ package Modelo;
  */
 public class Camioneta extends Vehiculo {
     //que tiene una camioneta que no un sedan o moto?
+    private boolean cuatrox4;
+    
 }
