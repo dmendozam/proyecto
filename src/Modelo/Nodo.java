@@ -9,6 +9,12 @@ package Modelo;
  *
  * @author Santiago Mendoza
  */
-public class Nodo {
+public class Nodo<T> {
+    public T key;
+    public Nodo next;
     
+    public Nodo(T key, Nodo next){
+        this.key = key;
+        this.next = next;
+    }
 }
