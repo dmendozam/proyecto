@@ -8,13 +8,16 @@ package Modelo;
 /**
  *
  * @author Santiago Mendoza
+ * @param <T>
  */
 public class Nodo<T> {
     public T key;
     public Nodo next;
+    public Nodo last;
     
-    public Nodo(T key, Nodo next){
+    public Nodo(T key, Nodo next, Nodo last){
         this.key = key;
         this.next = next;
+        this.last = last;
     }
 }

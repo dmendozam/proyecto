@@ -8,9 +8,11 @@ package Modelo;
 /**
  *
  * @author Santiago Mendoza
+ * @param <T>
  */
 public class LinkedList<T> {
     Nodo<T> top;
+    Nodo<T> tail;
     private int size;
 
     public int size() {
@@ -21,13 +23,19 @@ public class LinkedList<T> {
         return this.top == null;
     }
     
-    public void push(T key) {
-        Nodo<T> nodo = new Nodo<>(key, this.top); 
+    public void pushFront(T key) {
+        Nodo<T> nodo = new Nodo(key, this.top, null); 
         this.top = nodo; 
         this.size++; 
     }
     
-    public T pop() {
+    public void pushBack(T key) {
+        Nodo<T> nodo = new Nodo<>(key, null, this.tail); 
+        this.tail = nodo; 
+        this.size++; 
+    }
+    
+    public T popFront() {
         T temp;
         if(isEmpty()) {
             return null;
@@ -38,12 +46,32 @@ public class LinkedList<T> {
             return temp;
         }
     }
+    
+    public T popBack() {
+        T temp;
+        if(isEmpty()) {
+            return null;
+        } else {
+            temp = tail.key;
+            tail = tail.last; 
+            size--;
+            return temp;
+        }
+    }
 
-    public T top() {
+    public T topFront() {
         if(isEmpty()) {
             return null;
         } else {
             return top.key;
+        }
+    }
+    
+    public T topBack() {
+        if(isEmpty()) {
+            return null;
+        } else {
+            return tail.key;
         }
     }
 }
