@@ -22,6 +22,7 @@ public class Usuario {
         this.nombre = "John Doe";
         this.usuario = "jdoe";
         this.clave = "5678";
+        this.listaVehiculosArrendados= new LinkedList<Vehiculo>();
    
         
         

@@ -9,6 +9,21 @@ package Modelo;
  *
  * @author Santiago Mendoza
  */
-public class Queue {
-    LinkedList lista= new LinkedList();
+public class Queue<T> {
+    LinkedList<T> lista= new LinkedList<T>();
+    
+    T enqueue(T entrante){
+        lista.pushBack(entrante);
+        return entrante;
+    }
+    T dequeue(){
+        T dequeue=lista.popFront();
+        return dequeue;
+    }
+    T front (){
+        return lista.topFront();
+    }
+    T rear (){
+        return lista.topBack();
+    }
 }
