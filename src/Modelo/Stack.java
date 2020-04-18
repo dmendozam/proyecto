@@ -8,7 +8,54 @@ package Modelo;
 /**
  *
  * @author Santiago Mendoza
+ * @param <T>
  */
-public class Stack {
+public class Stack<T> {
+    Nodo<T> top;
+    private int size;
     
+    public Stack(){
+        this.top=null;
+        this.size=0;
+    }
+    
+    public int size() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        if(this.size==0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public void push(T key) {
+        Nodo<T> nodo = new Nodo<>(key, this.top);
+        this.top=nodo;
+        this.size++;
+    }
+
+    public T pop() {
+        T temp;
+        if(isEmpty()){
+            System.out.println("Pila vacía");
+            return null;
+        }
+        temp=this.top.key;
+        this.top=this.top.next;
+        size--;
+        return temp;
+        
+        
+    }
+
+    public T top() {
+        if(isEmpty()){
+            System.out.println("Pila vacía");
+            return null;
+        }
+        return this.top.key;
+    }
 }
