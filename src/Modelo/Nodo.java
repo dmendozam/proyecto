@@ -21,6 +21,11 @@ public class Nodo<T> {
         this.last = last;
     }
     
+    public Nodo(T key, Nodo next){
+        this.key = key;
+        this.next = next;
+    }
+    
     public Nodo(){
         this.next = null;
         this.last = null;
