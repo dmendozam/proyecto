@@ -9,6 +9,6 @@ package Modelo;
  *
  * @author Santiago Mendoza
  */
-public class Sedan {
+public class Sedan extends Vehiculo {
     
 }

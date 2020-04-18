@@ -10,5 +10,5 @@ package Modelo;
  * @author Santiago Mendoza
  */
 public class Queue {
-    
+    LinkedList lista= new LinkedList();
 }
