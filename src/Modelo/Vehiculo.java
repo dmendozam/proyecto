@@ -15,6 +15,7 @@ public class Vehiculo {
     private String marca;
     private String referencia;
     private int cilindraje;
+    private int puestos;
 
     public Vehiculo() {
         this.kilometraje = 0;
