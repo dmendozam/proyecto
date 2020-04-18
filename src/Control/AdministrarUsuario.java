@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectoestructuras;
+package Control;
 
 /**
  *
  * @author Santiago Mendoza
  */
-public class Vehiculo {
+public class AdministrarUsuario {
     
 }
