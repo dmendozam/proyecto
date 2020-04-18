@@ -32,8 +32,8 @@ public class AdministrarVehiculo {
         
        
     }
-    public Vehiculo buscarVehiculo(String usuarioIngresado){ //Busqueda Binaria
-    Vehiculo v = new Vehiculo();
+    public Vehiculo buscarVehiculo(Vehiculo v){ //Busqueda Binaria
+    
     
     return v;
     }
@@ -45,7 +45,7 @@ public class AdministrarVehiculo {
     }
     
     public void editarVehiculo(Vehiculo v){
-        
+        Vehiculo a_editar=buscarVehiculo(v);
     }
      
     public void borrarVehiculo(Vehiculo v){
