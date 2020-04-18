@@ -20,7 +20,7 @@ public class ProyectoEstructuras {
     public static void main(String[] args) {
         // TODO code application logic here
         Ingresar ingresar = new Ingresar();
-        System.out.println("Hola");
+        //System.out.println("Hola");
         ingresar.setVisible(true);
         
         

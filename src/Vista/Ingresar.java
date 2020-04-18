@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package Vista;
+import Control.*;
+import Modelo.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,8 +17,14 @@ public class Ingresar extends javax.swing.JFrame {
     /**
      * Creates new form Ingresar
      */
+    private Usuario usu;
+    private AdministrarUsuario admiusu;
+    private Principal princi;
     public Ingresar() {
         initComponents();
+        usu= new Usuario();
+        admiusu= new AdministrarUsuario();
+        princi = new Principal();
     }
 
     /**
@@ -43,6 +52,11 @@ public class Ingresar extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
 
         ingresarBT.setText("Ingresar");
+        ingresarBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingresarBTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,6 +102,29 @@ public class Ingresar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ingresarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBTActionPerformed
+        // TODO add your handling code here:
+    Usuario u= new Usuario();
+        u= null;
+        u=admiusu.buscarUsuario(usuarioTF.getText());
+        if (u!=null){
+            if(contrasenaPF.getText().equals(u.getClave())){
+                usu=u;
+            
+                this.setVisible(false);
+                princi.setVisible(true); 
+                princi.requestFocus();
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(this,"La Contraseña es incorrecta.");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"El ususario no existe.");
+        }  
+    }//GEN-LAST:event_ingresarBTActionPerformed
 
     /**
      * @param args the command line arguments
