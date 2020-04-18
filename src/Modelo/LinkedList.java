@@ -24,14 +24,24 @@ public class LinkedList<T> {
     }
     
     public void pushFront(T key) {
-        Nodo<T> nodo = new Nodo(key, this.top, null); 
-        this.top = nodo; 
-        this.size++; 
+        Nodo<T> nodo = new Nodo(key, this.top, null);
+        if(!this.isEmpty()){ 
+            this.top = nodo;  
+        }else{
+            this.top = nodo;
+            this.tail = nodo;
+        }
+        this.size++;
     }
     
     public void pushBack(T key) {
         Nodo<T> nodo = new Nodo<>(key, null, this.tail); 
-        this.tail = nodo; 
+        if(!this.isEmpty()){
+            this.tail = nodo; 
+        } else{
+            this.tail = nodo;
+            this.top = nodo;
+        }
         this.size++; 
     }
     

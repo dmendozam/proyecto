@@ -38,7 +38,9 @@ public class AdministrarVehiculo {
     return v;
     }
     public void agregarVehiculo(Vehiculo v){
-    
+        char letra = v.getReferencia().charAt(0);
+        
+        
         //listaDeVehiculos.push
     }
     

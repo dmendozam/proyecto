@@ -41,13 +41,12 @@ public class AdministrarUsuario {
         if(i.getUsuario().equals(usuarioIngresado)){
             
             u=i;
-                   
+            
             }   
     }
     return u;
     }
     public void agregarUsuario(Usuario u){
-    
         listaDeUsuarios.add(u);
     }
     
