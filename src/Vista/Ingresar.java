@@ -6,6 +6,12 @@
 package Vista;
 import Control.*;
 import Modelo.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -124,6 +130,34 @@ public class Ingresar extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(this,"El ususario no existe.");
         }  
+        
+        //Leer el archivo
+        
+        LinkedList<Vehiculo> vehiculos = new LinkedList<>();
+        try{
+            Scanner input = new Scanner(new File("MOCK_DATA_1.txt"));
+            while(input.hasNextLine()){
+                input.nextLine();
+                String placa = input.next();
+                Float kilom = input.nextFloat();
+                int year = input.nextInt();
+                String marca = input.next();
+                String ref = input.next();
+                int cilind = input.nextInt();
+                int puestos = input.nextInt();
+                Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
+                vehiculos.pushBack(vehiculo);
+                System.out.println(vehiculos.size());
+            }
+            
+                       
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        
+        
+        
     }//GEN-LAST:event_ingresarBTActionPerformed
 
     /**
