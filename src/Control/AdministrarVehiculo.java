@@ -28,7 +28,7 @@ public class AdministrarVehiculo {
     }
     
     private void llenarVehiculosIniciales(){
-        listaDeVehiculos.pushBack(new Vehiculo(0, 0, "Toyota", "Pradp", 4500, "ABC123"));
+        listaDeVehiculos.pushBack(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "ABC123"));
         
        
     }
