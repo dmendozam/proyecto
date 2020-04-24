@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import Estructuras.LinkedList;
+import Modelo.Vehiculo;
+
 /**
  *
  * @author Santiago Mendoza
@@ -14,6 +17,9 @@ public class BuscarPanel extends javax.swing.JPanel {
     /**
      * Creates new form BuscarPanel
      */
+    String tipo;
+    public LinkedList<Vehiculo> listaVehiculos = Ingresar.listaVehiculos;
+    
     public BuscarPanel() {
         initComponents();
     }
@@ -28,8 +34,41 @@ public class BuscarPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jCheckBoxPlaca = new javax.swing.JCheckBox();
+        jCheckBoxMarca = new javax.swing.JCheckBox();
+        jCheckBoxModelo = new javax.swing.JCheckBox();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setText("Buscar");
+
+        jCheckBoxPlaca.setText("Placa");
+        jCheckBoxPlaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxPlacaActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxMarca.setText("Marca");
+        jCheckBoxMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMarcaActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxModelo.setText("Modelo");
+        jCheckBoxModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxModeloActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -38,19 +77,96 @@ public class BuscarPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(170, 170, 170)
                 .addComponent(jLabel1)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jCheckBoxPlaca)
+                        .addGap(80, 80, 80)
+                        .addComponent(jCheckBoxMarca)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCheckBoxModelo)))
+                .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBoxPlaca)
+                    .addComponent(jCheckBoxMarca)
+                    .addComponent(jCheckBoxModelo))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jCheckBoxMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMarcaActionPerformed
+        // TODO add your handling code here:
+        if (jCheckBoxMarca.isSelected()){
+            tipo = "marca";
+            jCheckBoxPlaca.setEnabled(false);
+            jCheckBoxModelo.setEnabled(false);
+            
+        }else{
+            tipo = null;
+            jCheckBoxPlaca.setEnabled(true);
+            jCheckBoxModelo.setEnabled(true);
+        }
+        
+    }//GEN-LAST:event_jCheckBoxMarcaActionPerformed
+
+    private void jCheckBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxModeloActionPerformed
+        // TODO add your handling code here:
+        if (jCheckBoxModelo.isSelected()){
+            tipo = "referencia";
+            jCheckBoxMarca.setEnabled(false);
+            jCheckBoxPlaca.setEnabled(false);
+            
+        }else{
+            tipo = null;
+            jCheckBoxMarca.setEnabled(true);
+            jCheckBoxPlaca.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCheckBoxModeloActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCheckBoxPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPlacaActionPerformed
+        // TODO add your handling code here:
+        if (jCheckBoxPlaca.isSelected()){
+            tipo = "placa";
+            jCheckBoxMarca.setEnabled(false);
+            jCheckBoxModelo.setEnabled(false);
+            
+        }else{
+            tipo = null;
+            jCheckBoxMarca.setEnabled(true);
+            jCheckBoxModelo.setEnabled(true);
+        }
+        
+    }//GEN-LAST:event_jCheckBoxPlacaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBoxMarca;
+    private javax.swing.JCheckBox jCheckBoxModelo;
+    private javax.swing.JCheckBox jCheckBoxPlaca;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
