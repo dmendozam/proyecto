@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Vista;
+import Estructuras.LinkedList;
 import Control.*;
 import Modelo.*;
 import java.io.BufferedReader;

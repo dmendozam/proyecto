@@ -5,7 +5,7 @@
  */
 package Control;
 
-import Modelo.LinkedList;
+import Estructuras.LinkedList;
 import Modelo.Usuario;
 import Modelo.Vehiculo;
 import java.util.ArrayList;

@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Estructuras.LinkedList;
 import java.util.ArrayList;
 
 /**
