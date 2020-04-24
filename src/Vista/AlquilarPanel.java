@@ -9,12 +9,12 @@ package Vista;
  *
  * @author Santiago Mendoza
  */
-public class EditarPanel extends javax.swing.JPanel {
+public class AlquilarPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form EditarPanel
+     * Creates new form Alquilar
      */
-    public EditarPanel() {
+    public AlquilarPanel() {
         initComponents();
     }
 
@@ -29,16 +29,16 @@ public class EditarPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Editar");
+        jLabel1.setText("Alquilar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(177, 177, 177)
+                .addGap(175, 175, 175)
                 .addComponent(jLabel1)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

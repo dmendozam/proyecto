@@ -16,12 +16,14 @@ public class Principal extends javax.swing.JFrame {
      */
     BuscarPanel bp;
     AgregarPanel ap;
-    EditarPanel ep;
+    AlquilarPanel alp;
+    
     public Principal() {
         initComponents();
         bp= new BuscarPanel();
         ap= new AgregarPanel();
-        ep= new EditarPanel();
+        alp= new AlquilarPanel();
+        
         
     }
 
@@ -40,8 +42,8 @@ public class Principal extends javax.swing.JFrame {
         panelPrincipal = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         buscarBoton = new javax.swing.JButton();
-        editarBoton = new javax.swing.JButton();
         agregarBoton = new javax.swing.JButton();
+        alquilarBoton = new javax.swing.JButton();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -74,17 +76,17 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        editarBoton.setText("Editar");
-        editarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarBotonActionPerformed(evt);
-            }
-        });
-
         agregarBoton.setText("Agregar");
         agregarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarBotonActionPerformed(evt);
+            }
+        });
+
+        alquilarBoton.setText("Alquilar");
+        alquilarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alquilarBotonActionPerformed(evt);
             }
         });
 
@@ -97,14 +99,14 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(buscarBoton)
-                        .addGap(42, 42, 42)
-                        .addComponent(editarBoton)
                         .addGap(39, 39, 39)
+                        .addComponent(alquilarBoton)
+                        .addGap(30, 30, 30)
                         .addComponent(agregarBoton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jLabel1)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -115,10 +117,10 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscarBoton)
-                    .addComponent(editarBoton)
-                    .addComponent(agregarBoton))
+                    .addComponent(agregarBoton)
+                    .addComponent(alquilarBoton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
+                .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,14 +134,6 @@ public class Principal extends javax.swing.JFrame {
         panelPrincipal.setVisible(true);
     }//GEN-LAST:event_buscarBotonActionPerformed
 
-    private void editarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarBotonActionPerformed
-        // TODO add your handling code here:
-        panelPrincipal.setVisible(false);
-        panelPrincipal.removeAll();
-        panelPrincipal.add(ep);
-        panelPrincipal.setVisible(true);
-    }//GEN-LAST:event_editarBotonActionPerformed
-
     private void agregarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarBotonActionPerformed
         // TODO add your handling code here:
         panelPrincipal.setVisible(false);
@@ -147,6 +141,14 @@ public class Principal extends javax.swing.JFrame {
         panelPrincipal.add(ap);
         panelPrincipal.setVisible(true);
     }//GEN-LAST:event_agregarBotonActionPerformed
+
+    private void alquilarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilarBotonActionPerformed
+        // TODO add your handling code here:
+        panelPrincipal.setVisible(false);
+        panelPrincipal.removeAll();
+        panelPrincipal.add(alp);
+        panelPrincipal.setVisible(true);
+    }//GEN-LAST:event_alquilarBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,8 +187,8 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarBoton;
+    private javax.swing.JButton alquilarBoton;
     private javax.swing.JButton buscarBoton;
-    private javax.swing.JButton editarBoton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelPrincipal;
