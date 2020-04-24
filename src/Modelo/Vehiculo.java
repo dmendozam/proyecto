@@ -27,13 +27,14 @@ public class Vehiculo {
         this.placa ="AAA000";
     }
 
-    public Vehiculo(float kilometraje, int year, String marca, String referencia, int cilindraje, String placa) {
+    public Vehiculo(float kilometraje, int year, String marca, String referencia, int cilindraje, String placa, int puestos) {
         this.kilometraje = kilometraje;
         this.year = year;
         this.marca = marca;
         this.referencia = referencia;
         this.cilindraje = cilindraje;
         this.placa = placa;
+        this.puestos = puestos;
     }
 
     public float getKilometraje() {
