@@ -132,6 +132,7 @@ public class Principal extends javax.swing.JFrame {
         panelPrincipal.removeAll();
         panelPrincipal.add(bp);
         panelPrincipal.setVisible(true);
+        
     }//GEN-LAST:event_buscarBotonActionPerformed
 
     private void agregarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarBotonActionPerformed
