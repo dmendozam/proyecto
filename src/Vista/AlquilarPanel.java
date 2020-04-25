@@ -17,6 +17,8 @@ public class AlquilarPanel extends javax.swing.JPanel {
     /**
      * Creates new form Alquilar
      */
+    private AdministrarVehiculo admivehi;
+    LinkedList listaVehiculosAlP;
     public AlquilarPanel() {
         initComponents();
         toyotaComboBox.setVisible(false);
@@ -126,14 +128,33 @@ public class AlquilarPanel extends javax.swing.JPanel {
                 .addContainerGap(112, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    public void setAdministrarVehiculo(AdministrarVehiculo adv){
+        this.admivehi=adv;
+    }
+    public void setListaVehiculosAlP(LinkedList lista){
+        this.listaVehiculosAlP= lista;
+    }
+    
     private void marcaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_marcaComboBoxActionPerformed
 
     private void next1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next1ActionPerformed
         // TODO add your handling code here:
-        LinkedList listaVehiculosAArrendar= new LinkedList();
+        Queue<Vehiculo> colaVehiculosMarca= new Queue<Vehiculo>();
+        int sizeInstante=admivehi.size();
+        System.out.println(sizeInstante);
+        Nodo<Vehiculo> vehiculoSentinela=admivehi.listaDeVehiculos.top;
+        
+        for(int i=0;i<sizeInstante;i++){
+            System.out.println("Hola");
+            if(vehiculoSentinela.key.getMarca().equals(this.marcaComboBox.getSelectedItem().toString())){
+                colaVehiculosMarca.enqueue(vehiculoSentinela.key);
+            }
+            vehiculoSentinela=vehiculoSentinela.next;
+            
+        }
+        
         if(this.marcaComboBox.getSelectedItem().toString().equals("Toyota")){
             
             //while()
