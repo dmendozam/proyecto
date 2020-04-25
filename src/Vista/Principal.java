@@ -21,12 +21,29 @@ public class Principal extends javax.swing.JFrame {
     AlquilarPanel alp;
     LinkedList listaVehiculos;
     AdministrarVehiculo admivehi;
+    Queue colaToyota;
+    Queue colaCheverolet;
     
     public Principal() {
         initComponents();
         bp= new BuscarPanel();
         ap= new AgregarPanel();
         alp= new AlquilarPanel();
+        colaToyota= new Queue();
+        colaCheverolet= new Queue();
+        
+        int sizeInstante=admivehi.size();
+        Nodo<Vehiculo> vehiculoSentinela=admivehi.listaDeVehiculos.top;
+        for(int i=0;i<sizeInstante;i++){
+            System.out.println(i);
+            if(vehiculoSentinela.key.getMarca().equals("Toyota")){
+                colaToyota.enqueue(vehiculoSentinela.key);
+            }
+            if(vehiculoSentinela.key.getMarca().equals("Cheverolet")){
+                colaCheverolet.enqueue(vehiculoSentinela.key);
+            }
+            vehiculoSentinela=vehiculoSentinela.next;
+        }
         
         
         
