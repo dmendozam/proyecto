@@ -7,6 +7,7 @@ package Vista;
 import Modelo.*;
 import Control.*;
 import Estructuras.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +20,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
      */
     private AdministrarVehiculo admivehi;
     LinkedList listaVehiculosAlP;
+    private Queue<Vehiculo> colaVehiculosMarca= new Queue<Vehiculo>();
     public AlquilarPanel() {
         initComponents();
         toyotaComboBox.setVisible(false);
@@ -141,16 +143,16 @@ public class AlquilarPanel extends javax.swing.JPanel {
 
     private void next1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next1ActionPerformed
         // TODO add your handling code here:
-        Queue<Vehiculo> colaVehiculosMarca= new Queue<Vehiculo>();
+        
         int sizeInstante=admivehi.size();
         System.out.println(sizeInstante);
         Nodo<Vehiculo> vehiculoSentinela=admivehi.listaDeVehiculos.top;
         
         for(int i=0;i<sizeInstante;i++){
-            System.out.println("Hola");
-            System.out.println(vehiculoSentinela.key.getMarca());
+            System.out.println(i);
+            //System.out.println(vehiculoSentinela.key.getMarca());
             if(vehiculoSentinela.key.getMarca().equals(this.marcaComboBox.getSelectedItem().toString())){
-                System.out.println("Hola2");
+                //System.out.println("Hola2");
                 colaVehiculosMarca.enqueue(vehiculoSentinela.key);
             }
             vehiculoSentinela=vehiculoSentinela.next;
@@ -173,6 +175,8 @@ public class AlquilarPanel extends javax.swing.JPanel {
 
     private void alquilarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilarBotonActionPerformed
         // TODO add your handling code here:
+        Vehiculo alquilado=colaVehiculosMarca.dequeue();
+        JOptionPane.showMessageDialog(this,"El vehiculo alquilado es el:"+alquilado.getMarca()+" "+alquilado.getReferencia()+" de placa "+alquilado.getPlaca());
     }//GEN-LAST:event_alquilarBotonActionPerformed
 
 

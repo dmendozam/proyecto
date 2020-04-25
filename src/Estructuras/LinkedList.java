@@ -39,7 +39,7 @@ public class LinkedList<T> {
     public void pushBack(T key) {
         Nodo<T> nodo = new Nodo<>(key, null, this.tail); 
         if(!this.isEmpty()){
-            tail.next=nodo;
+            this.tail.next=nodo;  //esto no estaba
             this.tail = nodo; 
         } else{
             this.tail = nodo;
