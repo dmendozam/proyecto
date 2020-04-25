@@ -15,7 +15,8 @@ import java.util.ArrayList;
  * @author Santiago Mendoza
  */
 public class AdministrarVehiculo {
-        private LinkedList<Vehiculo> listaDeVehiculos;
+    public LinkedList<Vehiculo> listaDeVehiculos;
+    int sizeLista=0;
 
     public AdministrarVehiculo() {
         listaDeVehiculos = new LinkedList<Vehiculo>();
@@ -27,8 +28,13 @@ public class AdministrarVehiculo {
         llenarVehiculosIniciales();
     }
     
+    
     private void llenarVehiculosIniciales(){
-        listaDeVehiculos.pushBack(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "ABC123",7));
+        agregarVehiculo(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "ABC123",7));
+        agregarVehiculo(new Vehiculo(0, 0, "Toyota", "Runner", 4500, "ABC124",5));
+        agregarVehiculo(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "ABC125",7));
+        agregarVehiculo(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "AFE484",5));
+        agregarVehiculo(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "TYU477",5));
         
        
     }
@@ -38,10 +44,9 @@ public class AdministrarVehiculo {
     return v;
     }
     public void agregarVehiculo(Vehiculo v){
-        char letra = v.getReferencia().charAt(0);
-        
-        
-        //listaDeVehiculos.push
+        //char letra = v.getReferencia().charAt(0);
+        listaDeVehiculos.pushBack(v);
+        sizeLista=sizeLista+1;
     }
     
     public void editarVehiculo(Vehiculo v){
@@ -50,5 +55,8 @@ public class AdministrarVehiculo {
      
     public void borrarVehiculo(Vehiculo v){
         
+    }
+    public int  size(){
+    return sizeLista;
     }
 }

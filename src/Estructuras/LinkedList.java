@@ -13,8 +13,8 @@ import Estructuras.Nodo;
  * @param <T>
  */
 public class LinkedList<T> {
-    Nodo<T> top;
-    Nodo<T> tail;
+    public Nodo<T> top;
+    public Nodo<T> tail;
     private int size;
 
     public int size() {
