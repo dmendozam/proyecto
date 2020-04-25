@@ -27,6 +27,7 @@ public class Ingresar extends javax.swing.JFrame {
     private Usuario usu;
     private AdministrarUsuario admiusu;
     private Principal princi;
+    public static LinkedList<Vehiculo> listaVehiculos = new LinkedList<>();
     public Ingresar() {
         initComponents();
         usu= new Usuario();
@@ -147,7 +148,7 @@ public class Ingresar extends javax.swing.JFrame {
                 int cilind = input.nextInt();
                 int puestos = input.nextInt();
                 Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
-                vehiculos.pushBack(vehiculo);
+                listaVehiculos.pushBack(vehiculo);
                 System.out.println(vehiculos.size());
             }
             
