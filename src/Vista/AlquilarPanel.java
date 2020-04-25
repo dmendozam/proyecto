@@ -136,7 +136,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
         LinkedList listaVehiculosAArrendar= new LinkedList();
         if(this.marcaComboBox.getSelectedItem().toString().equals("Toyota")){
             
-            while()
+            //while()
             
             toyotaComboBox.setVisible(true);
             cheveroletComboBox.setVisible(false);

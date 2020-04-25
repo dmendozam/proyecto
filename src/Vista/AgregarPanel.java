@@ -5,6 +5,10 @@
  */
 package Vista;
 
+import Estructuras.LinkedList;
+import Modelo.Vehiculo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Santiago Mendoza
@@ -13,9 +17,20 @@ public class AgregarPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AgregarPanel
-     */
+     */ 
+    public LinkedList<Vehiculo> lista = Ingresar.listaVehiculos;
+    private int size = lista.size();
     public AgregarPanel() {
         initComponents();
+    }
+    public void setNull(){
+        placaField.setText(null);
+        kilomField.setText(null);
+        yearField.setText(null);
+        marcaField.setText(null);
+        referenciaField.setText(null);
+        cilindField.setText(null);
+        puestosField.setText(null);
     }
 
     /**
@@ -28,29 +43,240 @@ public class AgregarPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        marcaField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        puestosField = new javax.swing.JTextField();
+        placaField = new javax.swing.JTextField();
+        kilomField = new javax.swing.JTextField();
+        referenciaField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        yearField = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        cilindField = new javax.swing.JTextField();
 
         jLabel1.setText("Agregar");
+
+        marcaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                marcaFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Marca");
+
+        puestosField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                puestosFieldActionPerformed(evt);
+            }
+        });
+
+        placaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                placaFieldActionPerformed(evt);
+            }
+        });
+
+        kilomField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kilomFieldActionPerformed(evt);
+            }
+        });
+
+        referenciaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                referenciaFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Puestos");
+
+        jLabel5.setText("Placa");
+
+        jLabel6.setText("Kilometraje");
+
+        jLabel7.setText("Referencia");
+
+        jLabel8.setText("Año");
+
+        yearField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearFieldActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("AGREGAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Cilindraje");
+
+        cilindField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cilindFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(177, 177, 177)
-                .addComponent(jLabel1)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cilindField))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(kilomField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(marcaField, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(referenciaField, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(placaField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(puestosField))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(yearField))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(jButton1)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(marcaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel8)
+                    .addComponent(yearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(puestosField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(referenciaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(kilomField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(placaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(cilindField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void marcaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_marcaFieldActionPerformed
+
+    private void puestosFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puestosFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_puestosFieldActionPerformed
+
+    private void placaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_placaFieldActionPerformed
+
+    private void kilomFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kilomFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kilomFieldActionPerformed
+
+    private void referenciaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_referenciaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_referenciaFieldActionPerformed
+
+    private void yearFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearFieldActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try{
+            String placa = placaField.getText();
+            Float kilom = Float.parseFloat(kilomField.getText());
+            int year = Integer.parseInt(yearField.getText());
+            String marca = marcaField.getText();
+            String ref = referenciaField.getText();
+            int cilind = Integer.parseInt(cilindField.getText());
+            int puestos = Integer.parseInt(puestosField.getText());
+            Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
+            lista.pushBack(vehiculo);
+            if(lista.size() == size){
+                JOptionPane.showMessageDialog(this,"Error al agregar vehículo");
+            }else{
+                JOptionPane.showMessageDialog(this,"Vehículo agregado correctamente");
+                setNull();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this,"Error al agregar vehículo");
+        }
+        System.out.println(lista.size());
+        System.out.println(lista.topFront().getMarca());
+        System.out.println(lista.topBack().getMarca());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cilindFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cilindFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cilindFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cilindField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField kilomField;
+    private javax.swing.JTextField marcaField;
+    private javax.swing.JTextField placaField;
+    private javax.swing.JTextField puestosField;
+    private javax.swing.JTextField referenciaField;
+    private javax.swing.JTextField yearField;
     // End of variables declaration//GEN-END:variables
 }
