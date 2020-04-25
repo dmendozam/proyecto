@@ -21,31 +21,31 @@ public class Principal extends javax.swing.JFrame {
     AlquilarPanel alp;
     LinkedList listaVehiculos;
     AdministrarVehiculo admivehi;
-    Queue<Vehiculo> colaToyota;
-    Queue<Vehiculo> colaCheverolet;
+    LinkedList<Vehiculo> listaToyota;
+    LinkedList<Vehiculo> listaCheverolet;
     
     public Principal() {
         initComponents();
         bp= new BuscarPanel();
         ap= new AgregarPanel();
         alp= new AlquilarPanel();
-        colaToyota= new Queue<Vehiculo>();
-        colaCheverolet= new Queue<Vehiculo>();
+        listaToyota= new LinkedList<Vehiculo>();
+        listaCheverolet= new LinkedList<Vehiculo>();
         
-        /*
+        
         int sizeInstante=admivehi.size();
         Nodo<Vehiculo> vehiculoSentinela=admivehi.listaDeVehiculos.top;
         for(int i=0;i<sizeInstante;i++){
             System.out.println(i);
             if(vehiculoSentinela.key.getMarca().equals("Toyota")){
-                colaToyota.enqueue(vehiculoSentinela.key);
+                listaToyota.pushBack(vehiculoSentinela.key);
             }
             if(vehiculoSentinela.key.getMarca().equals("Cheverolet")){
-                colaCheverolet.enqueue(vehiculoSentinela.key);
+                listaCheverolet.pushBack(vehiculoSentinela.key);
             }
             vehiculoSentinela=vehiculoSentinela.next;
         }
-        */
+        
         
         
         
@@ -177,8 +177,8 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         alp.setListaVehiculosAlP(listaVehiculos);
         alp.setAdministrarVehiculo(admivehi);
-        alp.setColaToyota(colaToyota);
-        alp.setColaCheverolet(colaCheverolet);
+        alp.setListaToyota(listaToyota);
+        alp.setListaCheverolet(listaCheverolet);
         panelPrincipal.setVisible(false);
         panelPrincipal.removeAll();
         panelPrincipal.add(alp);

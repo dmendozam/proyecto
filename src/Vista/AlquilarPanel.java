@@ -20,8 +20,8 @@ public class AlquilarPanel extends javax.swing.JPanel {
      */
     private AdministrarVehiculo admivehi;
     LinkedList listaVehiculosAlP;
-    private Queue<Vehiculo> colaToyota;
-    private Queue<Vehiculo> colaCheverolet;
+    private LinkedList<Vehiculo> listaToyota;
+    private LinkedList<Vehiculo> listaCheverolet;
     public AlquilarPanel() {
         initComponents();
         toyotaComboBox.setVisible(false);
@@ -132,11 +132,11 @@ public class AlquilarPanel extends javax.swing.JPanel {
                 .addContainerGap(112, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    public void setColaToyota(Queue<Vehiculo> cola){
-        this.colaToyota=cola;
+    public void setListaToyota(LinkedList<Vehiculo> lista){
+        this.listaToyota=lista;
     }
-    public void setColaCheverolet(Queue<Vehiculo> cola){
-        this.colaCheverolet=cola;
+    public void setListaCheverolet(LinkedList<Vehiculo> lista){
+        this.listaCheverolet=lista;
     }
     public void setAdministrarVehiculo(AdministrarVehiculo adv){
         this.admivehi=adv;
@@ -164,6 +164,11 @@ public class AlquilarPanel extends javax.swing.JPanel {
 
     private void alquilarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilarBotonActionPerformed
         // TODO add your handling code here:
+        if(this.marcaComboBox.getSelectedItem().toString().equals("Toyota")){
+            
+        }
+        if(this.marcaComboBox.getSelectedItem().toString().equals("Cheverolet")){
+        }
         
         
         
