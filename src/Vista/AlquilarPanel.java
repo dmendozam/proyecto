@@ -149,6 +149,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
         for(int i=0;i<sizeInstante;i++){
             System.out.println("Hola");
             if(vehiculoSentinela.key.getMarca().equals(this.marcaComboBox.getSelectedItem().toString())){
+                System.out.println("Hola2");
                 colaVehiculosMarca.enqueue(vehiculoSentinela.key);
             }
             vehiculoSentinela=vehiculoSentinela.next;
