@@ -21,16 +21,16 @@ public class Principal extends javax.swing.JFrame {
     AlquilarPanel alp;
     LinkedList listaVehiculos;
     AdministrarVehiculo admivehi;
-    Queue colaToyota;
-    Queue colaCheverolet;
+    Queue<Vehiculo> colaToyota;
+    Queue<Vehiculo> colaCheverolet;
     
     public Principal() {
         initComponents();
         bp= new BuscarPanel();
         ap= new AgregarPanel();
         alp= new AlquilarPanel();
-        colaToyota= new Queue();
-        colaCheverolet= new Queue();
+        colaToyota= new Queue<Vehiculo>();
+        colaCheverolet= new Queue<Vehiculo>();
         
         int sizeInstante=admivehi.size();
         Nodo<Vehiculo> vehiculoSentinela=admivehi.listaDeVehiculos.top;
@@ -175,6 +175,8 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         alp.setListaVehiculosAlP(listaVehiculos);
         alp.setAdministrarVehiculo(admivehi);
+        alp.setColaToyota(colaToyota);
+        alp.setColaCheverolet(colaCheverolet);
         panelPrincipal.setVisible(false);
         panelPrincipal.removeAll();
         panelPrincipal.add(alp);
