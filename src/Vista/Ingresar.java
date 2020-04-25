@@ -135,7 +135,6 @@ public class Ingresar extends javax.swing.JFrame {
         
         //Leer el archivo
         
-        LinkedList<Vehiculo> vehiculos = new LinkedList<>();
         try{
             Scanner input = new Scanner(new File("MOCK_DATA_1.txt"));
             while(input.hasNextLine()){
@@ -148,9 +147,10 @@ public class Ingresar extends javax.swing.JFrame {
                 int cilind = input.nextInt();
                 int puestos = input.nextInt();
                 Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
-                listaVehiculos.pushBack(vehiculo);
-                System.out.println(vehiculos.size());
+                listaVehiculos.pushFront(vehiculo);
+                System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
             }
+            input.close();
             
                        
         } catch (Exception ex) {
