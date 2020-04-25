@@ -243,6 +243,7 @@ public class AgregarPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this,"Error al agregar vehículo");
             }else{
                 JOptionPane.showMessageDialog(this,"Vehículo agregado correctamente");
+                Ingresar.listaVehiculos = lista;
                 setNull();
             }
         } catch (Exception ex) {
