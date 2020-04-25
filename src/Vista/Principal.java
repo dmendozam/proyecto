@@ -33,18 +33,7 @@ public class Principal extends javax.swing.JFrame {
         listaCheverolet= new LinkedList<Vehiculo>();
         
         
-        int sizeInstante=admivehi.size();
-        Nodo<Vehiculo> vehiculoSentinela=admivehi.listaDeVehiculos.top;
-        for(int i=0;i<sizeInstante;i++){
-            System.out.println(i);
-            if(vehiculoSentinela.key.getMarca().equals("Toyota")){
-                listaToyota.pushBack(vehiculoSentinela.key);
-            }
-            if(vehiculoSentinela.key.getMarca().equals("Cheverolet")){
-                listaCheverolet.pushBack(vehiculoSentinela.key);
-            }
-            vehiculoSentinela=vehiculoSentinela.next;
-        }
+        
         
         
         
@@ -152,6 +141,18 @@ public class Principal extends javax.swing.JFrame {
 
     public void setAdministrarVehiculos(AdministrarVehiculo adv){
         this.admivehi=adv;
+        int sizeInstante=admivehi.size();
+        Nodo<Vehiculo> vehiculoSentinela=admivehi.listaDeVehiculos.top;
+        for(int i=0;i<sizeInstante;i++){
+            System.out.println(i);
+            if(vehiculoSentinela.key.getMarca().equals("Toyota")){
+                listaToyota.pushBack(vehiculoSentinela.key);
+            }
+            if(vehiculoSentinela.key.getMarca().equals("Cheverolet")){
+                listaCheverolet.pushBack(vehiculoSentinela.key);
+            }
+            vehiculoSentinela=vehiculoSentinela.next;
+        }
     }
     public void setListaVehiculos(LinkedList lista){
         this.listaVehiculos=lista;

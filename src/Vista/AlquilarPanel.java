@@ -164,12 +164,29 @@ public class AlquilarPanel extends javax.swing.JPanel {
 
     private void alquilarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilarBotonActionPerformed
         // TODO add your handling code here:
+        Queue<Vehiculo> colaMarca=new Queue<Vehiculo>();
         if(this.marcaComboBox.getSelectedItem().toString().equals("Toyota")){
-            
+           int sizeToyota=listaToyota.size();
+           Nodo<Vehiculo> sentinela= listaToyota.top;
+           for(int i=0;i<sizeToyota;i++){
+               if(sentinela.key.getReferencia().equals(toyotaComboBox.getSelectedItem().toString())){
+                   colaMarca.enqueue(sentinela.key);
+               }
+               sentinela=sentinela.next;
+           }
         }
         if(this.marcaComboBox.getSelectedItem().toString().equals("Cheverolet")){
+           int sizeToyota=listaToyota.size();
+           Nodo<Vehiculo> sentinela= listaToyota.top;
+           for(int i=0;i<sizeToyota;i++){
+               if(sentinela.key.getReferencia().equals(cheveroletComboBox.getSelectedItem().toString())){
+                   colaMarca.enqueue(sentinela.key);
+               }
+               sentinela=sentinela.next;
+           }
         }
-        
+        Vehiculo alquilado=colaMarca.dequeue();
+        JOptionPane.showMessageDialog(this, "El vehiculo a alquilar es: "+alquilado.getMarca()+" "+alquilado.getReferencia()+" de placa "+alquilado.getPlaca());
         
         
         
