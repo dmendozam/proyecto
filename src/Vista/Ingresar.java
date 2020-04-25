@@ -152,7 +152,7 @@ public class Ingresar extends javax.swing.JFrame {
                 listaVehiculos.pushFront(vehiculo);
                 //System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
                 //admivehi.agregarVehiculo(vehiculo);  //No quitar
-                System.out.println(admivehi.size());
+                
             }
             input.close();
             
@@ -162,6 +162,7 @@ public class Ingresar extends javax.swing.JFrame {
         }
         princi.setListaVehiculos(listaVehiculos);
         princi.setAdministrarVehiculos(admivehi);
+        
         
         
         

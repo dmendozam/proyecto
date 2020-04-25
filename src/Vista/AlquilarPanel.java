@@ -65,7 +65,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Referencia");
 
-        cheveroletComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seal", "Spark" }));
+        cheveroletComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sail", "Spark" }));
 
         next1.setText("->");
         next1.addActionListener(new java.awt.event.ActionListener() {
@@ -176,8 +176,8 @@ public class AlquilarPanel extends javax.swing.JPanel {
            }
         }
         if(this.marcaComboBox.getSelectedItem().toString().equals("Cheverolet")){
-           int sizeToyota=listaToyota.size();
-           Nodo<Vehiculo> sentinela= listaToyota.top;
+           int sizeToyota=listaCheverolet.size();
+           Nodo<Vehiculo> sentinela= listaCheverolet.top;
            for(int i=0;i<sizeToyota;i++){
                if(sentinela.key.getReferencia().equals(cheveroletComboBox.getSelectedItem().toString())){
                    colaMarca.enqueue(sentinela.key);
