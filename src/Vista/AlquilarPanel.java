@@ -20,12 +20,14 @@ public class AlquilarPanel extends javax.swing.JPanel {
      */
     private AdministrarVehiculo admivehi;
     LinkedList listaVehiculosAlP;
-    private Queue<Vehiculo> colaVehiculosMarca= new Queue<Vehiculo>();
+    private Queue<Vehiculo> colaToyota;
+    private Queue<Vehiculo> colaCheverolet;
     public AlquilarPanel() {
         initComponents();
         toyotaComboBox.setVisible(false);
         cheveroletComboBox.setVisible(false);
         alquilarBoton.setVisible(false);
+        
         
         
     }
@@ -130,6 +132,12 @@ public class AlquilarPanel extends javax.swing.JPanel {
                 .addContainerGap(112, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+    public void setColaToyota(Queue<Vehiculo> cola){
+        this.colaToyota=cola;
+    }
+    public void setColaCheverolet(Queue<Vehiculo> cola){
+        this.colaCheverolet=cola;
+    }
     public void setAdministrarVehiculo(AdministrarVehiculo adv){
         this.admivehi=adv;
     }
@@ -159,8 +167,8 @@ public class AlquilarPanel extends javax.swing.JPanel {
         
         
         
-        Vehiculo alquilado=colaVehiculosMarca.dequeue();
-        JOptionPane.showMessageDialog(this,"El vehiculo alquilado es el: "+alquilado.getMarca()+" "+alquilado.getReferencia()+" de placa "+alquilado.getPlaca());
+        
+        //JOptionPane.showMessageDialog(this,"El vehiculo alquilado es el: "+alquilado.getMarca()+" "+alquilado.getReferencia()+" de placa "+alquilado.getPlaca());
     }//GEN-LAST:event_alquilarBotonActionPerformed
 
 
