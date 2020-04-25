@@ -13,8 +13,8 @@ import Estructuras.Nodo;
  * @param <T>
  */
 public class LinkedList<T> {
-    Nodo<T> top;
-    Nodo<T> tail;
+    public Nodo<T> top;
+    public Nodo<T> tail;
     private int size;
 
     public int size() {
@@ -39,6 +39,7 @@ public class LinkedList<T> {
     public void pushBack(T key) {
         Nodo<T> nodo = new Nodo<>(key, null, this.tail); 
         if(!this.isEmpty()){
+            this.tail.next=nodo;  //esto no estaba
             this.tail = nodo; 
         } else{
             this.tail = nodo;
@@ -55,6 +56,8 @@ public class LinkedList<T> {
             temp = top.key;
             top = top.next; 
             size--;
+            if(top==null)
+                tail=null;
             return temp;
         }
     }
@@ -86,4 +89,5 @@ public class LinkedList<T> {
             return tail.key;
         }
     }
+    
 }

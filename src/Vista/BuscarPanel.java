@@ -5,8 +5,10 @@
  */
 package Vista;
 
-import Estructuras.LinkedList;
+import Estructuras.*;
 import Modelo.Vehiculo;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,14 +16,52 @@ import Modelo.Vehiculo;
  */
 public class BuscarPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form BuscarPanel
-     */
-    String tipo;
-    public LinkedList<Vehiculo> listaVehiculos = Ingresar.listaVehiculos;
-    
+    DefaultTableModel modelo;
+    String tipo=null;
+    public LinkedList<Vehiculo> listVehiculos = Ingresar.listaVehiculos;
+    public Stack<Vehiculo> buscarPlaca(String valor, LinkedList<Vehiculo> listaVehiculos){
+        Stack<Vehiculo> pilaVehiculos = new Stack<>();
+        while(!listaVehiculos.isEmpty()){
+            Vehiculo vehiculo = listaVehiculos.popFront();
+            if(vehiculo.getPlaca().toLowerCase().equals(valor.toLowerCase())){
+                pilaVehiculos.push(vehiculo);
+            }
+        }
+        return pilaVehiculos;
+    }
+    public Stack<Vehiculo> buscarModelo(String valor, LinkedList<Vehiculo> listaVehiculos){
+        Stack<Vehiculo> pilaVehiculos = new Stack<>();
+        while(!listaVehiculos.isEmpty()){
+            Vehiculo vehiculo = listaVehiculos.popFront();
+            if(vehiculo.getReferencia().toLowerCase().equals(valor.toLowerCase())){
+                pilaVehiculos.push(vehiculo);
+            }
+        }
+        return pilaVehiculos;
+    }
+    public Stack<Vehiculo> buscarMarca(String valor, LinkedList<Vehiculo> listaVehiculos){
+        Stack<Vehiculo> pilaVehiculos = new Stack<>();
+        while(!listaVehiculos.isEmpty()){
+            Vehiculo vehiculo = listaVehiculos.popFront();
+            if(vehiculo.getMarca().equals(valor)){
+                pilaVehiculos.push(vehiculo);
+            }
+        }
+        return pilaVehiculos;
+    }
     public BuscarPanel() {
         initComponents();
+        this.jTable1.setVisible(false);
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Placa");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Modelo");
+        modelo.addColumn("Año");
+        modelo.addColumn("Kilom.");
+        modelo.addColumn("Cilindraje");
+        modelo.addColumn("Puestos");
+        this.jTable1.setModel(modelo);
+        
     }
 
     /**
@@ -37,8 +77,10 @@ public class BuscarPanel extends javax.swing.JPanel {
         jCheckBoxPlaca = new javax.swing.JCheckBox();
         jCheckBoxMarca = new javax.swing.JCheckBox();
         jCheckBoxModelo = new javax.swing.JCheckBox();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldValor = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         jLabel1.setText("Buscar");
 
@@ -70,6 +112,19 @@ public class BuscarPanel extends javax.swing.JPanel {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,7 +137,7 @@ public class BuscarPanel extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
@@ -92,6 +147,10 @@ public class BuscarPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jCheckBoxModelo)))
                 .addGap(35, 35, 35))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,9 +164,11 @@ public class BuscarPanel extends javax.swing.JPanel {
                     .addComponent(jCheckBoxModelo))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -129,7 +190,7 @@ public class BuscarPanel extends javax.swing.JPanel {
     private void jCheckBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxModeloActionPerformed
         // TODO add your handling code here:
         if (jCheckBoxModelo.isSelected()){
-            tipo = "referencia";
+            tipo = "modelo";
             jCheckBoxMarca.setEnabled(false);
             jCheckBoxPlaca.setEnabled(false);
             
@@ -142,7 +203,47 @@ public class BuscarPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //System.out.println(listaVehiculos.topBack().getMarca());
+        Stack<Vehiculo> pilaVehiculos = new Stack<>();
+        if(tipo!=null){
+            LinkedList<Vehiculo> list = listVehiculos;
+            System.out.println("size: " + listVehiculos.size());
+            String valor = jTextFieldValor.getText().replace(' ', '-');
+            switch(tipo){
+                case "placa":
+                    pilaVehiculos = buscarPlaca (valor, list);
+                    break;
+                case "marca":
+                    pilaVehiculos = buscarMarca (valor, list);
+                    break;
+                case "modelo":
+                    pilaVehiculos = buscarModelo (valor, list);
+                    break;
+            }
+            System.out.println(pilaVehiculos.size() + " coincidencias");
+            if(pilaVehiculos.isEmpty()){
+                JOptionPane.showMessageDialog(this, "No se encontraron coincidencias");
+            }else{
+                this.jTable1.setVisible(true);
+                while(!pilaVehiculos.isEmpty()){
+                    Vehiculo vehic = pilaVehiculos.pop();
+                    String[] Datos = new String[7];
+                    Datos[0] = vehic.getPlaca();
+                    Datos[1] = vehic.getMarca();
+                    Datos[2] = vehic.getReferencia();
+                    Datos[3] = String.valueOf(vehic.getYear());
+                    Datos[4] = String.valueOf(vehic.getKilometraje());
+                    Datos[5] = String.valueOf(vehic.getCilindraje());
+                    Datos[6] = String.valueOf(vehic.getPuestos());
+                    modelo.addRow(Datos);
+                }
+                
+            }
+                
+                        
+        }else{
+            JOptionPane.showMessageDialog(this, "Escoja la variable por la que desea Buscar");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBoxPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPlacaActionPerformed
@@ -167,6 +268,8 @@ public class BuscarPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox jCheckBoxModelo;
     private javax.swing.JCheckBox jCheckBoxPlaca;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,18 +14,18 @@ import Estructuras.LinkedList;
 public class Queue<T> {
     LinkedList<T> lista= new LinkedList<T>();
     
-    T enqueue(T entrante){
+    public T enqueue(T entrante){
         lista.pushBack(entrante);
         return entrante;
     }
-    T dequeue(){
+    public T dequeue(){
         T dequeue=lista.popFront();
         return dequeue;
     }
-    T front (){
+    public T front (){
         return lista.topFront();
     }
-    T rear (){
+    public T rear (){
         return lista.topBack();
     }
 }

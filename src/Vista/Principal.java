@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package Vista;
-
+import Estructuras.*;
+import Modelo.*;
+import Control.*;
 /**
  *
  * @author Santiago Mendoza
@@ -17,12 +19,15 @@ public class Principal extends javax.swing.JFrame {
     BuscarPanel bp;
     AgregarPanel ap;
     AlquilarPanel alp;
+    LinkedList listaVehiculos;
+    AdministrarVehiculo admivehi;
     
     public Principal() {
         initComponents();
         bp= new BuscarPanel();
         ap= new AgregarPanel();
         alp= new AlquilarPanel();
+        
         
         
     }
@@ -126,6 +131,12 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setAdministrarVehiculos(AdministrarVehiculo adv){
+        this.admivehi=adv;
+    }
+    public void setListaVehiculos(LinkedList lista){
+        this.listaVehiculos=lista;
+    }
     private void buscarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBotonActionPerformed
         // TODO add your handling code here:
         panelPrincipal.setVisible(false);
@@ -145,6 +156,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void alquilarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilarBotonActionPerformed
         // TODO add your handling code here:
+        alp.setListaVehiculosAlP(listaVehiculos);
+        alp.setAdministrarVehiculo(admivehi);
         panelPrincipal.setVisible(false);
         panelPrincipal.removeAll();
         panelPrincipal.add(alp);
