@@ -16,10 +16,37 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="190" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="marcaComboBox" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="next1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Component id="cheveroletComboBox" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="toyotaComboBox" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                              <Component id="alquilarBoton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="73" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -28,7 +55,27 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="275" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="next1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="toyotaComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="alquilarBoton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="marcaComboBox" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="cheveroletComboBox" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="112" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -38,6 +85,77 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Alquilar"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="marcaComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="5">
+            <StringItem index="0" value="Toyota"/>
+            <StringItem index="1" value="Cheverolet"/>
+            <StringItem index="2" value="Nissan"/>
+            <StringItem index="3" value="Kia"/>
+            <StringItem index="4" value=" "/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="marcaComboBoxActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="toyotaComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Prado"/>
+            <StringItem index="1" value="Runner"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Marca"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Referencia"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cheveroletComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Seal"/>
+            <StringItem index="1" value="Spark"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="next1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="next1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="alquilarBoton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alquilar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alquilarBotonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
