@@ -25,6 +25,7 @@ public class AdministrarVehiculo {
 
     public AdministrarVehiculo(LinkedList<Vehiculo> listaDeVehiculos) {
         this.listaDeVehiculos = listaDeVehiculos;
+        this.sizeLista = listaDeVehiculos.size();
         llenarVehiculosIniciales();
     }
     

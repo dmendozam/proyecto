@@ -26,8 +26,8 @@ public class Ingresar extends javax.swing.JFrame {
      */
     private Usuario usu;
     private AdministrarUsuario admiusu;
-    private Principal princi;
-    AdministrarVehiculo admivehi;
+    Principal princi;
+    public static AdministrarVehiculo admivehi;
     public static LinkedList<Vehiculo> listaVehiculos = new LinkedList<>();
     public Ingresar() {
         initComponents();

@@ -32,6 +32,7 @@ public class Principal extends javax.swing.JFrame {
         colaToyota= new Queue();
         colaCheverolet= new Queue();
         
+        /*
         int sizeInstante=admivehi.size();
         Nodo<Vehiculo> vehiculoSentinela=admivehi.listaDeVehiculos.top;
         for(int i=0;i<sizeInstante;i++){
@@ -44,6 +45,7 @@ public class Principal extends javax.swing.JFrame {
             }
             vehiculoSentinela=vehiculoSentinela.next;
         }
+        */
         
         
         
