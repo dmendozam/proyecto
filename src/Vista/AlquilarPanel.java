@@ -171,6 +171,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
            for(int i=0;i<sizeToyota;i++){
                if(sentinela.key.getReferencia().equals(toyotaComboBox.getSelectedItem().toString())){
                    colaMarca.enqueue(sentinela.key);
+                   listaToyota.Eliminar(sentinela.key);
                }
                sentinela=sentinela.next;
            }
@@ -181,6 +182,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
            for(int i=0;i<sizeToyota;i++){
                if(sentinela.key.getReferencia().equals(cheveroletComboBox.getSelectedItem().toString())){
                    colaMarca.enqueue(sentinela.key);
+                   listaCheverolet.Eliminar(sentinela.key);
                }
                sentinela=sentinela.next;
            }

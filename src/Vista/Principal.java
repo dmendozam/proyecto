@@ -148,9 +148,11 @@ public class Principal extends javax.swing.JFrame {
             System.out.println(i);
             if(vehiculoSentinela.key.getMarca().equals("Toyota")){
                 listaToyota.pushBack(vehiculoSentinela.key);
+                listaVehiculos.Eliminar(vehiculoSentinela.key);
             }
             if(vehiculoSentinela.key.getMarca().equals("Cheverolet")){
                 listaCheverolet.pushBack(vehiculoSentinela.key);
+                listaVehiculos.Eliminar(vehiculoSentinela.key);
             }
             vehiculoSentinela=vehiculoSentinela.next;
         }

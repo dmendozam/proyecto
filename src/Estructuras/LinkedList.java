@@ -6,6 +6,7 @@
 package Estructuras;
 
 import Estructuras.Nodo;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -88,6 +89,21 @@ public class LinkedList<T> {
         } else {
             return tail.key;
         }
+    }    
+    public T Eliminar(T sacar){
+        Nodo<T> sentinela= new Nodo<T>();
+        sentinela=top;
+        
+        while(sentinela.next!=null){
+            if(sentinela.key==sacar){
+                sentinela.last.next=sentinela.next;
+                sentinela.next.last=sentinela.last;
+                
+                return sentinela.key;
+            }
+            sentinela=sentinela.next;
+        }
+        return null;
     }
     
 }
