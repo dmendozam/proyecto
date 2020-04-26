@@ -115,5 +115,19 @@ public class LinkedList<T> {
         }
         return null;
     }
+    public T valueAtPosition(int position){
+        T value = null; 
+        Nodo<T> nodo = this.top;
+        if (position>this.size){
+            System.out.println("La posision que se busca es mayor a la longitud de la lista");
+            return null;
+        }else{
+            for(int i=0; i<position; i++){
+                value = nodo.key;
+                nodo = nodo.next;
+            }
+        }
+        return value;    
+    }
     
 }
