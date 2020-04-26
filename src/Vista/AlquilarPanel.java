@@ -168,6 +168,8 @@ public class AlquilarPanel extends javax.swing.JPanel {
         if(!estado){
             JOptionPane.showMessageDialog(this, "No hay un vehiculo de esta marca y referencia disponible para alquilar");
         }
+        System.out.println(admivehi.size());
+        System.out.println(vehiculosAlquilados.size());
         //Vehiculo alquilado=colaMarca.dequeue();
         //JOptionPane.showMessageDialog(this, "El vehiculo a alquilar es: "+alquilado.getMarca()+" "+alquilado.getReferencia()+" de placa "+alquilado.getPlaca());
         
@@ -188,10 +190,13 @@ public class AlquilarPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this,"Se ha registrado la devolucion del vehiculo");
                 estado=true;
             }
+            sentinela=sentinela.next;
         }
         if(!estado){
             JOptionPane.showMessageDialog(this, "El vehiculo con estas placas no esta alquilado o no existe");
         }
+        //System.out.println(admivehi.size());
+        //System.out.println(vehiculosAlquilados.size());
         
     }//GEN-LAST:event_devolverBTActionPerformed
 
