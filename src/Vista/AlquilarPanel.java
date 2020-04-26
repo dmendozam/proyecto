@@ -46,6 +46,9 @@ public class AlquilarPanel extends javax.swing.JPanel {
         alquilarBoton = new javax.swing.JButton();
         marcaTF = new javax.swing.JTextField();
         referenciaTF = new javax.swing.JTextField();
+        placaTF = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        devolverBT = new javax.swing.JButton();
 
         jLabel1.setText("Alquilar");
 
@@ -57,6 +60,15 @@ public class AlquilarPanel extends javax.swing.JPanel {
         alquilarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alquilarBotonActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText(" Placa");
+
+        devolverBT.setText("Devolver");
+        devolverBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                devolverBTActionPerformed(evt);
             }
         });
 
@@ -80,8 +92,15 @@ public class AlquilarPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(referenciaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(alquilarBoton)))))
-                .addContainerGap(156, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(devolverBT)
+                                    .addComponent(alquilarBoton)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(placaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +119,13 @@ public class AlquilarPanel extends javax.swing.JPanel {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(referenciaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(placaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(devolverBT))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     
@@ -151,13 +176,35 @@ public class AlquilarPanel extends javax.swing.JPanel {
         //JOptionPane.showMessageDialog(this,"El vehiculo alquilado es el: "+alquilado.getMarca()+" "+alquilado.getReferencia()+" de placa "+alquilado.getPlaca());
     }//GEN-LAST:event_alquilarBotonActionPerformed
 
+    private void devolverBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolverBTActionPerformed
+        // TODO add your handling code here:
+        int tamañoAlquilados=vehiculosAlquilados.size();
+        Nodo<Vehiculo> sentinela=vehiculosAlquilados.top;
+        boolean estado=false;
+        for(int i=0;i<tamañoAlquilados;i++){
+            if(sentinela.key.getPlaca().equals(placaTF.getText())){
+                vehiculosAlquilados.Eliminar(sentinela.key);
+                admivehi.agregarVehiculo(sentinela.key);
+                JOptionPane.showMessageDialog(this,"Se ha registrado la devolucion del vehiculo");
+                estado=true;
+            }
+        }
+        if(!estado){
+            JOptionPane.showMessageDialog(this, "El vehiculo con estas placas no esta alquilado o no existe");
+        }
+        
+    }//GEN-LAST:event_devolverBTActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alquilarBoton;
+    private javax.swing.JButton devolverBT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField marcaTF;
+    private javax.swing.JTextField placaTF;
     private javax.swing.JTextField referenciaTF;
     // End of variables declaration//GEN-END:variables
 }
