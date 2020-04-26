@@ -29,8 +29,7 @@ public class Principal extends javax.swing.JFrame {
         bp= new BuscarPanel();
         ap= new AgregarPanel();
         alp= new AlquilarPanel();
-        listaToyota= new LinkedList<Vehiculo>();
-        listaCheverolet= new LinkedList<Vehiculo>();
+        
         
         
         
@@ -141,26 +140,7 @@ public class Principal extends javax.swing.JFrame {
 
     public void setAdministrarVehiculos(AdministrarVehiculo adv){
         this.admivehi=adv;
-        int sizeInstante=admivehi.size();
-        System.out.println(sizeInstante);
-        Nodo<Vehiculo> vehiculoSentinela=admivehi.listaDeVehiculos.top;
-        for(int i=0;i<sizeInstante;i++){
-            System.out.println(i);
-            if(vehiculoSentinela.key.getMarca().equals("Toyota")){
-                listaToyota.pushBack(vehiculoSentinela.key);
-                admivehi.borrarVehiculo(vehiculoSentinela.key);
-            if(vehiculoSentinela.key.getMarca().equals("Cheverolet")){
-                listaCheverolet.pushBack(vehiculoSentinela.key);
-                admivehi.borrarVehiculo(vehiculoSentinela.key);
-            }
-            vehiculoSentinela=vehiculoSentinela.next;
-        }
-        System.out.println(listaToyota.size());
-        System.out.println(listaCheverolet.size());
-        System.out.println("tamaño lista vehiculos"+admivehi.size());
-                
-    }
-    }
+    }  
     public void setListaVehiculos(LinkedList lista){
         this.listaVehiculos=lista;
     }
@@ -185,8 +165,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         alp.setListaVehiculosAlP(listaVehiculos);
         alp.setAdministrarVehiculo(admivehi);
-        alp.setListaToyota(listaToyota);
-        alp.setListaCheverolet(listaCheverolet);
+        
         panelPrincipal.setVisible(false);
         panelPrincipal.removeAll();
         panelPrincipal.add(alp);
