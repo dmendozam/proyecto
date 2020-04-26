@@ -118,9 +118,11 @@ public class AlquilarPanel extends javax.swing.JPanel {
         String marca= marcaTF.getText();
         String referencia= referenciaTF.getText();
         int cantidadVehiculos= admivehi.size();
+        //System.out.println(cantidadVehiculos);
         Nodo<Vehiculo> sentinela= admivehi.listaDeVehiculos.top;
         boolean estado=false;
         for(int i=0;i<cantidadVehiculos;i++){
+            //System.out.println(sentinela.key.getMarca()+" "+sentinela.key.getReferencia());
             if(sentinela.key.getMarca().equals(marca)){
                 
                 if(sentinela.key.getReferencia().equals(referencia)){
@@ -136,6 +138,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
                     break;
                 }
             }
+            sentinela=sentinela.next;
         }
         if(!estado){
             JOptionPane.showMessageDialog(this, "No hay un vehiculo de esta marca y referencia disponible para alquilar");

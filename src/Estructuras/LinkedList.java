@@ -105,7 +105,7 @@ public class LinkedList<T> {
                 }
                 else{
                 sentinela.last.next=sentinela.next;
-                System.out.println("Problema");
+                //System.out.println("Problema");
                 sentinela.next.last=sentinela.last;
                 size=size-1;
                 return sentinela.key;
