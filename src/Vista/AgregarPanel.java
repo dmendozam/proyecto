@@ -19,7 +19,7 @@ public class AgregarPanel extends javax.swing.JPanel {
     /**
      * Creates new form AgregarPanel
      */ 
-    //public static AdministrarVehiculo admiVehi;
+    public static AdministrarVehiculo admiVehi;
     public LinkedList<Vehiculo> lista = Ingresar.listaVehiculos;
     private int size = lista.size();
     public AgregarPanel() {
@@ -242,6 +242,7 @@ public class AgregarPanel extends javax.swing.JPanel {
             Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
             lista.pushBack(vehiculo);
             //admiVehi.agregarVehiculo(vehiculo);
+            //Ingresar.princi.setAdministrarVehiculos(admiVehi);
             if(lista.size() == size){
                 JOptionPane.showMessageDialog(this,"Error al agregar vehículo");
             }else{
