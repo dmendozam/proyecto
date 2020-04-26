@@ -47,7 +47,7 @@ public class AdministrarVehiculo {
     public void agregarVehiculo(Vehiculo v){
         //char letra = v.getReferencia().charAt(0);
         listaDeVehiculos.pushBack(v);
-        sizeLista=sizeLista+1;
+        
     }
     
     public void editarVehiculo(Vehiculo v){
@@ -55,9 +55,10 @@ public class AdministrarVehiculo {
     }
      
     public void borrarVehiculo(Vehiculo v){
+        listaDeVehiculos.Eliminar(v);
         
     }
     public int  size(){
-    return sizeLista;
+    return listaDeVehiculos.size();
     }
 }

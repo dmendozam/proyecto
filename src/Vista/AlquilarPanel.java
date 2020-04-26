@@ -175,6 +175,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
                }
                sentinela=sentinela.next;
            }
+          
         }
         if(this.marcaComboBox.getSelectedItem().toString().equals("Cheverolet")){
            int sizeToyota=listaCheverolet.size();

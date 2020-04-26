@@ -148,17 +148,18 @@ public class Principal extends javax.swing.JFrame {
             System.out.println(i);
             if(vehiculoSentinela.key.getMarca().equals("Toyota")){
                 listaToyota.pushBack(vehiculoSentinela.key);
-                listaVehiculos.Eliminar(vehiculoSentinela.key);
-            }
+                admivehi.borrarVehiculo(vehiculoSentinela.key);
             if(vehiculoSentinela.key.getMarca().equals("Cheverolet")){
                 listaCheverolet.pushBack(vehiculoSentinela.key);
-                listaVehiculos.Eliminar(vehiculoSentinela.key);
+                admivehi.borrarVehiculo(vehiculoSentinela.key);
             }
             vehiculoSentinela=vehiculoSentinela.next;
         }
         System.out.println(listaToyota.size());
         System.out.println(listaCheverolet.size());
+        System.out.println("tamaño lista vehiculos"+admivehi.size());
                 
+    }
     }
     public void setListaVehiculos(LinkedList lista){
         this.listaVehiculos=lista;

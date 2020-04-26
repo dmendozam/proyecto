@@ -98,7 +98,7 @@ public class LinkedList<T> {
             if(sentinela.key==sacar){
                 sentinela.last.next=sentinela.next;
                 sentinela.next.last=sentinela.last;
-                
+                size=size-1;
                 return sentinela.key;
             }
             sentinela=sentinela.next;
