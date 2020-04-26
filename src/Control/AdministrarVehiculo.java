@@ -32,7 +32,7 @@ public class AdministrarVehiculo {
     
     private void llenarVehiculosIniciales(){
         agregarVehiculo(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "ABC123",7));
-        agregarVehiculo(new Vehiculo(0, 0, "Toyota", "Runner", 4500, "ABC124",5));
+        agregarVehiculo(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "ABC124",5));
         agregarVehiculo(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "ABC125",7));
         agregarVehiculo(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "AFE484",5));
         agregarVehiculo(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "TYU477",5));
@@ -46,7 +46,7 @@ public class AdministrarVehiculo {
     }
     public void agregarVehiculo(Vehiculo v){
         //char letra = v.getReferencia().charAt(0);
-        listaDeVehiculos.pushBack(v);
+        this.listaDeVehiculos.pushBack(v);
         
     }
     
@@ -54,9 +54,8 @@ public class AdministrarVehiculo {
         Vehiculo a_editar=buscarVehiculo(v);
     }
      
-    public void borrarVehiculo(Vehiculo v){
-        listaDeVehiculos.Eliminar(v);
-        
+    public Vehiculo borrarVehiculo(Vehiculo v){
+        return this.listaDeVehiculos.Eliminar(v);
     }
     public int  size(){
     return listaDeVehiculos.size();

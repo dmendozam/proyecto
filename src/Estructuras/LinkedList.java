@@ -91,15 +91,25 @@ public class LinkedList<T> {
         }
     }    
     public T Eliminar(T sacar){
-        Nodo<T> sentinela= new Nodo<T>();
+        Nodo<T> sentinela= new Nodo<>();
         sentinela=top;
         
         while(sentinela.next!=null){
+            //System.out.println("Dentro del while de eliiminar");
             if(sentinela.key==sacar){
+                if(sentinela==top){
+                    popFront();
+                }
+                else if(sentinela==tail){
+                    popBack();
+                }
+                else{
                 sentinela.last.next=sentinela.next;
+                //System.out.println("Problema");
                 sentinela.next.last=sentinela.last;
                 size=size-1;
                 return sentinela.key;
+                }
             }
             sentinela=sentinela.next;
         }

@@ -1,5 +1,5 @@
-placa	kilometraje	year	Mazda	referencia	cilindraje	puestos
-FRI044	50684	1992	marca	Navajo	1866	8
+placa	kilometraje	year	marca	referencia	cilindraje	puestos
+FRI044	50684	1992	Mazda	Navajo	1866	8
 XJF368	3255	2004	Dodge	Stratus	6396	8
 VIM465	4689	1993	Dodge	D350-Club	9918	8
 VPY486	6213	2006	Lamborghini	Murciélago	4572	8

@@ -2,7 +2,7 @@ placa	kilometraje	year	marca	referencia	cilindraje	puestos
 FRI044	50684	1992	Mazda	Navajo	1866	8
 XJF368	3255	2004	Dodge	Stratus	6396	8
 VIM465	4689	1993	Dodge	D350-Club	9918	8
-VPY486	6213	2006	Lamborghini	Murciélago	4572	8
+VPY486	6213	2006	Lamborghini	MurciÃ©lago	4572	8
 UNW587	38068	1994	Land-Rover	Range-Rover	4765	6
 AQH127	93277	2000	Nissan	Quest	3979	7
 ALB719	871482	1994	Plymouth	Colt	1895	5
