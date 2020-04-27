@@ -251,7 +251,7 @@ public class AgregarPanel extends javax.swing.JPanel {
             admivehi.agregarVehiculo(vehiculo);
             //admiVehi.agregarVehiculo(vehiculo);
             
-            if(admivehi.size() == size){
+            
             lista.pushBack(vehiculo);
             princi.admivehi.agregarVehiculo(vehiculo);
             //Ingresar.princi.setAdministrarVehiculos(admiVehi);
@@ -265,7 +265,7 @@ public class AgregarPanel extends javax.swing.JPanel {
                 //Ingresar.admivehi = admiVehi;
                 setNull();
             }
-        } 
+         
         }    
          catch (Exception ex) {
             ex.printStackTrace();
