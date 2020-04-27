@@ -18,6 +18,15 @@ public class LinkedList<T> {
     public Nodo<T> tail;
     private int size;
 
+    public LinkedList (LinkedList<T> lista){
+        this.top = lista.top;
+        this.tail = lista.tail;
+        this.size = lista.size;
+    }
+
+    public LinkedList (){
+    }
+    
     public int size() {
         return size;
     }
