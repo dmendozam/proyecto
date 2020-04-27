@@ -5,6 +5,9 @@
  */
 package proyectoestructuras;
 import Vista.*;
+import Estructuras.*;
+import Modelo.*;
+import Control.*;
 
 /**
  *
