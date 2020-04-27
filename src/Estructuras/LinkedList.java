@@ -57,8 +57,9 @@ public class LinkedList<T> {
             temp = top.key;
             top = top.next; 
             size--;
-            if(top==null)
+            if(top==null){
                 tail=null;
+            }
             return temp;
         }
     }

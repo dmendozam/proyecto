@@ -195,8 +195,8 @@ public class AlquilarPanel extends javax.swing.JPanel {
         if(!estado){
             JOptionPane.showMessageDialog(this, "El vehiculo con estas placas no esta alquilado o no existe");
         }
-        //System.out.println(admivehi.size());
-        //System.out.println(vehiculosAlquilados.size());
+        System.out.println(admivehi.size());
+        System.out.println(vehiculosAlquilados.size());
         
     }//GEN-LAST:event_devolverBTActionPerformed
 

@@ -252,10 +252,10 @@ public class AgregarPanel extends javax.swing.JPanel {
             //admiVehi.agregarVehiculo(vehiculo);
             
             
-            lista.pushBack(vehiculo);
+            //lista.pushBack(vehiculo);
             //princi.admivehi.agregarVehiculo(vehiculo);
             //Ingresar.princi.setAdministrarVehiculos(admiVehi);
-            if(lista.size() == size){
+            if(admivehi.size() == size){
                 JOptionPane.showMessageDialog(this,"Error al agregar vehículo");
             }else{
                 JOptionPane.showMessageDialog(this,"Vehículo agregado correctamente");
