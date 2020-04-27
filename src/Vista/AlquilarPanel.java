@@ -20,11 +20,11 @@ public class AlquilarPanel extends javax.swing.JPanel {
      */
     private AdministrarVehiculo admivehi;
     LinkedList listaVehiculosAlP;
-    private LinkedList<Vehiculo> vehiculosAlquilados;
+    
     
     public AlquilarPanel() {
         initComponents();
-        vehiculosAlquilados=new LinkedList<Vehiculo>();
+        
         
         
         
@@ -154,7 +154,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
                     admivehi.borrarVehiculo(sentinela.key);
                     Vehiculo alquilado=sentinela.key;
                     
-                    vehiculosAlquilados.pushBack(alquilado);
+                    admivehi.vehiculosAlquilados.pushBack(alquilado);
                     //System.out.println(vehiculosAlquilados.size());
                     //System.out.println(admivehi.size());
                     estado=true;
@@ -169,7 +169,8 @@ public class AlquilarPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No hay un vehiculo de esta marca y referencia disponible para alquilar");
         }
         System.out.println(admivehi.size());
-        System.out.println(vehiculosAlquilados.size());
+        System.out.println(admivehi.vehiculosAlquilados.size());
+        
         //Vehiculo alquilado=colaMarca.dequeue();
         //JOptionPane.showMessageDialog(this, "El vehiculo a alquilar es: "+alquilado.getMarca()+" "+alquilado.getReferencia()+" de placa "+alquilado.getPlaca());
         
@@ -180,12 +181,12 @@ public class AlquilarPanel extends javax.swing.JPanel {
 
     private void devolverBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolverBTActionPerformed
         // TODO add your handling code here:
-        int tamañoAlquilados=vehiculosAlquilados.size();
-        Nodo<Vehiculo> sentinela=vehiculosAlquilados.top;
+        int tamañoAlquilados=admivehi.vehiculosAlquilados.size();
+        Nodo<Vehiculo> sentinela=admivehi.vehiculosAlquilados.top;
         boolean estado=false;
         for(int i=0;i<tamañoAlquilados;i++){
             if(sentinela.key.getPlaca().equals(placaTF.getText())){
-                vehiculosAlquilados.Eliminar(sentinela.key);
+                admivehi.vehiculosAlquilados.Eliminar(sentinela.key);
                 admivehi.agregarVehiculo(sentinela.key);
                 JOptionPane.showMessageDialog(this,"Se ha registrado la devolucion del vehiculo");
                 estado=true;
@@ -196,7 +197,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "El vehiculo con estas placas no esta alquilado o no existe");
         }
         System.out.println(admivehi.size());
-        System.out.println(vehiculosAlquilados.size());
+        System.out.println(admivehi.vehiculosAlquilados.size());
         
     }//GEN-LAST:event_devolverBTActionPerformed
 

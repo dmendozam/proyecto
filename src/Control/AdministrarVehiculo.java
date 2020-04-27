@@ -17,15 +17,18 @@ import java.util.ArrayList;
 public class AdministrarVehiculo {
     public LinkedList<Vehiculo> listaDeVehiculos;
     int sizeLista=0;
+    public LinkedList<Vehiculo> vehiculosAlquilados;
 
     public AdministrarVehiculo() {
-        listaDeVehiculos = new LinkedList<Vehiculo>();
+        listaDeVehiculos = new LinkedList<>();
+        vehiculosAlquilados= new LinkedList<>();
         llenarVehiculosIniciales();
     }
 
-    public AdministrarVehiculo(LinkedList<Vehiculo> listaDeVehiculos) {
+    public AdministrarVehiculo(LinkedList<Vehiculo> listaDeVehiculos,LinkedList<Vehiculo> vehiculosAlquilados) {
         this.listaDeVehiculos = listaDeVehiculos;
         this.sizeLista = listaDeVehiculos.size();
+        this.vehiculosAlquilados=vehiculosAlquilados;
         llenarVehiculosIniciales();
     }
     

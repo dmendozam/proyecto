@@ -21,14 +21,14 @@ public class Principal extends javax.swing.JFrame {
     AlquilarPanel alp;
     LinkedList listaVehiculos;
     AdministrarVehiculo admivehi;
-    LinkedList<Vehiculo> listaToyota;
-    LinkedList<Vehiculo> listaCheverolet;
     
     public Principal() {
         initComponents();
         bp= new BuscarPanel();
         ap= new AgregarPanel();
         alp= new AlquilarPanel();
+        
+        
         
         
         
@@ -144,6 +144,7 @@ public class Principal extends javax.swing.JFrame {
     public void setListaVehiculos(LinkedList lista){
         this.listaVehiculos=lista;
     }
+    
     private void buscarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBotonActionPerformed
         // TODO add your handling code here:
         bp.setAdministrarVehiculo(admivehi);

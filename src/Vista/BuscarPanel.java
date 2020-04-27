@@ -24,6 +24,7 @@ public class BuscarPanel extends javax.swing.JPanel {
     
     public Stack<Vehiculo> Buscar(String tipo, String valor, LinkedList<Vehiculo> listaVehic){
         Stack<Vehiculo> pilaVehiculos = new Stack<>();
+        
         switch(tipo){
             case "placa":
                 /*
@@ -91,6 +92,7 @@ public class BuscarPanel extends javax.swing.JPanel {
         modelo.addColumn("Kilom.");
         modelo.addColumn("Cilindraje");
         modelo.addColumn("Puestos");
+        modelo.addColumn("Alquilado");
         this.jTable1.setModel(modelo);
         
     }
@@ -240,22 +242,26 @@ public class BuscarPanel extends javax.swing.JPanel {
             modelo.removeRow(i);
         }
         Stack<Vehiculo> pilaVehiculos;
+        Stack<Vehiculo> pilaVehiculos2;
         //LinkedList<Vehiculo> list = Ingresar.listaVehiculos;
         LinkedList<Vehiculo> list = new LinkedList(admivehi.listaDeVehiculos);
+        //LinkedList<Vehiculo> list2 = new LinkedList(admivehi.vehiculosAlquilados); //Para que?
         if(tipo!=null){
             String valor = jTextFieldValor.getText().replace(' ', '-');
             pilaVehiculos = Buscar(tipo, valor, list);
+            pilaVehiculos2=Buscar(tipo,valor,admivehi.vehiculosAlquilados/*list2*/);
             //pilaVehiculos = Buscar(tipo, valor, admivehi.listaDeVehiculos);
+            int coincidencias=pilaVehiculos.size()+pilaVehiculos2.size();
             
-            
-            System.out.println(pilaVehiculos.size() + " coincidencias");
-            if(pilaVehiculos.isEmpty()){
+            System.out.println(coincidencias + " coincidencias");
+            if(coincidencias==0){
                 JOptionPane.showMessageDialog(this, "No se encontraron coincidencias");
             }else{
                 this.jTable1.setVisible(true);
+                
                 while(!pilaVehiculos.isEmpty()){
                     Vehiculo vehic = pilaVehiculos.pop();
-                    String[] Datos = new String[7];
+                    String[] Datos = new String[8];
                     Datos[0] = vehic.getPlaca();
                     Datos[1] = vehic.getMarca();
                     Datos[2] = vehic.getReferencia();
@@ -263,6 +269,23 @@ public class BuscarPanel extends javax.swing.JPanel {
                     Datos[4] = String.valueOf(vehic.getKilometraje());
                     Datos[5] = String.valueOf(vehic.getCilindraje());
                     Datos[6] = String.valueOf(vehic.getPuestos());
+                    Datos[7] = "No";
+                    
+                    modelo.addRow(Datos);
+                }
+                //System.out.println(pilaVehiculos2.size());
+                while(!pilaVehiculos2.isEmpty()){
+                    Vehiculo vehic = pilaVehiculos2.pop();
+                    String[] Datos = new String[8];
+                    Datos[0] = vehic.getPlaca();
+                    Datos[1] = vehic.getMarca();
+                    Datos[2] = vehic.getReferencia();
+                    Datos[3] = String.valueOf(vehic.getYear());
+                    Datos[4] = String.valueOf(vehic.getKilometraje());
+                    Datos[5] = String.valueOf(vehic.getCilindraje());
+                    Datos[6] = String.valueOf(vehic.getPuestos());
+                    Datos[7] = "Si";
+                    
                     modelo.addRow(Datos);
                 }
             }     
