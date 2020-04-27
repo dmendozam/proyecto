@@ -115,7 +115,7 @@ public class Ingresar extends javax.swing.JFrame {
 
     private void ingresarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBTActionPerformed
         // TODO add your handling code here:
-    Usuario u= new Usuario();
+        Usuario u= new Usuario();
         u= null;
         u=admiusu.buscarUsuario(usuarioTF.getText());
         if (u!=null){
@@ -138,7 +138,7 @@ public class Ingresar extends javax.swing.JFrame {
         //Leer el archivo
         
         try{
-            Scanner input = new Scanner(new File("MOCK_DATA_1000.txt"));
+            Scanner input = new Scanner(new File("MOCK_DATA_Mis1000000.txt"));
             while(input.hasNextLine()){
                 input.nextLine();
                 String placa = input.next();

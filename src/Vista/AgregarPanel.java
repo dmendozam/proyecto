@@ -8,6 +8,7 @@ package Vista;
 import Control.AdministrarVehiculo;
 import Estructuras.LinkedList;
 import Modelo.Vehiculo;
+import static Vista.Ingresar.princi;
 import javax.swing.JOptionPane;
 
 /**
@@ -241,13 +242,15 @@ public class AgregarPanel extends javax.swing.JPanel {
             int puestos = Integer.parseInt(puestosField.getText());
             Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
             lista.pushBack(vehiculo);
-            //admiVehi.agregarVehiculo(vehiculo);
+            princi.admivehi.agregarVehiculo(vehiculo);
             //Ingresar.princi.setAdministrarVehiculos(admiVehi);
             if(lista.size() == size){
                 JOptionPane.showMessageDialog(this,"Error al agregar vehículo");
             }else{
                 JOptionPane.showMessageDialog(this,"Vehículo agregado correctamente");
                 Ingresar.listaVehiculos = lista;
+                //princi.setListaVehiculos(lista);
+                //princi.setAdministrarVehiculos(admiVehi);
                 //Ingresar.admivehi = admiVehi;
                 setNull();
             }
