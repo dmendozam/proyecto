@@ -14,6 +14,7 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import java.lang.Character;
 
 /**
  *
@@ -138,10 +139,69 @@ public class Ingresar extends javax.swing.JFrame {
         //Leer el archivo
         
         try{
-            Scanner input = new Scanner(new File("MOCK_DATA_1.txt"));
+            Scanner input = new Scanner(new File("MOCK_DATA_100000.txt"));
+            int numeroPlaca=0;
+            
+            
+            char placa2_0='A';
+            char placa2_1='A';
+            char placa2_2='A';
+            char placa2_3='0';
+            char placa2_4='0';
+            char placa2_5='0';
+            
             while(input.hasNextLine()){
                 input.nextLine();
                 String placa = input.next();
+                //generacion placa
+                //System.out.println(numeroPlaca);
+                //char[] placa2= {placa2_0,placa2_1,placa2_2,placa2_3,placa2_4,placa2_5};
+                String placafinal=String.valueOf(placa2_0)+String.valueOf(placa2_1)+String.valueOf(placa2_2)+String.valueOf(placa2_3)+String.valueOf(placa2_4)+String.valueOf(placa2_5);
+                //System.out.println(placafinal);
+                placa=placafinal;
+                if(numeroPlaca%10==0 &&numeroPlaca!=0){
+                    placa2_5='0';
+                    placa2_4++;
+                }
+                else{
+                    placa2_5++;
+                }
+                if(numeroPlaca%100==0 &&numeroPlaca!=0){
+                    placa2_4='0';
+                    placa2_3++;
+                }
+                if(numeroPlaca%1000==0 &&numeroPlaca!=0){
+                    placa2_3='0';
+                    placa2_2++;
+                }
+                if(numeroPlaca%26000==0 &&numeroPlaca!=0){
+                    placa2_2='A';
+                    placa2_1++;
+                }
+                if(numeroPlaca%260000==0 &&numeroPlaca!=0){
+                    placa2_1='A';
+                    placa2_0++;
+                }
+                
+                //if(numeroPlaca%20==0&&numeroPlaca!=0){
+                //    placa2_4++;
+                //}
+                //if(numeroPlaca%100==0&&numeroPlaca!=0){
+                //    placa2_4++;
+                //}
+                
+                
+                
+                
+                
+                
+    
+                
+                
+                
+                numeroPlaca++;
+                
+                
                 Float kilom = input.nextFloat();
                 int year = input.nextInt();
                 String marca = input.next();

@@ -95,26 +95,36 @@ public class LinkedList<T> {
         Nodo<T> sentinela= new Nodo<>();
         sentinela=top;
         
-        while(sentinela.next!=null){
-            //System.out.println("Dentro del while de eliiminar");
+        int tamañoinstante=size();
+        for(int i=0;i<tamañoinstante;i++){
+            
+            //System.out.println(i);
+            //System.out.println("el key es"+sentinela.key);
+            //System.out.println(sentinela.key+" "+sacar);
             if(sentinela.key==sacar){
+                //System.out.println("paso");
                 if(sentinela==top){
                     popFront();
+                    break;
                 }
                 else if(sentinela==tail){
+                    //System.out.println("hola");
                     popBack();
+                    break;
                 }
                 else{
-                sentinela.last.next=sentinela.next;
-                //System.out.println("Problema");
-                sentinela.next.last=sentinela.last;
-                size=size-1;
-                return sentinela.key;
+                    sentinela.last.next=sentinela.next;
+                    sentinela.next.last=sentinela.last;
+                    size--;
+                    break;
+     
                 }
             }
             sentinela=sentinela.next;
         }
-        return null;
+        return sentinela.key;
+        
+        
     }
     public T valueAtPosition(int position){
         T value = null; 

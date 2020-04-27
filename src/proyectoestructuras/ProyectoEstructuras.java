@@ -26,6 +26,19 @@ public class ProyectoEstructuras {
         //System.out.println("Hola");
         ingresar.setVisible(true);
         
+        /*LinkedList<Integer> prueba=new LinkedList<>();
+        System.out.println(prueba.size());
+        prueba.pushBack(1);
+        System.out.println(prueba.size());
+        prueba.pushBack(2);
+        System.out.println(prueba.size());
+        prueba.Eliminar(2);
+        System.out.println("Tamaño final"+prueba.size());
+        prueba.Eliminar(2);
+        System.out.println("Tamaño final"+prueba.size());
+*/
+        
+        
         
     }
     
