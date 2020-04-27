@@ -26,58 +26,57 @@ public class BuscarPanel extends javax.swing.JPanel {
         Stack<Vehiculo> pilaVehiculos = new Stack<>();
         switch(tipo){
             case "placa":
+                /*
                 for(int i=1; i<= listaVehic.size(); i++){
                     Vehiculo vehiculo = listaVehic.valueAtPosition(i);
                     if(vehiculo.getPlaca().toLowerCase().equals(valor.toLowerCase())){
                         pilaVehiculos.push(vehiculo);
                     }
                 }
-                /*
+                */
                 while(!listaVehic.isEmpty()){
                     Vehiculo vehiculo = listaVehic.popFront();
                     if(vehiculo.getPlaca().toLowerCase().equals(valor.toLowerCase())){
                         pilaVehiculos.push(vehiculo);
                     }
                 }   
-                */
+                
                 break;
             case "marca":
+                /*
                 for(int i=1; i<= listaVehic.size(); i++){
                     Vehiculo vehiculo = listaVehic.valueAtPosition(i);
                     if(vehiculo.getMarca().toLowerCase().equals(valor.toLowerCase())){
                         pilaVehiculos.push(vehiculo);
                     }
                 }
-                /*
+                */
                 while(!listaVehic.isEmpty()){
                     Vehiculo vehiculo = listaVehic.popFront();
                     if(vehiculo.getMarca().toLowerCase().equals(valor.toLowerCase())){
                         pilaVehiculos.push(vehiculo);
                     }
                 }
-                */
+                
                 break;
             case "modelo":
+                /*
                 for(int i=1; i<= listaVehic.size(); i++){
                     Vehiculo vehiculo = listaVehic.valueAtPosition(i);
                     if(vehiculo.getReferencia().toLowerCase().equals(valor.toLowerCase())){
                         pilaVehiculos.push(vehiculo);
                     }
                 }
-                /*
+                */
                 while(!listaVehic.isEmpty()){
                     Vehiculo vehiculo = listaVehic.popFront();
                     if(vehiculo.getReferencia().toLowerCase().equals(valor.toLowerCase())){
                         pilaVehiculos.push(vehiculo);
                     }
                 }
-                */
+                
                 break;
             }
-        /*while(!temp.isEmpty()){
-            listaVehic.pushFront(temp.popFront());
-        }*/
-        //listaVehic=temp;
         return pilaVehiculos;
     }
    
@@ -242,10 +241,11 @@ public class BuscarPanel extends javax.swing.JPanel {
         }
         Stack<Vehiculo> pilaVehiculos;
         //LinkedList<Vehiculo> list = Ingresar.listaVehiculos;
+        LinkedList<Vehiculo> list = new LinkedList(admivehi.listaDeVehiculos);
         if(tipo!=null){
             String valor = jTextFieldValor.getText().replace(' ', '-');
-            //pilaVehiculos = Buscar(tipo, valor, list);
-            pilaVehiculos = Buscar(tipo, valor, admivehi.listaDeVehiculos);
+            pilaVehiculos = Buscar(tipo, valor, list);
+            //pilaVehiculos = Buscar(tipo, valor, admivehi.listaDeVehiculos);
             
             
             System.out.println(pilaVehiculos.size() + " coincidencias");
