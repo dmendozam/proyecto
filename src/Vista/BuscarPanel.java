@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Control.AdministrarVehiculo;
 import Estructuras.*;
 import Modelo.Vehiculo;
 import javax.swing.JOptionPane;
@@ -16,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class BuscarPanel extends javax.swing.JPanel {
 
+    private AdministrarVehiculo admivehi;
     DefaultTableModel modelo;
     String tipo=null;
     
@@ -93,7 +95,9 @@ public class BuscarPanel extends javax.swing.JPanel {
         this.jTable1.setModel(modelo);
         
     }
-
+    public void setAdministrarVehiculo(AdministrarVehiculo av){
+        this.admivehi=av;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -237,10 +241,12 @@ public class BuscarPanel extends javax.swing.JPanel {
             modelo.removeRow(i);
         }
         Stack<Vehiculo> pilaVehiculos;
-        LinkedList<Vehiculo> list = Ingresar.listaVehiculos;
+        //LinkedList<Vehiculo> list = Ingresar.listaVehiculos;
         if(tipo!=null){
             String valor = jTextFieldValor.getText().replace(' ', '-');
-            pilaVehiculos = Buscar(tipo, valor, list);
+            //pilaVehiculos = Buscar(tipo, valor, list);
+            pilaVehiculos = Buscar(tipo, valor, admivehi.listaDeVehiculos);
+            
             
             System.out.println(pilaVehiculos.size() + " coincidencias");
             if(pilaVehiculos.isEmpty()){

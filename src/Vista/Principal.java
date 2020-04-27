@@ -146,6 +146,7 @@ public class Principal extends javax.swing.JFrame {
     }
     private void buscarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBotonActionPerformed
         // TODO add your handling code here:
+        bp.setAdministrarVehiculo(admivehi);
         panelPrincipal.setVisible(false);
         panelPrincipal.removeAll();
         panelPrincipal.add(bp);
@@ -155,6 +156,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void agregarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarBotonActionPerformed
         // TODO add your handling code here:
+        ap.setAdministrarVehiculo(admivehi);
         panelPrincipal.setVisible(false);
         panelPrincipal.removeAll();
         panelPrincipal.add(ap);
