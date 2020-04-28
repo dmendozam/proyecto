@@ -245,11 +245,12 @@ public class BuscarPanel extends javax.swing.JPanel {
         Stack<Vehiculo> pilaVehiculos2;
         //LinkedList<Vehiculo> list = Ingresar.listaVehiculos;
         LinkedList<Vehiculo> list = new LinkedList(admivehi.listaDeVehiculos);
-        //LinkedList<Vehiculo> list2 = new LinkedList(admivehi.vehiculosAlquilados); //Para que?
+        System.out.println(list.size());
+        LinkedList<Vehiculo> list2 = new LinkedList(admivehi.vehiculosAlquilados); //Para que?
         if(tipo!=null){
             String valor = jTextFieldValor.getText().replace(' ', '-');
             pilaVehiculos = Buscar(tipo, valor, list);
-            pilaVehiculos2=Buscar(tipo,valor,admivehi.vehiculosAlquilados/*list2*/);
+            pilaVehiculos2=Buscar(tipo,valor,/*admivehi.vehiculosAlquilados*/list2);
             //pilaVehiculos = Buscar(tipo, valor, admivehi.listaDeVehiculos);
             int coincidencias=pilaVehiculos.size()+pilaVehiculos2.size();
             
