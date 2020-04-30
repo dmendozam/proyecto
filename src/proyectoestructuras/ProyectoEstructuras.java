@@ -32,11 +32,14 @@ public class ProyectoEstructuras {
         System.out.println(prueba.size());
         prueba.pushBack(2);
         System.out.println(prueba.size());
-        prueba.Eliminar(2);
+        System.out.println(prueba.popFront());
+        System.out.println(prueba.popFront());
+        
         System.out.println("Tamaño final"+prueba.size());
-        prueba.Eliminar(2);
-        System.out.println("Tamaño final"+prueba.size());
+        System.out.println(prueba.isEmpty());
 */
+        
+
         
         
         

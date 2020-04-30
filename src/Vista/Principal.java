@@ -152,6 +152,8 @@ public class Principal extends javax.swing.JFrame {
         panelPrincipal.removeAll();
         panelPrincipal.add(bp);
         panelPrincipal.setVisible(true);
+        System.out.println(admivehi.listaDeVehiculos.size());
+        System.out.println(admivehi.vehiculosAlquilados.size());
         
     }//GEN-LAST:event_buscarBotonActionPerformed
 
@@ -162,17 +164,21 @@ public class Principal extends javax.swing.JFrame {
         panelPrincipal.removeAll();
         panelPrincipal.add(ap);
         panelPrincipal.setVisible(true);
+        System.out.println(admivehi.listaDeVehiculos.size());
+        System.out.println(admivehi.vehiculosAlquilados.size());
     }//GEN-LAST:event_agregarBotonActionPerformed
 
     private void alquilarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilarBotonActionPerformed
         // TODO add your handling code here:
-        alp.setListaVehiculosAlP(listaVehiculos);
+        
         alp.setAdministrarVehiculo(admivehi);
         
         panelPrincipal.setVisible(false);
         panelPrincipal.removeAll();
         panelPrincipal.add(alp);
         panelPrincipal.setVisible(true);
+        System.out.println(admivehi.listaDeVehiculos.size());
+        System.out.println(admivehi.vehiculosAlquilados.size());
     }//GEN-LAST:event_alquilarBotonActionPerformed
 
     /**

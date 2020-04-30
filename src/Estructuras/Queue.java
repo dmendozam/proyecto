@@ -13,6 +13,10 @@ import Estructuras.LinkedList;
  */
 public class Queue<T> {
     LinkedList<T> lista= new LinkedList<T>();
+
+    public Queue() {
+    }
+    
     
     public T enqueue(T entrante){
         lista.pushBack(entrante);

@@ -21,7 +21,7 @@ public class AgregarPanel extends javax.swing.JPanel {
      * Creates new form AgregarPanel
      */ 
     public static AdministrarVehiculo admiVehi;
-    public LinkedList<Vehiculo> lista = Ingresar.listaVehiculos;
+    
     private AdministrarVehiculo admivehi;
     private int size;
     
@@ -275,9 +275,11 @@ public class AgregarPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this,"Error al agregar vehículo");
         }
         //System.out.println(admiVehi.size());
-        System.out.println(lista.size());
-        System.out.println(lista.topFront().getMarca());
-        System.out.println(lista.topBack().getMarca());
+        //System.out.println(admivehi.size());
+        //System.out.println("Problema");
+        //System.out.println(admiVehi.listaDeVehiculos.topFront().getMarca());
+        //System.out.println(admiVehi.listaDeVehiculos.topBack().getMarca());
+        //System.out.println(admivehi.vehiculosAlquilados.size());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cilindFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cilindFieldActionPerformed

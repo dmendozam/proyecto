@@ -64,6 +64,9 @@ public class LinkedList<T> {
             return null;
         } else {
             temp = top.key;
+            if(this.size<1){
+                top.next.last=null;
+            }
             top = top.next; 
             size--;
             if(top==null){
@@ -76,9 +79,13 @@ public class LinkedList<T> {
     public T popBack() {
         T temp;
         if(isEmpty()) {
+            
             return null;
         } else {
             temp = tail.key;
+            if(this.size<1){
+                tail.last.next=null;
+            }
             tail = tail.last; 
             size--;
             return temp;
@@ -87,8 +94,11 @@ public class LinkedList<T> {
 
     public T topFront() {
         if(isEmpty()) {
+            
             return null;
+            
         } else {
+            //System.out.println("h");
             return top.key;
         }
     }
