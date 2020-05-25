@@ -93,6 +93,13 @@ public class Vehiculo {
         this.placa = placa;
     }
     
+    public int compareTo(Vehiculo v){
+        int num = 0;
+        //metodo de comparar dos carros para buscar una relación mayor-menor, x.compareTo(v)
+        //postivo es que x es mayor y v es menor
+        //negativo es que v es mayor y x es menor
+        return num;
+    }
     
     
 }
