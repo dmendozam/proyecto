@@ -50,19 +50,30 @@ public class Principal extends javax.swing.JFrame {
 
         popupMenu1 = new java.awt.PopupMenu();
         popupMenu2 = new java.awt.PopupMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         panelPrincipal = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        buscarBoton = new javax.swing.JButton();
-        agregarBoton = new javax.swing.JButton();
-        alquilarBoton = new javax.swing.JButton();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        buscarMenu = new javax.swing.JMenu();
+        agregarMenu = new javax.swing.JMenu();
+        alquilarMenu = new javax.swing.JMenu();
 
         popupMenu1.setLabel("popupMenu1");
 
         popupMenu2.setLabel("popupMenu2");
 
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ALQUILER DE VEHÍCULOS");
 
@@ -76,76 +87,61 @@ public class Principal extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGap(0, 244, Short.MAX_VALUE)
         );
 
         panelPrincipal.add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        buscarBoton.setText("Buscar");
-        buscarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarBotonActionPerformed(evt);
+        buscarMenu.setText("Buscar");
+        buscarMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                buscarMenuMousePressed(evt);
             }
         });
+        jMenuBar3.add(buscarMenu);
 
-        agregarBoton.setText("Agregar");
-        agregarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarBotonActionPerformed(evt);
+        agregarMenu.setText("Agregar");
+        agregarMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                agregarMenuMousePressed(evt);
             }
         });
+        jMenuBar3.add(agregarMenu);
 
-        alquilarBoton.setText("Alquilar");
-        alquilarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alquilarBotonActionPerformed(evt);
+        alquilarMenu.setText("Alquilar");
+        alquilarMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                alquilarMenuMousePressed(evt);
             }
         });
+        jMenuBar3.add(alquilarMenu);
+
+        setJMenuBar(jMenuBar3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(buscarBoton)
-                        .addGap(39, 39, 39)
-                        .addComponent(alquilarBoton)
-                        .addGap(30, 30, 30)
-                        .addComponent(agregarBoton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buscarBoton)
-                    .addComponent(agregarBoton)
-                    .addComponent(alquilarBoton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setAdministrarVehiculos(AdministrarVehiculo adv){
-        this.admivehi=adv;
-    }  
-    public void setListaVehiculos(LinkedList lista){
-        this.listaVehiculos=lista;
-    }
-    
-    private void buscarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBotonActionPerformed
+    private void buscarMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarMenuMousePressed
         // TODO add your handling code here:
         bp.setAdministrarVehiculo(admivehi);
         panelPrincipal.setVisible(false);
@@ -154,10 +150,9 @@ public class Principal extends javax.swing.JFrame {
         panelPrincipal.setVisible(true);
         System.out.println(admivehi.listaDeVehiculos.size());
         System.out.println(admivehi.vehiculosAlquilados.size());
-        
-    }//GEN-LAST:event_buscarBotonActionPerformed
+    }//GEN-LAST:event_buscarMenuMousePressed
 
-    private void agregarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarBotonActionPerformed
+    private void agregarMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarMenuMousePressed
         // TODO add your handling code here:
         ap.setAdministrarVehiculo(admivehi);
         panelPrincipal.setVisible(false);
@@ -166,21 +161,26 @@ public class Principal extends javax.swing.JFrame {
         panelPrincipal.setVisible(true);
         System.out.println(admivehi.listaDeVehiculos.size());
         System.out.println(admivehi.vehiculosAlquilados.size());
-    }//GEN-LAST:event_agregarBotonActionPerformed
+    }//GEN-LAST:event_agregarMenuMousePressed
 
-    private void alquilarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilarBotonActionPerformed
+    private void alquilarMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alquilarMenuMousePressed
         // TODO add your handling code here:
-        
         alp.setAdministrarVehiculo(admivehi);
-        
         panelPrincipal.setVisible(false);
         panelPrincipal.removeAll();
         panelPrincipal.add(alp);
         panelPrincipal.setVisible(true);
         System.out.println(admivehi.listaDeVehiculos.size());
         System.out.println(admivehi.vehiculosAlquilados.size());
-    }//GEN-LAST:event_alquilarBotonActionPerformed
+    }//GEN-LAST:event_alquilarMenuMousePressed
 
+    public void setAdministrarVehiculos(AdministrarVehiculo adv){
+        this.admivehi=adv;
+    }  
+    public void setListaVehiculos(LinkedList lista){
+        this.listaVehiculos=lista;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -217,10 +217,14 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregarBoton;
-    private javax.swing.JButton alquilarBoton;
-    private javax.swing.JButton buscarBoton;
+    private javax.swing.JMenu agregarMenu;
+    private javax.swing.JMenu alquilarMenu;
+    private javax.swing.JMenu buscarMenu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelPrincipal;
     private java.awt.PopupMenu popupMenu1;
