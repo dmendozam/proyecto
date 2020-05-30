@@ -142,6 +142,8 @@ public class AlquilarPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String marca= marcaTF.getText();
         String referencia= referenciaTF.getText();
+        
+        /*
         int cantidadVehiculos= admivehi.size();
         //System.out.println(cantidadVehiculos);
         Nodo<Vehiculo> sentinela= admivehi.listaDeVehiculos.top;
@@ -168,8 +170,15 @@ public class AlquilarPanel extends javax.swing.JPanel {
         if(!estado){
             JOptionPane.showMessageDialog(this, "No hay un vehiculo de esta marca y referencia disponible para alquilar");
         }
-        System.out.println(admivehi.size());
-        System.out.println(admivehi.vehiculosAlquilados.size());
+        */
+        
+        Vehiculo vehiculoAEliminar=admivehi.buscarVehiculoArbol(marca, referencia);
+        if(vehiculoAEliminar==null){
+                JOptionPane.showMessageDialog(this, "No hay un vehiculo de esta marca y referencia disponible para alquilar");
+        }
+        else{
+            System.out.println(vehiculoAEliminar.getMarca()+" "+vehiculoAEliminar.getReferencia()+" "+vehiculoAEliminar.getPlaca());
+        }
         
         //Vehiculo alquilado=colaMarca.dequeue();
         //JOptionPane.showMessageDialog(this, "El vehiculo a alquilar es: "+alquilado.getMarca()+" "+alquilado.getReferencia()+" de placa "+alquilado.getPlaca());

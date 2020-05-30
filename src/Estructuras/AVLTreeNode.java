@@ -10,7 +10,9 @@ package Estructuras;
  * @author Universidad
  */
 public class AVLTreeNode<T> {
+    
     public T key;
+    
     public int height;
     public AVLTreeNode left;
     public AVLTreeNode right;
