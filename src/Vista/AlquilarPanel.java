@@ -172,12 +172,12 @@ public class AlquilarPanel extends javax.swing.JPanel {
         }
         */
         
-        Vehiculo vehiculoAEliminar=admivehi.buscarVehiculoArbol(marca, referencia);
+        Vehiculo vehiculoAEliminar=admivehi.borrarVehiculoArbol(marca, referencia);
         if(vehiculoAEliminar==null){
                 JOptionPane.showMessageDialog(this, "No hay un vehiculo de esta marca y referencia disponible para alquilar");
         }
         else{
-            System.out.println(vehiculoAEliminar.getMarca()+" "+vehiculoAEliminar.getReferencia()+" "+vehiculoAEliminar.getPlaca());
+            JOptionPane.showMessageDialog(this,vehiculoAEliminar.getMarca()+" "+vehiculoAEliminar.getReferencia()+" "+vehiculoAEliminar.getPlaca());
         }
         
         //Vehiculo alquilado=colaMarca.dequeue();

@@ -10,7 +10,7 @@ package Estructuras;
  * @author Universidad
  */
 //NO PUEDEN HABER NODOS REPETIDOS
-
+//OPERACIONES DENTRO DE UN SOLO ARBOL
 public class BinarySearchTree_AVL2<T> {
     public AVLTreeNode2String<T> root;
     public BinarySearchTree_AVL2(AVLTreeNode2String root) {
@@ -81,32 +81,51 @@ public class BinarySearchTree_AVL2<T> {
             }
         }   
     }
-    public AVLTreeNode2String eliminar(String identificadorEliminado){
-        AVLTreeNode2String eliminando=contains(identificadorEliminado);
+    public AVLTreeNode2String eliminar(AVLTreeNode2String eliminando){
+        
         if(eliminando==null){
+
             return null;
         }
         else{
+            //System.out.println("hola7");
+            System.out.println("root"+eliminando);
+            System.out.println("derecha root"+eliminando.right);
+            System.out.println("izquierda root"+eliminando.left);
             if(eliminando.right==null){
-                if(eliminando==eliminando.parent.left){
-                    eliminando.parent.left=eliminando.left;
+                //System.out.println("hola8");
+                    if(eliminando==root){
+                        root=eliminando.left;
+                    }
+                    else{
+                        if(eliminando==eliminando.parent.left){
+                            eliminando.parent.left=eliminando.left;
                     
-                }
-                if(eliminando==eliminando.parent.right){
-                    eliminando.parent.right=eliminando.left;
+                        }
+                        if(eliminando==eliminando.parent.right){
+                            eliminando.parent.right=eliminando.left;
                     
-                }
+                        }
+                    }   
             }
-            else{
+            else{ //RIGHT DIFERENTE DE NULL
                 AVLTreeNode2String x=next(eliminando);
-                if(eliminando==eliminando.parent.left){
-                    eliminando.parent.left=x;
-                    
+                //System.out.println(eliminando);
+                System.out.println(x);
+                System.out.println(x.right);
+                System.out.println(x.parent);
+                // promote x.right
+                if(x.parent.left==x){
+                    x.parent.left=x.right;
                 }
-                if(eliminando==eliminando.parent.right){
-                    eliminando.parent.right=x;
-                    
+                if(x.parent.right==x){
+                    x.parent.right=x.right;
                 }
+                System.out.println(eliminando.right);
+                //REPLACE ELIMINANDO BY X
+                
+                
+                
                 
             }
             return eliminando;
@@ -122,6 +141,7 @@ public class BinarySearchTree_AVL2<T> {
     }
     private AVLTreeNode2String leftDescendent(AVLTreeNode2String n){
         if(n.left==null){
+            
             return n;
         }
         else{

@@ -26,6 +26,7 @@ public class ProyectoEstructuras {
         //System.out.println("Hola");
         ingresar.setVisible(true);
        
+        
 
         
         
