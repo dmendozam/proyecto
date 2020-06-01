@@ -38,7 +38,7 @@ public class BuscarPanel extends javax.swing.JPanel {
                 int i=0;
                 for(int m=0;m<sizeInstante;m++){
                     
-                    System.out.println(i);
+                    //System.out.println(i);
                     Vehiculo vehiculo = listaVehic.popFront();
                     if(vehiculo.getPlaca().toLowerCase().equals(valor.toLowerCase())){
                         pilaVehiculos.push(vehiculo);
@@ -82,7 +82,7 @@ public class BuscarPanel extends javax.swing.JPanel {
                 */
                 int k=0;
                 for(int m=0;m<sizeInstante;m++){
-                    System.out.println(k);
+                    //System.out.println(k);
                     Vehiculo vehiculo = listaVehic.popFront();
                     if(vehiculo.getReferencia().toLowerCase().equals(valor.toLowerCase())){
                         pilaVehiculos.push(vehiculo);
@@ -255,19 +255,26 @@ public class BuscarPanel extends javax.swing.JPanel {
         for (int i = jTable1.getRowCount()-1; i>=0; i--){
             modelo.removeRow(i);
         }
-        Stack<Vehiculo> pilaVehiculos;
+        Stack<Vehiculo> pilaVehiculos = new Stack<>();
         Stack<Vehiculo> pilaVehiculos2;
-        //LinkedList<Vehiculo> list = Ingresar.listaVehiculos;
         LinkedList<Vehiculo> list = new LinkedList(admivehi.listaDeVehiculos);
-        //System.out.println(list.size());
-        LinkedList<Vehiculo> list2 = new LinkedList(admivehi.vehiculosAlquilados); //Para que?
-        //System.out.println("Siz 1"+list.size());
-        //System.out.println("Siz 2"+list2.size());
+        LinkedList<Vehiculo> list2 = new LinkedList(admivehi.vehiculosAlquilados);
         if(tipo!=null){
+            
             String valor = jTextFieldValor.getText().replace(' ', '-');
-            pilaVehiculos = Buscar(tipo, valor, list);
-            pilaVehiculos2=Buscar(tipo,valor,list2);
-            //pilaVehiculos = Buscar(tipo, valor, admivehi.listaDeVehiculos);
+            switch (tipo){
+                case "placa":
+                    pilaVehiculos = admivehi.buscarVehiculoArbolPlacas(valor);
+                    break;
+                case "marca":
+                    pilaVehiculos = admivehi.buscarVehiculoArbolMarca(valor);
+                    break;
+                case "modelo":
+                    pilaVehiculos = admivehi.buscarVehiculoArbolModelo(valor);
+            }
+            
+            //pilaVehiculos = Buscar(tipo, valor, list);
+            pilaVehiculos2 = Buscar(tipo,valor,list2);
             int coincidencias=pilaVehiculos.size()+pilaVehiculos2.size();
             
             System.out.println(coincidencias + " coincidencias");
@@ -290,7 +297,6 @@ public class BuscarPanel extends javax.swing.JPanel {
                     
                     modelo.addRow(Datos);
                 }
-                //System.out.println(pilaVehiculos2.size());
                 while(!pilaVehiculos2.isEmpty()){
                     Vehiculo vehic = pilaVehiculos2.pop();
                     String[] Datos = new String[8];
