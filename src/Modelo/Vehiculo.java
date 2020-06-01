@@ -93,8 +93,19 @@ public class Vehiculo {
         this.placa = placa;
     }
     
-    public int compareTo(Vehiculo v){
+    public int compareTo(Vehiculo v, String parametro){
         int num = 0;
+        switch (parametro){
+            case "placa":
+                num = v.getPlaca().toLowerCase().compareTo(this.placa.toLowerCase());
+                break;
+            case "marca":
+                num = v.getMarca().toLowerCase().compareTo(this.marca.toLowerCase());
+                break;
+            case "modelo":
+                num = v.getReferencia().toLowerCase().compareTo(this.referencia.toLowerCase());
+                break;
+        }
         //metodo de comparar dos carros para buscar una relación mayor-menor, x.compareTo(v)
         //postivo es que x es mayor y v es menor
         //negativo es que v es mayor y x es menor
