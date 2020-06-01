@@ -6,6 +6,7 @@
 package Vista;
 import Estructuras.LinkedList;
 import Control.*;
+import Estructuras.AVL_vehiculos;
 import Modelo.*;
 import java.io.BufferedReader;
 import java.io.File;
@@ -158,7 +159,7 @@ public class Ingresar extends javax.swing.JFrame {
         //Leer el archivo
         
         try{
-            Scanner input = new Scanner(new File("MOCK_DATA_100000.txt"));
+            Scanner input = new Scanner(new File("MOCK_DATA_10000.txt"));
             int numeroPlaca=0;
             
             
@@ -233,6 +234,7 @@ public class Ingresar extends javax.swing.JFrame {
                 //System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
                 admivehi.agregarVehiculo(vehiculo);  //No quitar
                 admivehi.agregarVehiculoArbol(vehiculo);
+                admivehi.agregarVehiculoArbolPlacas(vehiculo);
                 
             }
             input.close();
