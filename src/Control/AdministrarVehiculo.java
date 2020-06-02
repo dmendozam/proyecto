@@ -193,6 +193,25 @@ public class AdministrarVehiculo {
         return busqueda;
     }
     
+    public Stack<Vehiculo> buscarVehiculoArbolPlaca2 (String placa){
+        Stack<Vehiculo> busqueda = new Stack<>();
+        Stack<BinarySearchTree_AVL2> pilaDeMarcas = arbolDeVehiculos.postOrder();
+        while(!pilaDeMarcas.isEmpty()){
+            BinarySearchTree_AVL2<BinarySearchTree_AVL2> aux = pilaDeMarcas.pop();
+            Stack<BinarySearchTree_AVL2> pilaDeModelos = aux.postOrder();
+            while(!pilaDeModelos.isEmpty()){
+                BinarySearchTree_AVL2<Vehiculo> aux2 = pilaDeModelos.pop();
+                AVLTreeNode2String<Vehiculo> nodoDePlaca = aux2.contains(placa);
+                if(nodoDePlaca!=null){
+                    busqueda.push(nodoDePlaca.key);
+                    return busqueda;
+                }
+            }
+            
+        }
+        return busqueda;
+    }
+    
     
     public Vehiculo borrarVehiculoArbol(String marca, String referencia){
         AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias=arbolDeVehiculos.contains(marca);
