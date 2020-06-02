@@ -7,6 +7,7 @@ package Vista;
 import Estructuras.*;
 import Modelo.*;
 import Control.*;
+import java.awt.Dimension;
 /**
  *
  * @author Santiago Mendoza
@@ -28,6 +29,9 @@ public class Principal extends javax.swing.JFrame {
         ap= new AgregarPanel();
         alp= new AlquilarPanel();
         
+        //this.setSize(750, 550); //dimensiones fijas
+        //editar dimensiones minimas permitidas
+        //this.setMinimumSize(new Dimension(450,400));
         
         
         

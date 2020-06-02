@@ -16,9 +16,9 @@ import Modelo.Vehiculo;
  */
 public class AdministrarUsuario {
     private ArrayList<Usuario> listaDeUsuarios;
-
+    
     public AdministrarUsuario() {
-        listaDeUsuarios = new ArrayList();
+        listaDeUsuarios = new ArrayList<>();
         llenarUsuariosIniciales();
     }
 
