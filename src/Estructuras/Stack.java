@@ -38,6 +38,12 @@ public class Stack<T> {
         this.top=nodo;
         this.size++;
     }
+    
+    public void push (Stack<T> stack){
+        while(!stack.isEmpty()){
+            this.push(stack.pop());
+        }
+    }
 
     public T pop() {
         T temp;

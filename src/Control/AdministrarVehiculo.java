@@ -24,11 +24,13 @@ public class AdministrarVehiculo {
     public LinkedList<Vehiculo> vehiculosAlquilados;
     public BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeVehiculos;
     public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosAlquilados;
+    public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosPlacas;
     public AdministrarVehiculo() {
         listaDeVehiculos = new LinkedList<>();
         vehiculosAlquilados= new LinkedList<>();
         arbolDeVehiculos= new BinarySearchTree_AVL2<>();
         arbolDeVehiculosAlquilados= new BinarySearchTree_AVL2<>();
+        arbolDeVehiculosPlacas= new BinarySearchTree_AVL2<>();
         llenarVehiculosIniciales();
     }
     public AdministrarVehiculo(LinkedList<Vehiculo> listaDeVehiculos,LinkedList<Vehiculo> vehiculosAlquilados) {
@@ -117,6 +119,20 @@ public class AdministrarVehiculo {
             arbolDeVehiculosAlquilados.insertar(new AVLTreeNode2String(nuevaMarca, v.getMarca()));
         }
     }    
+    
+    public void agregarVehiculoArbolPlacas(Vehiculo v){
+        arbolDeVehiculosPlacas.insertar(new AVLTreeNode2String(v, v.getPlaca()));
+    }
+    
+    public Stack<Vehiculo> buscarVehiculoArbolPlacas (String placa){
+        AVLTreeNode2String<Vehiculo> coincide = arbolDeVehiculosPlacas.contains(placa);
+        Stack<Vehiculo> vehiculos = new Stack<>();
+        if (coincide != null){
+            vehiculos.push(coincide.key);
+        }
+        return vehiculos;
+    }
+    
     public AVLTreeNode2String<Vehiculo> buscarVehiculoArbol(String marca,String referencia){
         AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias=arbolDeVehiculos.contains(marca);
         if(nodoArbolDeReferencias!=null){
@@ -146,6 +162,38 @@ public class AdministrarVehiculo {
             return null;
         }
     }
+    
+    public Stack<Vehiculo> buscarVehiculoArbolMarca (String marca){
+        Stack<Vehiculo> busqueda= new Stack<>();
+        AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias=arbolDeVehiculos.contains(marca);
+        if (nodoArbolDeReferencias!=null){
+            BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeReferencias=nodoArbolDeReferencias.key;
+            Stack<BinarySearchTree_AVL2> pilaDeReferencias= arbolDeReferencias.postOrder();
+            while(!pilaDeReferencias.isEmpty()){
+                BinarySearchTree_AVL2<Vehiculo> arbolDePlacas = pilaDeReferencias.pop();
+                busqueda.push(arbolDePlacas.postOrder());
+            }
+        }
+        return busqueda;
+    }
+    
+    public Stack<Vehiculo> buscarVehiculoArbolModelo (String modelo){
+        Stack<Vehiculo> busqueda = new Stack<>();
+        Stack<BinarySearchTree_AVL2> pilaDeMarcas = arbolDeVehiculos.postOrder();
+        while(!pilaDeMarcas.isEmpty()){
+            BinarySearchTree_AVL2<BinarySearchTree_AVL2> aux = pilaDeMarcas.pop();
+            AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias = aux.contains(modelo);
+            if (nodoArbolDeReferencias!=null){
+                BinarySearchTree_AVL2<Vehiculo> arbolDePlacas = nodoArbolDeReferencias.key;
+                busqueda.push(arbolDePlacas.postOrder());
+                return busqueda;
+            }
+        }
+        
+        return busqueda;
+    }
+    
+    
     public Vehiculo borrarVehiculoArbol(String marca, String referencia){
         AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias=arbolDeVehiculos.contains(marca);
         if(nodoArbolDeReferencias!=null){
