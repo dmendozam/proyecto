@@ -39,6 +39,17 @@ public class Usuario {
 
     
     }
+    /*
+    public int compareTo(Usuario U){
+        char nombre1 = this.nombre.charAt(0);
+        if(U.nombre.charAt(0) > nombre1){
+            return 1;
+        }else if(U.nombre.charAt(0) < nombre1){
+            return -1;
+        }else{
+            return 0;
+        }
+    }*/
 
     public String getNombre() {
         return nombre;
