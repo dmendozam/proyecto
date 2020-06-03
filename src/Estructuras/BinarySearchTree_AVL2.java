@@ -27,6 +27,7 @@ public class BinarySearchTree_AVL2<T> {
         }
         boolean flag=false;
         while(flag==false){
+            //System.out.println(sentinela.identificador);
             if(sentinela.identificador.compareTo(identificadorbuscado)==0){
                 flag=true;
                 return sentinela;
@@ -181,6 +182,21 @@ public class BinarySearchTree_AVL2<T> {
         else{
             return rightAncestor(n.parent);
         }
+    }
+    
+    public Stack<T> postOrder(AVLTreeNode2String<T> nodo){
+        Stack<T> salida = new Stack<>();
+        if(nodo.left!=null){
+            salida.push(postOrder(nodo.left));
+        }
+        if(nodo.right!=null){
+            salida.push(postOrder(nodo.right));
+        }
+        salida.push(nodo.key);
+        return salida;
+    }
+    public Stack<T> postOrder(){
+        return postOrder(this.root);
     }
     
 }
