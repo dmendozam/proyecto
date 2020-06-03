@@ -31,10 +31,12 @@ public class AdministrarVehiculo {
         arbolDeVehiculosAlquilados= new BinarySearchTree_AVL2<>();
         llenarVehiculosIniciales();
     }
-    public AdministrarVehiculo(LinkedList<Vehiculo> listaDeVehiculos,LinkedList<Vehiculo> vehiculosAlquilados) {
+    public AdministrarVehiculo(LinkedList<Vehiculo> listaDeVehiculos,LinkedList<Vehiculo> vehiculosAlquilados, BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeVehiculos,BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosAlquilados) {
         this.listaDeVehiculos = listaDeVehiculos;
         this.sizeLista = listaDeVehiculos.size();
         this.vehiculosAlquilados=vehiculosAlquilados;
+        this.arbolDeVehiculos=arbolDeVehiculos;
+        this.arbolDeVehiculosAlquilados=arbolDeVehiculosAlquilados;
         llenarVehiculosIniciales();
     }
     private void llenarVehiculosIniciales(){
