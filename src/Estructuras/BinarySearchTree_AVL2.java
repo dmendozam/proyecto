@@ -23,6 +23,7 @@ public class BinarySearchTree_AVL2<T> {
         
         sentinela=this.root;
         if(sentinela==null){
+            System.out.println("hoy");
             return null;
         }
         boolean flag=false;
@@ -55,6 +56,7 @@ public class BinarySearchTree_AVL2<T> {
         AVLTreeNode2String sentinela= root;
         if(sentinela==null){
             this.root=insertado;
+            System.out.println("hoy2");
         }
         else{
             boolean flag=false;
@@ -97,13 +99,16 @@ public class BinarySearchTree_AVL2<T> {
                 //System.out.println("hola8");
                     if(eliminando==root){
                         root=eliminando.left;
+                        eliminando.parent=null;
                     }
                     else{
                         if(eliminando==eliminando.parent.left){
+                            if(eliminando.left!=null)eliminando.left.parent=eliminando.parent;
                             eliminando.parent.left=eliminando.left;
-                    
+                   
                         }
                         if(eliminando==eliminando.parent.right){
+                            if(eliminando.left!=null)eliminando.left.parent=eliminando.parent;
                             eliminando.parent.right=eliminando.left;
                     
                         }
@@ -112,17 +117,19 @@ public class BinarySearchTree_AVL2<T> {
             else{ //RIGHT DIFERENTE DE NULL
                 AVLTreeNode2String x=next(eliminando);
                 //System.out.println(eliminando);
-                System.out.println(x);
-                System.out.println(x.right);
-                System.out.println(x.parent);
+                //System.out.println(x);
+                //System.out.println(x.right);
+                //System.out.println(x.parent);
                 // promote x.right
                 if(x.parent.left==x){
+                    if(x.right!=null)x.right.parent=x.parent;
                     x.parent.left=x.right;
                 }
                 if(x.parent.right==x){
+                    if(x.right!=null)x.right.parent=x.parent;
                     x.parent.right=x.right;
                 }
-                System.out.println(eliminando.right);
+                //System.out.println(eliminando.right);
                 //REPLACE ELIMINANDO BY X
                 if(eliminando==root){
                     x.right=eliminando.right;
@@ -144,8 +151,8 @@ public class BinarySearchTree_AVL2<T> {
                     
                     x.right=eliminando.right;
                     x.left=eliminando.left;
-                    x.right.parent=x;
-                    x.left.parent=x;
+                    if(x.right!=null)x.right.parent=x;
+                    if(x.left!=null)x.left.parent=x;
                 }
                 
                 

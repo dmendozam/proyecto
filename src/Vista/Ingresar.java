@@ -212,9 +212,9 @@ public class Ingresar extends javax.swing.JFrame {
                 Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
                 //listaVehiculos.pushFront(vehiculo);
                 //System.out.println(vehiculo.getReferencia()+vehiculo.getMarca());
-                System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
+                //System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
                 admivehi.agregarVehiculo(vehiculo);  //No quitar
-                admivehi.agregarVehiculoArbol(vehiculo);
+                //admivehi.agregarVehiculoArbol(vehiculo);
                 //admivehi.agregarVehiculoArbolPlacas(vehiculo);
                 
             }

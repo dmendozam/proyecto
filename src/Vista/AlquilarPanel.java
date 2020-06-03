@@ -180,6 +180,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
         }
         else{
             //admivehi.agregarVehiculoArbolAlquilados(vehiculoAEliminar);
+            admivehi.agregarVehiculoArbolAlquilados(vehiculoAEliminar);
             JOptionPane.showMessageDialog(this,vehiculoAEliminar.getMarca()+" "+vehiculoAEliminar.getReferencia()+" "+vehiculoAEliminar.getPlaca());
         }
         
@@ -189,23 +190,21 @@ public class AlquilarPanel extends javax.swing.JPanel {
 
     private void devolverBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolverBTActionPerformed
         // TODO add your handling code here:
-        int tamañoAlquilados=admivehi.vehiculosAlquilados.size();
-        Nodo<Vehiculo> sentinela=admivehi.vehiculosAlquilados.top;
-        boolean estado=false;
-        for(int i=0;i<tamañoAlquilados;i++){
-            if(sentinela.key.getPlaca().equals(placaTF.getText())){
-                admivehi.vehiculosAlquilados.Eliminar(sentinela.key);
-                admivehi.agregarVehiculo(sentinela.key);
-                JOptionPane.showMessageDialog(this,"Se ha registrado la devolucion del vehiculo");
-                estado=true;
-            }
-            sentinela=sentinela.next;
+        System.out.println("rr");
+        Vehiculo devuelto= admivehi.borrarVehiculoArbolAlquilados(placaTF.getText());
+        if(devuelto!=null){
+            admivehi.agregarVehiculoArbol(devuelto);
+            JOptionPane.showMessageDialog(this, "Se ha devuelto el vehiculo "+devuelto.getMarca()+" "+devuelto.getReferencia()+" "+devuelto.getPlaca());
+        
         }
-        if(!estado){
-            JOptionPane.showMessageDialog(this, "El vehiculo con estas placas no esta alquilado o no existe");
+        else{
+            JOptionPane.showMessageDialog(this, "No hay ningun vehiculo alquilado con esta placa");
         }
-        System.out.println(admivehi.size());
-        System.out.println(admivehi.vehiculosAlquilados.size());
+        
+        
+        
+        
+        
         
     }//GEN-LAST:event_devolverBTActionPerformed
 
