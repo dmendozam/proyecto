@@ -17,6 +17,7 @@ public class AVLTreeNode2String<T>{
     public AVLTreeNode2String left;
     public AVLTreeNode2String right;
     public AVLTreeNode2String parent;
+   
     
     public AVLTreeNode2String(T key,AVLTreeNode2String parent,String identificador, AVLTreeNode2String left, AVLTreeNode2String right){
         this.key = key;

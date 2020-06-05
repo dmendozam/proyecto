@@ -77,12 +77,12 @@ public class AdministrarVehiculo {
             AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDePlacas= arbolDeReferencias.contains(v.getReferencia());
             if(nodoArbolDePlacas!=null){
                 BinarySearchTree_AVL2 arbolDePlacas=nodoArbolDePlacas.key;
-                arbolDePlacas.insertar(new AVLTreeNode2String(v, v.getPlaca()));
+                arbolDePlacas.insertarAVL(new AVLTreeNode2String(v, v.getPlaca()));
                 sizeArbol++;
             }
             else{
                 BinarySearchTree_AVL2<Vehiculo>nuevaReferencia=new BinarySearchTree_AVL2(new AVLTreeNode2String(v,v.getPlaca()));
-                arbolDeReferencias.insertar(new AVLTreeNode2String(nuevaReferencia,v.getReferencia()));
+                arbolDeReferencias.insertarAVL(new AVLTreeNode2String(nuevaReferencia,v.getReferencia()));
                 sizeArbol++;
             }
         }
@@ -91,17 +91,17 @@ public class AdministrarVehiculo {
             
             BinarySearchTree_AVL2<BinarySearchTree_AVL2> nuevaMarca= new BinarySearchTree_AVL2(new AVLTreeNode2String(nuevaReferencia, v.getReferencia()));
             
-            arbolDeVehiculos.insertar(new AVLTreeNode2String(nuevaMarca, v.getMarca()));
+            arbolDeVehiculos.insertarAVL(new AVLTreeNode2String(nuevaMarca, v.getMarca()));
             sizeArbol++;
         }
     }
     public void agregarVehiculoArbolAlquilados(Vehiculo v){
         AVLTreeNode2String<Vehiculo> aIngresar= new AVLTreeNode2String<>(v, v.getPlaca());
-        arbolDeVehiculosAlquilados.insertar(aIngresar);
+        arbolDeVehiculosAlquilados.insertarAVL(aIngresar);
     }    
     
     public void agregarVehiculoArbolPlacas(Vehiculo v){
-        arbolDeVehiculosPlacas.insertar(new AVLTreeNode2String(v, v.getPlaca()));
+        arbolDeVehiculosPlacas.insertarAVL(new AVLTreeNode2String(v, v.getPlaca()));
     }
     
     public Stack<Vehiculo> buscarVehiculoArbolPlacas (String placa){
@@ -215,7 +215,7 @@ public class AdministrarVehiculo {
                         AVLTreeNode2String nodoAEliminar=arbolDePlacas.root;
                         
                         //System.out.println(nodoAEliminar.identificador);
-                        AVLTreeNode2String<Vehiculo> nodoEliminado =arbolDePlacas.eliminar(nodoAEliminar);
+                        AVLTreeNode2String<Vehiculo> nodoEliminado =arbolDePlacas.eliminarAVL(nodoAEliminar);
                         if(nodoEliminado!=null){
                             return nodoEliminado.key;
                         }
@@ -242,7 +242,7 @@ public class AdministrarVehiculo {
     public Vehiculo borrarVehiculoArbolAlquilados(String placa){
         
         AVLTreeNode2String<Vehiculo> nodoEliminado =arbolDeVehiculosAlquilados.contains(placa);
-        arbolDeVehiculosAlquilados.eliminar(nodoEliminado);
+        arbolDeVehiculosAlquilados.eliminarAVL(nodoEliminado);
         
         if(nodoEliminado!=null){
             System.out.println("gg");

@@ -161,7 +161,7 @@ public class BinarySearchTree_AVL<T> {
     
     public int height(AVLTreeNode nodo){
         if(nodo == null){
-            return 0;
+            return -1;
         }else{
             return nodo.height;
         }

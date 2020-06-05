@@ -5,6 +5,8 @@
  */
 package Estructuras;
 
+import static java.lang.Integer.max;
+
 /**
  *
  * @author Universidad
@@ -17,7 +19,15 @@ public class BinarySearchTree_AVL2<T> {
         this.root = root;
     }    
     public BinarySearchTree_AVL2() {
-    }    
+    }
+    public int height(AVLTreeNode2String nodo){
+        if(nodo==null){
+            return -1;
+        }
+        else{
+            return nodo.height;
+        }
+    }
     public AVLTreeNode2String<T> contains(String identificadorbuscado){
         AVLTreeNode2String sentinela= new AVLTreeNode2String();
         
@@ -52,11 +62,13 @@ public class BinarySearchTree_AVL2<T> {
         }
         return null;    
     }   
-    public void insertar(AVLTreeNode2String insertado){
+    public AVLTreeNode2String insertar(AVLTreeNode2String insertado){
         AVLTreeNode2String sentinela= root;
         if(sentinela==null){
             this.root=insertado;
-            System.out.println("hoy2");
+            return root;
+            
+            //System.out.println("hoy2");
         }
         else{
             boolean flag=false;
@@ -65,7 +77,10 @@ public class BinarySearchTree_AVL2<T> {
                     if(sentinela.right==null){
                         sentinela.right=insertado;
                         insertado.parent=sentinela;
+                        
+                        
                         flag=true;
+                        
                     }
                     else{
                         sentinela=sentinela.right;
@@ -75,14 +90,27 @@ public class BinarySearchTree_AVL2<T> {
                     if(sentinela.left==null){
                         sentinela.left=insertado;
                         insertado.parent=sentinela;
+                        
+                        
                         flag=true;
+                        
                     }
                     else{
                         sentinela=sentinela.left;
                     }
                 }
+                else{
+                    return null;
+                }
+                
             }
+            return insertado;
         }   
+    }
+    public void insertarAVL(AVLTreeNode2String nodo){
+        AVLTreeNode2String insertado =insertar(nodo);
+        rebalance(insertado);
+        
     }
     public AVLTreeNode2String eliminar(AVLTreeNode2String eliminando){
         
@@ -165,6 +193,12 @@ public class BinarySearchTree_AVL2<T> {
             return eliminando;
         }
     }
+    public AVLTreeNode2String eliminarAVL (AVLTreeNode2String eliminando){
+        AVLTreeNode2String eliminado=eliminar(eliminando);
+        AVLTreeNode2String parent=eliminando.parent;
+        rebalance(parent);
+        return eliminado;
+    }
     private AVLTreeNode2String next(AVLTreeNode2String n){
         if(n.right!=null){
             return leftDescendent(n.right);
@@ -205,7 +239,70 @@ public class BinarySearchTree_AVL2<T> {
     public Stack<T> postOrder(){
         return postOrder(this.root);
     }
+    public void rebalance(AVLTreeNode2String nodo){
+        AVLTreeNode2String parent=null;
+        if(nodo!=null){
+            parent=nodo.parent;
+        }
+        
+        
+        if(height(nodo.left)>height(nodo.right)+1){
+            //rebalance right
+            rebalanceRight(nodo);
+        }
+        if(height(nodo.right)>height(nodo.left)+1){
+            //rebalance left
+            rebalanceLeft(nodo);
+            
+        }
+            
+        
+        
+        //adjust height
+        adjustHeight(nodo);
+        if(parent!=null){
+            rebalance(parent);
+        }
+        
+    }
+    public void adjustHeight(AVLTreeNode2String nodo){
+        
+        nodo.height=1+max(height(nodo.left),height(nodo.right));
+        
+        
+    }
+    public void rebalanceRight(AVLTreeNode2String nodo){
+        AVLTreeNode2String izquierdo=nodo.left;
+        
+        if(height(izquierdo.right)>height(izquierdo.left)){
+            rotationLeft(izquierdo);
+        }
+        rotationRight(nodo);
+    }
+    public void rebalanceLeft(AVLTreeNode2String nodo){
+        AVLTreeNode2String derecho=nodo.right;
+        
+        if(height(derecho.left)>height(derecho.right)){
+            rotationRight(derecho);
+        }
+        rotationLeft(nodo);
+    }
+    public void rotationRight(AVLTreeNode2String nodo){
+        AVLTreeNode2String aux = nodo.left;
+        nodo.left = aux.right;
+        aux.right = nodo;
+        adjustHeight(nodo);
+        adjustHeight(aux);
+        
+    }
+    public void rotationLeft(AVLTreeNode2String nodo){
+        AVLTreeNode2String aux = nodo.right;
+        nodo.right = aux.left;
+        aux.left = nodo;
+        adjustHeight(nodo);
+        adjustHeight(aux);
+    }    
     
 }
- 
+    
 
