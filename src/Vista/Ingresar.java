@@ -27,14 +27,15 @@ public class Ingresar extends javax.swing.JFrame {
      * Creates new form Ingresar
      */
     private Usuario usu;
+    
     private AdministrarUsuario admiusu;
     public static Principal princi;
     public static AdministrarVehiculo admivehi;
     public static LinkedList<Vehiculo> listaVehiculos = new LinkedList<>();
     public Ingresar() {
         initComponents();
-        usu= new Usuario();
-        admiusu= new AdministrarUsuario();
+        usu= new Usuario();        
+        admiusu= new AdministrarUsuario();       
         princi = new Principal();
         admivehi=new AdministrarVehiculo();
     }

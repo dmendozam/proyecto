@@ -31,6 +31,7 @@ public class AdministrarVehiculo {
         arbolDeVehiculos= new BinarySearchTree_AVL2<>();
         arbolDeVehiculosAlquilados= new BinarySearchTree_AVL2<>();
         arbolDeVehiculosPlacas= new BinarySearchTree_AVL2<>();
+        
         llenarVehiculosIniciales();
     }
     public AdministrarVehiculo(LinkedList<Vehiculo> listaDeVehiculos,LinkedList<Vehiculo> vehiculosAlquilados, BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeVehiculos,BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosAlquilados) {
@@ -42,13 +43,11 @@ public class AdministrarVehiculo {
         llenarVehiculosIniciales();
     }
     private void llenarVehiculosIniciales(){
-        agregarVehiculo(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "ZZZ999",7));
-        agregarVehiculo(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "ZZZ998",5));
-        agregarVehiculo(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "ZZZ997",7));
-        agregarVehiculo(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
-        agregarVehiculo(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
+        
         agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "m",7));
+        
         agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "t",5));
+        System.out.println("hola");
         agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "f",5));
         agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "s",5));
         agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "a",7));
@@ -82,6 +81,7 @@ public class AdministrarVehiculo {
             }
             else{
                 BinarySearchTree_AVL2<Vehiculo>nuevaReferencia=new BinarySearchTree_AVL2(new AVLTreeNode2String(v,v.getPlaca()));
+                
                 arbolDeReferencias.insertarAVL(new AVLTreeNode2String(nuevaReferencia,v.getReferencia()));
                 sizeArbol++;
             }
@@ -90,8 +90,9 @@ public class AdministrarVehiculo {
             BinarySearchTree_AVL2<Vehiculo>nuevaReferencia=new BinarySearchTree_AVL2(new AVLTreeNode2String(v,v.getPlaca()));
             
             BinarySearchTree_AVL2<BinarySearchTree_AVL2> nuevaMarca= new BinarySearchTree_AVL2(new AVLTreeNode2String(nuevaReferencia, v.getReferencia()));
-            
+            System.out.println("hola2");
             arbolDeVehiculos.insertarAVL(new AVLTreeNode2String(nuevaMarca, v.getMarca()));
+            System.out.println("hola3");
             sizeArbol++;
         }
     }

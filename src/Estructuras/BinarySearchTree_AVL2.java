@@ -33,7 +33,7 @@ public class BinarySearchTree_AVL2<T> {
         
         sentinela=this.root;
         if(sentinela==null){
-            System.out.println("hoy");
+            //System.out.println("hoy");
             return null;
         }
         boolean flag=false;
@@ -86,7 +86,7 @@ public class BinarySearchTree_AVL2<T> {
                         sentinela=sentinela.right;
                     }
                 }
-                if(sentinela.identificador.compareTo(insertado.identificador)>0){
+                else if(sentinela.identificador.compareTo(insertado.identificador)>0){
                     if(sentinela.left==null){
                         sentinela.left=insertado;
                         insertado.parent=sentinela;
@@ -103,12 +103,14 @@ public class BinarySearchTree_AVL2<T> {
                     return null;
                 }
                 
+                
             }
             return insertado;
         }   
     }
     public void insertarAVL(AVLTreeNode2String nodo){
         AVLTreeNode2String insertado =insertar(nodo);
+        System.out.println(insertado);
         rebalance(insertado);
         
     }
@@ -127,7 +129,7 @@ public class BinarySearchTree_AVL2<T> {
                 //System.out.println("hola8");
                     if(eliminando==root){
                         root=eliminando.left;
-                        eliminando.parent=null;
+                        if(eliminando.left!=null)eliminando.left.parent=null;
                     }
                     else{
                         if(eliminando==eliminando.parent.left){
@@ -195,8 +197,9 @@ public class BinarySearchTree_AVL2<T> {
     }
     public AVLTreeNode2String eliminarAVL (AVLTreeNode2String eliminando){
         AVLTreeNode2String eliminado=eliminar(eliminando);
-        AVLTreeNode2String parent=eliminando.parent;
-        rebalance(parent);
+        if(eliminando!=null){AVLTreeNode2String parent=eliminando.parent;
+            if(parent!=null)rebalance(parent);
+        }
         return eliminado;
     }
     private AVLTreeNode2String next(AVLTreeNode2String n){
