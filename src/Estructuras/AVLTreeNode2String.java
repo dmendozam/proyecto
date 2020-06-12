@@ -17,15 +17,17 @@ public class AVLTreeNode2String<T>{
     public AVLTreeNode2String left;
     public AVLTreeNode2String right;
     public AVLTreeNode2String parent;
+    public LinkedList<AVLTreeNode2String<Vehiculo>> listaEquivalentes;
    
     
-    public AVLTreeNode2String(T key,AVLTreeNode2String parent,String identificador, AVLTreeNode2String left, AVLTreeNode2String right){
+    public AVLTreeNode2String(T key,AVLTreeNode2String parent,String identificador, AVLTreeNode2String left, AVLTreeNode2String right,LinkedList<AVLTreeNode2String<Vehiculo>> listaEquivalentes){
         this.key = key;
         this.identificador=identificador;
         this.left = left;
         this.right = right;
         this.height = 0;
         this.parent=parent;
+        this.listaEquivalentes=listaEquivalentes;
     }
     
     public AVLTreeNode2String(T key,String identificador, int height){
@@ -35,6 +37,7 @@ public class AVLTreeNode2String<T>{
         this.right = null;
         this.height = height;
         this.parent=null;
+        this.listaEquivalentes=null;
     }
     
     public AVLTreeNode2String(T key,String identificador){
@@ -44,6 +47,7 @@ public class AVLTreeNode2String<T>{
         this.right = null;
         this.height = 0;
         this.parent=null;
+        this.listaEquivalentes=new LinkedList<AVLTreeNode2String<Vehiculo>>();
     }
     
     public AVLTreeNode2String(){
@@ -53,5 +57,6 @@ public class AVLTreeNode2String<T>{
         this.right = null;
         this.height = 0;
         this.parent= null;
+        this.listaEquivalentes=null;
     }
 }

@@ -15,6 +15,7 @@ import static java.lang.Integer.max;
 //OPERACIONES DENTRO DE UN SOLO ARBOL
 public class BinarySearchTree_AVL2<T> {
     public AVLTreeNode2String<T> root;
+    public int size;
     public BinarySearchTree_AVL2(AVLTreeNode2String root) {
         this.root = root;
     }    
@@ -66,6 +67,7 @@ public class BinarySearchTree_AVL2<T> {
         AVLTreeNode2String sentinela= root;
         if(sentinela==null){
             this.root=insertado;
+            size++;
             return root;
             
             //System.out.println("hoy2");
@@ -77,7 +79,7 @@ public class BinarySearchTree_AVL2<T> {
                     if(sentinela.right==null){
                         sentinela.right=insertado;
                         insertado.parent=sentinela;
-                        
+                        size++;
                         
                         flag=true;
                         
@@ -90,7 +92,7 @@ public class BinarySearchTree_AVL2<T> {
                     if(sentinela.left==null){
                         sentinela.left=insertado;
                         insertado.parent=sentinela;
-                        
+                        size++;
                         
                         flag=true;
                         
@@ -129,17 +131,20 @@ public class BinarySearchTree_AVL2<T> {
                 //System.out.println("hola8");
                     if(eliminando==root){
                         root=eliminando.left;
+                        size--;
                         if(eliminando.left!=null)eliminando.left.parent=null;
                     }
                     else{
                         if(eliminando==eliminando.parent.left){
                             if(eliminando.left!=null)eliminando.left.parent=eliminando.parent;
                             eliminando.parent.left=eliminando.left;
+                            size--;
                    
                         }
-                        if(eliminando==eliminando.parent.right){
+                        else if(eliminando==eliminando.parent.right){
                             if(eliminando.left!=null)eliminando.left.parent=eliminando.parent;
                             eliminando.parent.right=eliminando.left;
+                            size--; 
                     
                         }
                     }   
@@ -184,7 +189,7 @@ public class BinarySearchTree_AVL2<T> {
                     if(x.right!=null)x.right.parent=x;
                     if(x.left!=null)x.left.parent=x;
                 }
-                
+                size--;
                 
                 
                 
@@ -246,7 +251,7 @@ public class BinarySearchTree_AVL2<T> {
         AVLTreeNode2String parent=null;
         if(nodo!=null){
             parent=nodo.parent;
-        }
+        
         
         
         if(height(nodo.left)>height(nodo.right)+1){
@@ -266,7 +271,7 @@ public class BinarySearchTree_AVL2<T> {
         if(parent!=null){
             rebalance(parent);
         }
-        
+        }
     }
     public void adjustHeight(AVLTreeNode2String nodo){
         
