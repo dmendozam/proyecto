@@ -369,16 +369,6 @@ public class BuscarPanel extends javax.swing.JPanel {
                 JButton btn = (JButton) value;
                 if(btn.getName().equals("editar")){
                     String alquilado = String.valueOf(jTable1.getValueAt(row, 7));
-                    if("si".equals(alquilado)){
-                        String[] datos = new String[8];
-                        for(int i=0; i<8; i++){
-                            datos[i] = String.valueOf(jTable1.getValueAt(row, i));
-                        }
-                        Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
-                        //añadir al de alquilados
-                        admivehi.borrarVehiculoArbol(datos[1],datos[2]);
-                        admivehi.agregarVehiculoArbol(v);
-                    }
                     if("no".equals(alquilado)){
                         String[] datos = new String[8];
                         for(int i=0; i<8; i++){
@@ -386,6 +376,16 @@ public class BuscarPanel extends javax.swing.JPanel {
                         }
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
                         //añadir al de NO alquilados
+                        admivehi.borrarVehiculoArbolConPlaca(datos[1],datos[2],datos[0]);
+                        admivehi.agregarVehiculoArbol(v);
+                    }
+                    if("si".equals(alquilado)){
+                        String[] datos = new String[8];
+                        for(int i=0; i<8; i++){
+                            datos[i] = String.valueOf(jTable1.getValueAt(row, i));
+                        }
+                        Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
+                        //añadir al de alquilados
                         //admivehi.borrarVehiculoArbolAlquilados(v);
                         //admivehi.agregarVehiculoArbolAlquilados(v);
                     }

@@ -47,7 +47,7 @@ public class AdministrarVehiculo {
         agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "m",7));
         
         agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "t",5));
-        System.out.println("hola");
+        //System.out.println("hola");
         agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "f",5));
         agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "s",5));
         agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "a",7));
@@ -224,6 +224,54 @@ public class AdministrarVehiculo {
                             return null;
                         }
                         
+                    }
+                    else{
+                        return null;
+                    }
+                }    
+                else{
+                    return null;
+                }
+            }
+        
+        }
+        else{
+            return null;
+        }
+    }
+    
+    public Vehiculo borrarVehiculoArbolConPlaca(String marca, String referencia, String placa){
+        AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias=arbolDeVehiculos.contains(marca);
+        if(nodoArbolDeReferencias!=null){
+            
+            //System.out.println("hola");
+            BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeReferencias=nodoArbolDeReferencias.key;
+           //System.out.println(nodoArbolDeReferencias.identificador);
+            if(arbolDeReferencias==null){
+                
+                return null;
+            }
+            else{
+                AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDePlacas=arbolDeReferencias.contains(referencia);
+                if(nodoArbolDePlacas!=null){
+                    //System.out.println(nodoArbolDePlacas.identificador);
+                    BinarySearchTree_AVL2<Vehiculo> arbolDePlacas=nodoArbolDePlacas.key;
+                    if(arbolDePlacas!=null){
+                        //System.out.println("hola4");
+                        AVLTreeNode2String nodoAEliminar=arbolDePlacas.contains(placa);
+                        if(nodoAEliminar!=null){
+                            //System.out.println(nodoAEliminar.identificador);
+                            AVLTreeNode2String<Vehiculo> nodoEliminado =arbolDePlacas.eliminarAVL(nodoAEliminar);
+                            if(nodoEliminado!=null){
+                                return nodoEliminado.key;
+                            }
+                            else{
+                                return null;
+                            }
+                        }
+                        else{
+                            return null;
+                        }
                     }
                     else{
                         return null;
