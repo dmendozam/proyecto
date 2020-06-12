@@ -127,11 +127,7 @@ public class AdministrarVehiculo {
     public void agregarVehiculoArbolAlquilados(Vehiculo v){
         AVLTreeNode2String<Vehiculo> aIngresar= new AVLTreeNode2String<>(v, v.getPlaca());
         arbolDeVehiculosAlquilados.insertarAVL(aIngresar);
-    }    
-    
-    public void agregarVehiculoArbolPlacas(Vehiculo v){
-        arbolDeVehiculosPlacas.insertarAVL(new AVLTreeNode2String(v, v.getPlaca()));
-    }
+    } 
     
     public Stack<Vehiculo> buscarVehiculoArbolPlacas (String placa){
         AVLTreeNode2String<Vehiculo> coincide = arbolDeVehiculosPlacas.contains(placa);
@@ -221,6 +217,12 @@ public class AdministrarVehiculo {
         return busqueda;
     }
     
+    public Stack<Vehiculo> buscarVehiculoAlquiladosPlaca (String placa){
+        Stack<Vehiculo> busqueda = new Stack<>();
+        
+        
+        return busqueda;
+    }
     
     public Vehiculo borrarVehiculoArbol(String marca, String referencia){
         AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias=arbolDeVehiculos.contains(marca);
