@@ -322,13 +322,13 @@ public class AdministrarVehiculo {
     
     public Vehiculo borrarVehiculoArbolAlquilados(String placa){
         
-        AVLTreeNode2String<Vehiculo> nodoEliminado =arbolDeVehiculosAlquilados.contains(placa);
-        arbolDeVehiculosAlquilados.eliminarAVL(nodoEliminado);
+        AVLTreeNode2String<Vehiculo> eliminado =arbolDeVehiculosAlquilados.contains(placa);
+        arbolDeVehiculosAlquilados.eliminarAVL(eliminado);
         
-        if(nodoEliminado!=null){
+        if(eliminado!=null){
             System.out.println("gg");
-            Vehiculo saliente=nodoEliminado.key;
-            return saliente;
+            
+            return eliminado.key;
         }
         else{
             return null;
