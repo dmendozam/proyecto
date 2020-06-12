@@ -174,6 +174,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
         System.out.println(admivehi.vehiculosAlquilados.size());
         */
         Vehiculo vehiculoAEliminar =admivehi.borrarVehiculoArbol(marca, referencia);
+        
         //Vehiculo alquilado=colaMarca.dequeue();
         if(vehiculoAEliminar==null){
                 JOptionPane.showMessageDialog(this, "No hay un vehiculo de esta marca y referencia disponible para alquilar");
@@ -194,6 +195,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
         Vehiculo devuelto= admivehi.borrarVehiculoArbolAlquilados(placaTF.getText());
         if(devuelto!=null){
             admivehi.agregarVehiculoArbol(devuelto);
+            
             JOptionPane.showMessageDialog(this, "Se ha devuelto el vehiculo "+devuelto.getMarca()+" "+devuelto.getReferencia()+" "+devuelto.getPlaca());
         
         }
