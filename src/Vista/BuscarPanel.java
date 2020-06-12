@@ -277,7 +277,8 @@ public class BuscarPanel extends javax.swing.JPanel {
             String valor = jTextFieldValor.getText().replace(' ', '-');
             switch (tipo){
                 case "placa":
-                    pilaVehiculos = admivehi.buscarVehiculoArbolPlaca2(valor);
+                    pilaVehiculos = admivehi.buscarVehiculoArbolPlacas(valor);
+                    //pilaVehiculos = admivehi.buscarVehiculoArbolPlaca2(valor);
                     break;
                 case "marca":
                     pilaVehiculos = admivehi.buscarVehiculoArbolMarca(valor);
