@@ -375,8 +375,8 @@ public class BuscarPanel extends javax.swing.JPanel {
                             datos[i] = String.valueOf(jTable1.getValueAt(row, i));
                         }
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
-                        AVLTreeNode2String vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
-                        if(vehiPlaca!=null){
+                        AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
+                        /*if(vehiPlaca!=null){
                             AVLTreeNode2String vehiArbDeArb = (AVLTreeNode2String) vehiPlaca.listaEquivalentes.top.key;
                             AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolReferencias=new AVLTreeNode2String();
                             nodoArbolReferencias=admivehi.arbolDeVehiculos.contains(v.getMarca());
@@ -387,11 +387,13 @@ public class BuscarPanel extends javax.swing.JPanel {
                                     BinarySearchTree_AVL2 arbolDePlacas=nodoArbolDePlacas.key;
                                     arbolDePlacas.eliminarAVL(vehiArbDeArb);
                                 }
-                            admivehi.arbolDeVehiculosPlacas.eliminarAVL(vehiPlaca);
-                            admivehi.agregarVehiculoArbol(v);
                             }
-                        }
+                        }*/
+                        admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
+                        //admivehi.arbolDeVehiculosPlacas.eliminarAVL(vehiPlaca);
+                        admivehi.agregarVehiculoArbol(v);
                     }
+
                     if("si".equals(alquilado)){
                         String[] datos = new String[8];
                         for(int i=0; i<8; i++){
@@ -412,8 +414,8 @@ public class BuscarPanel extends javax.swing.JPanel {
                             datos[i] = String.valueOf(jTable1.getValueAt(row, i));
                         }
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
-                        AVLTreeNode2String vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
-                        if(vehiPlaca!=null){
+                        AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
+                        /*if(vehiPlaca!=null){
                             AVLTreeNode2String vehiArbDeArb = (AVLTreeNode2String) vehiPlaca.listaEquivalentes.top.key;
                             AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolReferencias=new AVLTreeNode2String();
                             nodoArbolReferencias=admivehi.arbolDeVehiculos.contains(v.getMarca());
@@ -424,10 +426,13 @@ public class BuscarPanel extends javax.swing.JPanel {
                                     BinarySearchTree_AVL2 arbolDePlacas=nodoArbolDePlacas.key;
                                     arbolDePlacas.eliminarAVL(vehiArbDeArb);
                                 }
-                            admivehi.arbolDeVehiculosPlacas.eliminarAVL(vehiPlaca);
+                                
                             }
-                        }
+                        }*/
+                        admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
+                        //admivehi.arbolDeVehiculosPlacas.eliminarAVL(vehiPlaca);
                     }
+                    
                     if("si".equals(alquilado)){
                         String[] datos = new String[8];
                         for(int i=0; i<8; i++){

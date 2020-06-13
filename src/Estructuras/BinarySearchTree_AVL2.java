@@ -113,7 +113,7 @@ public class BinarySearchTree_AVL2<T> {
     public void insertarAVL(AVLTreeNode2String nodo){
         AVLTreeNode2String insertado =insertar(nodo);
         System.out.println(insertado);
-        rebalance(insertado);
+        //rebalance(insertado);
         
     }
     public AVLTreeNode2String eliminar(AVLTreeNode2String eliminando){
@@ -203,7 +203,9 @@ public class BinarySearchTree_AVL2<T> {
     public AVLTreeNode2String eliminarAVL (AVLTreeNode2String eliminando){
         AVLTreeNode2String eliminado=eliminar(eliminando);
         if(eliminando!=null){AVLTreeNode2String parent=eliminando.parent;
-            if(parent!=null)rebalance(parent);
+            if(parent!=null){
+                //rebalance(parent);
+            }
         }
         return eliminado;
     }

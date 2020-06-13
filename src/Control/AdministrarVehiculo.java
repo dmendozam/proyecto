@@ -294,6 +294,8 @@ public class AdministrarVehiculo {
                         if(nodoAEliminar!=null){
                             //System.out.println(nodoAEliminar.identificador);
                             AVLTreeNode2String<Vehiculo> nodoEliminado =arbolDePlacas.eliminarAVL(nodoAEliminar);
+                            AVLTreeNode2String<Vehiculo> nodoEliminadoPlacas;
+                            if(nodoEliminado!=null)nodoEliminadoPlacas=arbolDeVehiculosPlacas.eliminarAVL(nodoEliminado.listaEquivalentes.top.key);
                             if(nodoEliminado!=null){
                                 return nodoEliminado.key;
                             }
