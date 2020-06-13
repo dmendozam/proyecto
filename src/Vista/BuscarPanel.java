@@ -322,7 +322,7 @@ public class BuscarPanel extends javax.swing.JPanel {
                     }
 
                     if("Si".equals(alquilado)){
-                        JOptionPane.showMessageDialog(this, "No es posible eliminar un vehículo alquilado");
+                        JOptionPane.showMessageDialog(this, "No es posible editar un vehículo alquilado");
                     }
                     
                 }if(btn.getName().equals("eliminar")){
