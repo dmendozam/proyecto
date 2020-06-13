@@ -293,6 +293,31 @@ public class BuscarPanel extends javax.swing.JPanel {
                 JButton btn = (JButton) value;
                 if(btn.getName().equals("editar")){
                     String alquilado = String.valueOf(jTable1.getValueAt(row, 7));
+                    if("no".equals(alquilado)){
+                        String[] datos = new String[8];
+                        for(int i=0; i<8; i++){
+                            datos[i] = String.valueOf(jTable1.getValueAt(row, i));
+                        }
+                        Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
+                        AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
+                        /*if(vehiPlaca!=null){
+                            AVLTreeNode2String vehiArbDeArb = (AVLTreeNode2String) vehiPlaca.listaEquivalentes.top.key;
+                            AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolReferencias=new AVLTreeNode2String();
+                            nodoArbolReferencias=admivehi.arbolDeVehiculos.contains(v.getMarca());
+                            if(nodoArbolReferencias!=null){
+                                BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeReferencias=nodoArbolReferencias.key;
+                                AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDePlacas= arbolDeReferencias.contains(v.getReferencia());
+                                if(nodoArbolDePlacas!=null){
+                                    BinarySearchTree_AVL2 arbolDePlacas=nodoArbolDePlacas.key;
+                                    arbolDePlacas.eliminarAVL(vehiArbDeArb);
+                                }
+                            }
+                        }*/
+                        admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
+                        //admivehi.arbolDeVehiculosPlacas.eliminarAVL(vehiPlaca);
+                        admivehi.agregarVehiculoArbol(v);
+                    }
+
                     if("si".equals(alquilado)){
                         String[] datos = new String[8];
                         for(int i=0; i<8; i++){
@@ -300,22 +325,47 @@ public class BuscarPanel extends javax.swing.JPanel {
                         }
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
                         //añadir al de alquilados
-                        admivehi.borrarVehiculoArbol(datos[1],datos[2]);
-                        admivehi.agregarVehiculoArbol(v);
+                        admivehi.borrarVehiculoArbolAlquilados(v.getPlaca());
+                        admivehi.agregarVehiculoArbolAlquilados(v);
                     }
+                }if(btn.getName().equals("eliminar")){
+                    modelo.removeRow(row);
+                    //ir y eliminar con ayuda de la placa
+                    String alquilado = String.valueOf(jTable1.getValueAt(row, 7));
                     if("no".equals(alquilado)){
                         String[] datos = new String[8];
                         for(int i=0; i<8; i++){
                             datos[i] = String.valueOf(jTable1.getValueAt(row, i));
                         }
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
-                        //añadir al de NO alquilados
-                        //admivehi.borrarVehiculoArbolAlquilados(v);
-                        //admivehi.agregarVehiculoArbolAlquilados(v);
+                        AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
+                        /*if(vehiPlaca!=null){
+                            AVLTreeNode2String vehiArbDeArb = (AVLTreeNode2String) vehiPlaca.listaEquivalentes.top.key;
+                            AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolReferencias=new AVLTreeNode2String();
+                            nodoArbolReferencias=admivehi.arbolDeVehiculos.contains(v.getMarca());
+                            if(nodoArbolReferencias!=null){
+                                BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeReferencias=nodoArbolReferencias.key;
+                                AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDePlacas= arbolDeReferencias.contains(v.getReferencia());
+                                if(nodoArbolDePlacas!=null){
+                                    BinarySearchTree_AVL2 arbolDePlacas=nodoArbolDePlacas.key;
+                                    arbolDePlacas.eliminarAVL(vehiArbDeArb);
+                                }
+                                
+                            }
+                        }*/
+                        admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
+                        //admivehi.arbolDeVehiculosPlacas.eliminarAVL(vehiPlaca);
                     }
-                }if(btn.getName().equals("eliminar")){
-                    modelo.removeRow(row);
-                    //ir y eliminar con ayuda de la placa
+                    
+                    if("si".equals(alquilado)){
+                        String[] datos = new String[8];
+                        for(int i=0; i<8; i++){
+                            datos[i] = String.valueOf(jTable1.getValueAt(row, i));
+                        }
+                        Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
+                        //añadir al de alquilados
+                        admivehi.borrarVehiculoArbolAlquilados(v.getPlaca());
+                    }
                 }
             } 
         }

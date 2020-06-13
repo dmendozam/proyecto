@@ -203,7 +203,9 @@ public class BinarySearchTree_AVL2<T> {
     public AVLTreeNode2String eliminarAVL (AVLTreeNode2String eliminando){
         AVLTreeNode2String eliminado=eliminar(eliminando);
         if(eliminando!=null){AVLTreeNode2String parent=eliminando.parent;
-            if(parent!=null)rebalance(parent);
+            if(parent!=null){
+                //rebalance(parent);
+            }
         }
         return eliminado;
     }

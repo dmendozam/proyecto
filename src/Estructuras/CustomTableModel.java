@@ -15,7 +15,7 @@ public class CustomTableModel extends DefaultTableModel{
 
     @Override
     public boolean isCellEditable(int row, int column) {
-        if(column == 0 || column == 8 || column == 9)
+        if(column == 0 || column == 7 || column == 8 || column == 9)
             return false;
         else
             return true;
