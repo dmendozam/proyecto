@@ -277,6 +277,54 @@ public class AdministrarVehiculo {
         }
     }
     
+    public Vehiculo borrarVehiculoArbolConPlaca(String marca, String referencia, String placa){
+        AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias=arbolDeVehiculos.contains(marca);
+        if(nodoArbolDeReferencias!=null){
+            
+            //System.out.println("hola");
+            BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeReferencias=nodoArbolDeReferencias.key;
+           //System.out.println(nodoArbolDeReferencias.identificador);
+            if(arbolDeReferencias==null){
+                
+                return null;
+            }
+            else{
+                AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDePlacas=arbolDeReferencias.contains(referencia);
+                if(nodoArbolDePlacas!=null){
+                    //System.out.println(nodoArbolDePlacas.identificador);
+                    BinarySearchTree_AVL2<Vehiculo> arbolDePlacas=nodoArbolDePlacas.key;
+                    if(arbolDePlacas!=null){
+                        //System.out.println("hola4");
+                        AVLTreeNode2String nodoAEliminar=arbolDePlacas.contains(placa);
+                        if(nodoAEliminar!=null){
+                            //System.out.println(nodoAEliminar.identificador);
+                            AVLTreeNode2String<Vehiculo> nodoEliminado =arbolDePlacas.eliminarAVL(nodoAEliminar);
+                            if(nodoEliminado!=null){
+                                return nodoEliminado.key;
+                            }
+                            else{
+                                return null;
+                            }
+                        }
+                        else{
+                            return null;
+                        }
+                    }
+                    else{
+                        return null;
+                    }
+                }    
+                else{
+                    return null;
+                }
+            }
+        
+        }
+        else{
+            return null;
+        }
+    }
+    
     public Vehiculo borrarVehiculoArbolAlquilados(String placa){
         
         AVLTreeNode2String<Vehiculo> eliminado =arbolDeVehiculosAlquilados.contains(placa);
