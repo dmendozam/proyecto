@@ -25,6 +25,8 @@ public class AdministrarVehiculo {
     public BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeVehiculos;
     public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosAlquilados;
     public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosPlacas;
+    public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosMarcas;
+    public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosReferencias;
     
     
     
@@ -34,6 +36,9 @@ public class AdministrarVehiculo {
         arbolDeVehiculos= new BinarySearchTree_AVL2<>();
         arbolDeVehiculosAlquilados= new BinarySearchTree_AVL2<>();
         arbolDeVehiculosPlacas= new BinarySearchTree_AVL2<>();
+        arbolDeVehiculosMarcas= new BinarySearchTree_AVL2<>();
+        arbolDeVehiculosReferencias= new BinarySearchTree_AVL2<>();
+        
         
         
         llenarVehiculosIniciales();
