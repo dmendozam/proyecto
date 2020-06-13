@@ -257,8 +257,9 @@ public class AgregarPanel extends javax.swing.JPanel {
             int puestos = Integer.parseInt(puestosField.getText());
             Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
             //lista.pushBack(vehiculo);
-            size=admivehi.size();
+            //size=admivehi.size();
             admivehi.agregarVehiculoArbol(vehiculo);
+            JOptionPane.showMessageDialog(this,"Vehículo agregado correctamente");
             //admivehi.agregarVehiculo(vehiculo);
             //admiVehi.agregarVehiculo(vehiculo);
             
@@ -266,7 +267,7 @@ public class AgregarPanel extends javax.swing.JPanel {
             //lista.pushBack(vehiculo);
             //princi.admivehi.agregarVehiculo(vehiculo);
             //Ingresar.princi.setAdministrarVehiculos(admiVehi);
-            if(admivehi.size() == size){
+            /*if(admivehi.size() == size){
                 JOptionPane.showMessageDialog(this,"Error al agregar vehículo");
             }else{
                 JOptionPane.showMessageDialog(this,"Vehículo agregado correctamente");
@@ -275,7 +276,7 @@ public class AgregarPanel extends javax.swing.JPanel {
                 //princi.setAdministrarVehiculos(admiVehi);
                 //Ingresar.admivehi = admiVehi;
                 setNull();
-            }
+            }*/
          
         }    
          catch (Exception ex) {
