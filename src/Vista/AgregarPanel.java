@@ -258,7 +258,8 @@ public class AgregarPanel extends javax.swing.JPanel {
             Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
             //lista.pushBack(vehiculo);
             size=admivehi.size();
-            admivehi.agregarVehiculo(vehiculo);
+            admivehi.agregarVehiculoArbol(vehiculo);
+            //admivehi.agregarVehiculo(vehiculo);
             //admiVehi.agregarVehiculo(vehiculo);
             
             

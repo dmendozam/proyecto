@@ -244,7 +244,9 @@ public class BuscarPanel extends javax.swing.JPanel {
                     Vehiculo vehic = pilaVehiculos2.pop();
                     Object[] Datos = new Object[10];
                     JButton btn_editar = new JButton("Editar");
+                    btn_editar.setName("editar");
                     JButton btn_eliminar = new JButton("Eliminar");
+                    btn_eliminar.setName("eliminar");
                     Datos[0] = vehic.getPlaca();
                     Datos[1] = vehic.getMarca();
                     Datos[2] = vehic.getReferencia();
@@ -293,7 +295,7 @@ public class BuscarPanel extends javax.swing.JPanel {
                 JButton btn = (JButton) value;
                 if(btn.getName().equals("editar")){
                     String alquilado = String.valueOf(jTable1.getValueAt(row, 7));
-                    if("no".equals(alquilado)){
+                    if("No".equals(alquilado)){
                         String[] datos = new String[8];
                         for(int i=0; i<8; i++){
                             datos[i] = String.valueOf(jTable1.getValueAt(row, i));
@@ -301,12 +303,12 @@ public class BuscarPanel extends javax.swing.JPanel {
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
                         AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
                         /*if(vehiPlaca!=null){
-                            AVLTreeNode2String vehiArbDeArb = (AVLTreeNode2String) vehiPlaca.listaEquivalentes.top.key;
+                            AVLTreeNode2String<Vehiculo> vehiArbDeArb = (AVLTreeNode2String) vehiPlaca.listaEquivalentes.top.key;
                             AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolReferencias=new AVLTreeNode2String();
-                            nodoArbolReferencias=admivehi.arbolDeVehiculos.contains(v.getMarca());
+                            nodoArbolReferencias=admivehi.arbolDeVehiculos.contains(vehiArbDeArb.key.getMarca());
                             if(nodoArbolReferencias!=null){
                                 BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeReferencias=nodoArbolReferencias.key;
-                                AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDePlacas= arbolDeReferencias.contains(v.getReferencia());
+                                AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDePlacas= arbolDeReferencias.contains(vehiArbDeArb.key.getReferencia());
                                 if(nodoArbolDePlacas!=null){
                                     BinarySearchTree_AVL2 arbolDePlacas=nodoArbolDePlacas.key;
                                     arbolDePlacas.eliminarAVL(vehiArbDeArb);
@@ -314,25 +316,19 @@ public class BuscarPanel extends javax.swing.JPanel {
                             }
                         }*/
                         admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
-                        //admivehi.arbolDeVehiculosPlacas.eliminarAVL(vehiPlaca);
+                        //admivehi.arbolDeVehiculosPlacas.eliminar(vehiPlaca);
                         admivehi.agregarVehiculoArbol(v);
+                        setAdministrarVehiculo(admivehi);
                     }
 
-                    if("si".equals(alquilado)){
-                        String[] datos = new String[8];
-                        for(int i=0; i<8; i++){
-                            datos[i] = String.valueOf(jTable1.getValueAt(row, i));
-                        }
-                        Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
-                        //añadir al de alquilados
-                        admivehi.borrarVehiculoArbolAlquilados(v.getPlaca());
-                        admivehi.agregarVehiculoArbolAlquilados(v);
+                    if("Si".equals(alquilado)){
+                        JOptionPane.showMessageDialog(this, "No es posible eliminar un vehículo alquilado");
                     }
+                    
                 }if(btn.getName().equals("eliminar")){
-                    modelo.removeRow(row);
                     //ir y eliminar con ayuda de la placa
                     String alquilado = String.valueOf(jTable1.getValueAt(row, 7));
-                    if("no".equals(alquilado)){
+                    if("No".equals(alquilado)){
                         String[] datos = new String[8];
                         for(int i=0; i<8; i++){
                             datos[i] = String.valueOf(jTable1.getValueAt(row, i));
@@ -340,39 +336,39 @@ public class BuscarPanel extends javax.swing.JPanel {
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
                         AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
                         /*if(vehiPlaca!=null){
-                            AVLTreeNode2String vehiArbDeArb = (AVLTreeNode2String) vehiPlaca.listaEquivalentes.top.key;
+                            AVLTreeNode2String<Vehiculo> vehiArbDeArb = (AVLTreeNode2String) vehiPlaca.listaEquivalentes.top.key;
                             AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolReferencias=new AVLTreeNode2String();
-                            nodoArbolReferencias=admivehi.arbolDeVehiculos.contains(v.getMarca());
+                            nodoArbolReferencias=admivehi.arbolDeVehiculos.contains(vehiArbDeArb.key.getMarca());
                             if(nodoArbolReferencias!=null){
                                 BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeReferencias=nodoArbolReferencias.key;
-                                AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDePlacas= arbolDeReferencias.contains(v.getReferencia());
+                                AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDePlacas= arbolDeReferencias.contains(vehiArbDeArb.key.getReferencia());
                                 if(nodoArbolDePlacas!=null){
                                     BinarySearchTree_AVL2 arbolDePlacas=nodoArbolDePlacas.key;
-                                    arbolDePlacas.eliminarAVL(vehiArbDeArb);
+                                    arbolDePlacas.eliminar(vehiArbDeArb);
                                 }
                                 
                             }
+                            
                         }*/
                         admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
-                        //admivehi.arbolDeVehiculosPlacas.eliminarAVL(vehiPlaca);
+                        //admivehi.arbolDeVehiculosPlacas.eliminar(vehiPlaca);
+                        setAdministrarVehiculo(admivehi);
+                        modelo.removeRow(row);
                     }
                     
-                    if("si".equals(alquilado)){
-                        String[] datos = new String[8];
-                        for(int i=0; i<8; i++){
-                            datos[i] = String.valueOf(jTable1.getValueAt(row, i));
-                        }
-                        Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
-                        //añadir al de alquilados
-                        admivehi.borrarVehiculoArbolAlquilados(v.getPlaca());
+                    if("Si".equals(alquilado)){
+                        JOptionPane.showMessageDialog(this, "No es posible eliminar un vehículo alquilado");
                     }
                 }
             } 
         }
-        
+        //setAdministrarVehiculo(admivehi);
     }//GEN-LAST:event_jTable1MouseClicked
 
+    //}                                    
 
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBoxMarca;
