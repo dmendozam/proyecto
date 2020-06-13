@@ -139,9 +139,9 @@ public class Ingresar extends javax.swing.JFrame {
         }  
         
         //Leer el archivo
-        
+        long inicio = System.currentTimeMillis();
         try{
-            Scanner input = new Scanner(new File("MOCK_DATA_1000.txt"));
+            Scanner input = new Scanner(new File("MOCK_DATA_1.txt"));
             int numeroPlaca=0;
             
             
@@ -224,6 +224,8 @@ public class Ingresar extends javax.swing.JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        long fin = System.currentTimeMillis();
+        System.out.println("Tiempo: " + (fin-inicio));
         princi.setListaVehiculos(listaVehiculos);
         princi.setAdministrarVehiculos(admivehi);
         
