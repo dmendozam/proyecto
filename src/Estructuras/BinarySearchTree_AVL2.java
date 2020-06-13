@@ -113,7 +113,7 @@ public class BinarySearchTree_AVL2<T> {
     public void insertarAVL(AVLTreeNode2String nodo){
         AVLTreeNode2String insertado =insertar(nodo);
         System.out.println(insertado);
-        rebalance(insertado);
+        //rebalance(insertado);
         
     }
     public AVLTreeNode2String eliminar(AVLTreeNode2String eliminando){
@@ -235,6 +235,9 @@ public class BinarySearchTree_AVL2<T> {
     
     public Stack<T> postOrder(AVLTreeNode2String<T> nodo){
         Stack<T> salida = new Stack<>();
+        if(nodo==null){
+            return salida;
+        }
         if(nodo.left!=null){
             salida.push(postOrder(nodo.left));
         }
