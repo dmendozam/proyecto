@@ -129,15 +129,6 @@ public class AdministrarVehiculo {
         arbolDeVehiculosAlquilados.insertarAVL(aIngresar);
     } 
     
-    public Stack<Vehiculo> buscarVehiculoArbolPlacas (String placa){
-        AVLTreeNode2String<Vehiculo> coincide = arbolDeVehiculosPlacas.contains(placa);
-        Stack<Vehiculo> vehiculos = new Stack<>();
-        if (coincide != null){
-            vehiculos.push(coincide.key);
-        }
-        return vehiculos;
-    }
-    
     public AVLTreeNode2String<Vehiculo> buscarVehiculoArbol(String marca,String referencia){
         AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias=arbolDeVehiculos.contains(marca);
         if(nodoArbolDeReferencias!=null){
@@ -198,6 +189,15 @@ public class AdministrarVehiculo {
         return busqueda;
     }
     
+    public Stack<Vehiculo> buscarVehiculoArbolPlacas (String placa){
+        AVLTreeNode2String<Vehiculo> coincide = arbolDeVehiculosPlacas.contains(placa);
+        Stack<Vehiculo> vehiculos = new Stack<>();
+        if (coincide != null){
+            vehiculos.push(coincide.key);
+        }
+        return vehiculos;
+    }
+    
     public Stack<Vehiculo> buscarVehiculoArbolPlaca2 (String placa){
         Stack<Vehiculo> busqueda = new Stack<>();
         Stack<BinarySearchTree_AVL2> pilaDeMarcas = arbolDeVehiculos.postOrder();
@@ -218,9 +218,35 @@ public class AdministrarVehiculo {
     }
     
     public Stack<Vehiculo> buscarVehiculoAlquiladosPlaca (String placa){
+        AVLTreeNode2String<Vehiculo> coincide = arbolDeVehiculosAlquilados.contains(placa);
+        Stack<Vehiculo> vehiculos = new Stack<>();
+        if (coincide != null){
+            vehiculos.push(coincide.key);
+        }
+        
+        return vehiculos;
+    }
+    
+    public Stack<Vehiculo> buscarVehiculoAlquiladosModelo (String modelo){
         Stack<Vehiculo> busqueda = new Stack<>();
-        
-        
+        Stack<Vehiculo> vehiculos = arbolDeVehiculosAlquilados.postOrder();
+        while(!vehiculos.isEmpty()){
+            Vehiculo vehiculo = vehiculos.pop();
+            if(vehiculo.getReferencia().equals(modelo)){
+                busqueda.push(vehiculo);
+            }
+        }
+        return busqueda;
+    }
+    public Stack<Vehiculo> buscarVehiculoAlquiladosMarca(String marca){
+        Stack<Vehiculo> busqueda = new Stack<>();
+        Stack<Vehiculo> vehiculos = arbolDeVehiculosAlquilados.postOrder();
+        while(!vehiculos.isEmpty()){
+            Vehiculo vehiculo = vehiculos.pop();
+            if(vehiculo.getMarca().equals(marca)){
+                busqueda.push(vehiculo);
+            }
+        }
         return busqueda;
     }
     

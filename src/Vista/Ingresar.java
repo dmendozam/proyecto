@@ -141,7 +141,7 @@ public class Ingresar extends javax.swing.JFrame {
         //Leer el archivo
         
         try{
-            Scanner input = new Scanner(new File("MOCK_DATA_100000.txt"));
+            Scanner input = new Scanner(new File("MOCK_DATA_1000.txt"));
             int numeroPlaca=0;
             
             
@@ -215,8 +215,7 @@ public class Ingresar extends javax.swing.JFrame {
                 //System.out.println(vehiculo.getReferencia()+vehiculo.getMarca());
                 //System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
                 admivehi.agregarVehiculo(vehiculo);  //No quitar
-                //admivehi.agregarVehiculoArbol(vehiculo);
-                //admivehi.agregarVehiculoArbolPlacas(vehiculo);
+                admivehi.agregarVehiculoArbol(vehiculo);
                 
             }
             input.close();

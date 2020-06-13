@@ -23,80 +23,6 @@ public class BuscarPanel extends javax.swing.JPanel {
     String tipo=null;
     
     
-    public Stack<Vehiculo> Buscar(String tipo, String valor, LinkedList<Vehiculo> listaVehic){
-        Stack<Vehiculo> pilaVehiculos = new Stack<>();
-        int sizeInstante=listaVehic.size();
-        switch(tipo){
-            case "placa":
-                /*
-                for(int i=1; i<= listaVehic.size(); i++){
-                    Vehiculo vehiculo = listaVehic.valueAtPosition(i);
-                    if(vehiculo.getPlaca().toLowerCase().equals(valor.toLowerCase())){
-                        pilaVehiculos.push(vehiculo);
-                    }
-                }
-                */
-                int i=0;
-                for(int m=0;m<sizeInstante;m++){
-                    
-                    System.out.println(i); 
-                    //System.out.println(i);
-                    Vehiculo vehiculo = listaVehic.popFront();
-                    if(vehiculo.getPlaca().toLowerCase().equals(valor.toLowerCase())){
-                        pilaVehiculos.push(vehiculo);
-                    }
-                    i++;
-                }   
-                
-                break;
-            case "marca":
-                /*
-                for(int i=1; i<= listaVehic.size(); i++){
-                    Vehiculo vehiculo = listaVehic.valueAtPosition(i);
-                    if(vehiculo.getMarca().toLowerCase().equals(valor.toLowerCase())){
-                        pilaVehiculos.push(vehiculo);
-                    }
-                }
-                */
-                int j=0;
-                /*while(!listaVehic.isEmpty())*/for(int m=0;m<sizeInstante;m++){
-                    //System.out.println("Tamaño lista interior"+listaVehic.size());
-                    //System.out.println("marca"+j);
-                    //System.err.println(listaVehic.isEmpty());
-                    
-                    Vehiculo vehiculo = listaVehic.popFront();
-                    if(vehiculo.getMarca().toLowerCase().equals(valor.toLowerCase())){
-                        pilaVehiculos.push(vehiculo);
-                    }
-                    j++;
-                    //System.out.println("Tamaño lista interior"+listaVehic.size());
-                }
-                
-                break;
-            case "modelo":
-                /*
-                for(int i=1; i<= listaVehic.size(); i++){
-                    Vehiculo vehiculo = listaVehic.valueAtPosition(i);
-                    if(vehiculo.getReferencia().toLowerCase().equals(valor.toLowerCase())){
-                        pilaVehiculos.push(vehiculo);
-                    }
-                }
-                */
-                int k=0;
-                for(int m=0;m<sizeInstante;m++){
-                    //System.out.println(k);
-                    Vehiculo vehiculo = listaVehic.popFront();
-                    if(vehiculo.getReferencia().toLowerCase().equals(valor.toLowerCase())){
-                        pilaVehiculos.push(vehiculo);
-                    }
-                    k++;
-                }
-                
-                break;
-            }
-        return pilaVehiculos;
-    }
-   
     public BuscarPanel() {
         initComponents();
         this.jTable1.setVisible(false);
@@ -269,26 +195,23 @@ public class BuscarPanel extends javax.swing.JPanel {
             modelo.removeRow(i);
         }
         Stack<Vehiculo> pilaVehiculos = new Stack<>();
-        Stack<Vehiculo> pilaVehiculos2;
-        LinkedList<Vehiculo> list = new LinkedList(admivehi.listaDeVehiculos);
-        LinkedList<Vehiculo> list2 = new LinkedList(admivehi.vehiculosAlquilados);
+        Stack<Vehiculo> pilaVehiculos2 = new Stack<>();
         if(tipo!=null){
             
             String valor = jTextFieldValor.getText().replace(' ', '-');
             switch (tipo){
                 case "placa":
                     pilaVehiculos = admivehi.buscarVehiculoArbolPlacas(valor);
-                    //pilaVehiculos = admivehi.buscarVehiculoArbolPlaca2(valor);
+                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosPlaca(valor);
                     break;
                 case "marca":
                     pilaVehiculos = admivehi.buscarVehiculoArbolMarca(valor);
+                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosMarca(valor);
                     break;
                 case "modelo":
                     pilaVehiculos = admivehi.buscarVehiculoArbolModelo(valor);
+                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosModelo(valor);
             }
-            
-            //pilaVehiculos = Buscar(tipo, valor, list);
-            pilaVehiculos2 = Buscar(tipo,valor,list2);
             int coincidencias=pilaVehiculos.size()+pilaVehiculos2.size();
             
             System.out.println(coincidencias + " coincidencias");
