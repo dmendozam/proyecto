@@ -141,6 +141,7 @@ public class Ingresar extends javax.swing.JFrame {
         //Leer el archivo
         long inicio = System.currentTimeMillis();
         try{
+            //Scanner input = new Scanner(new File("MOCK_DATA_1.txt"));
             Scanner input = new Scanner(new File("MOCK_DATA_10000.txt"));
             int numeroPlaca=0;
             
