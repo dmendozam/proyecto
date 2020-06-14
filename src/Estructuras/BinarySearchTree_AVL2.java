@@ -5,6 +5,7 @@
  */
 package Estructuras;
 
+import Modelo.Vehiculo;
 import static java.lang.Integer.max;
 
 /**
@@ -112,7 +113,7 @@ public class BinarySearchTree_AVL2<T> {
     }
     public void insertarAVL(AVLTreeNode2String nodo){
         AVLTreeNode2String insertado =insertar(nodo);
-        System.out.println(insertado);
+        //System.out.println(insertado);
         //rebalance(insertado);
         
     }
@@ -252,6 +253,23 @@ public class BinarySearchTree_AVL2<T> {
     public Stack<T> postOrder(){
         return postOrder(this.root);
     }
+    public Queue<T> postOrder2(AVLTreeNode2String<T> nodo){
+        Queue<T> salida = new Queue<>();
+        if(nodo==null){
+            return salida;
+        }
+        if(nodo.left!=null){
+            salida.enqueue(postOrder2(nodo.left));
+        }
+        if(nodo.right!=null){
+            salida.enqueue(postOrder2(nodo.right));
+        }
+        salida.enqueue(nodo.key);
+        return salida;
+    }
+//    public Queue<T> postOrder2(){
+//        return postOrder2(this.root);
+//    }
     public void rebalance(AVLTreeNode2String nodo){
         AVLTreeNode2String parent=null;
         if(nodo!=null){
@@ -315,6 +333,10 @@ public class BinarySearchTree_AVL2<T> {
         adjustHeight(nodo);
         adjustHeight(aux);
     }    
+
+    public Queue<T> postOrder2() {
+        return postOrder2(this.root);
+    }
     
 }
     
