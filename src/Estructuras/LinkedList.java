@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class LinkedList<T> {
     public Nodo<T> top;
     public Nodo<T> tail;
-    private int size;
+    public int size;
 
     public LinkedList (LinkedList<T> lista){
         this.top = lista.top;
@@ -56,6 +56,17 @@ public class LinkedList<T> {
             this.top = nodo;
         }
         this.size++; 
+    }
+    
+    public void pushBack(LinkedList<T> lista2){
+        if(!this.isEmpty()){
+            this.tail.next = lista2.top;
+            this.tail = lista2.tail;
+        }else{
+            this.top = lista2.top;
+            this.tail = lista2.tail;
+        }
+        this.size = this.size+lista2.size();
     }
     
     public T popFront() {
