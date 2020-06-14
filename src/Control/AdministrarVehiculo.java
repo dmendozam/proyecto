@@ -90,9 +90,9 @@ public class AdministrarVehiculo {
                 BinarySearchTree_AVL2 arbolDePlacas=nodoArbolDePlacas.key;
                 //nodos equivalentes (POR AHORA SOLO PLACA)
                 AVLTreeNode2String insertadoArbol=new AVLTreeNode2String(v, v.getPlaca());
-                AVLTreeNode2String insertadoPlaca =new AVLTreeNode2String(v,v.getPlaca());
-                insertadoArbol.listaEquivalentes.pushFront(insertadoPlaca);
-                insertadoPlaca.listaEquivalentes.pushFront(insertadoArbol);
+                //AVLTreeNode2String insertadoPlaca =new AVLTreeNode2String(v,v.getPlaca());
+                //insertadoArbol.listaEquivalentes.pushFront(insertadoPlaca);
+                //insertadoPlaca.listaEquivalentes.pushFront(insertadoArbol);
                 
                 arbolDePlacas.insertarAVL(insertadoArbol);
                 //arbolDeVehiculosPlacas.insertarAVL(insertadoPlaca);
@@ -101,9 +101,9 @@ public class AdministrarVehiculo {
             }
             else{
                 AVLTreeNode2String insertadoArbol=new AVLTreeNode2String(v, v.getPlaca());
-                AVLTreeNode2String insertadoPlaca =new AVLTreeNode2String(v,v.getPlaca());
-                insertadoArbol.listaEquivalentes.pushFront(insertadoPlaca);
-                insertadoPlaca.listaEquivalentes.pushFront(insertadoArbol);
+                //AVLTreeNode2String insertadoPlaca =new AVLTreeNode2String(v,v.getPlaca());
+                //insertadoArbol.listaEquivalentes.pushFront(insertadoPlaca);
+                //insertadoPlaca.listaEquivalentes.pushFront(insertadoArbol);
                 BinarySearchTree_AVL2<Vehiculo>nuevaReferencia=new BinarySearchTree_AVL2(insertadoArbol);
                 
                 arbolDeReferencias.insertarAVL(new AVLTreeNode2String(nuevaReferencia,v.getReferencia()));
@@ -113,9 +113,9 @@ public class AdministrarVehiculo {
         }
         else{
             AVLTreeNode2String insertadoArbol=new AVLTreeNode2String(v, v.getPlaca());
-            AVLTreeNode2String insertadoPlaca =new AVLTreeNode2String(v,v.getPlaca());
-            insertadoArbol.listaEquivalentes.pushFront(insertadoPlaca);
-            insertadoPlaca.listaEquivalentes.pushFront(insertadoArbol);
+            //AVLTreeNode2String insertadoPlaca =new AVLTreeNode2String(v,v.getPlaca());
+            //insertadoArbol.listaEquivalentes.pushFront(insertadoPlaca);
+            //insertadoPlaca.listaEquivalentes.pushFront(insertadoArbol);
             
             BinarySearchTree_AVL2<Vehiculo>nuevaReferencia=new BinarySearchTree_AVL2(insertadoArbol);
             
@@ -372,8 +372,8 @@ public class AdministrarVehiculo {
                         //System.out.println(nodoAEliminar.identificador);
                         AVLTreeNode2String<Vehiculo> nodoEliminado =arbolDePlacas.eliminarAVL(nodoAEliminar);
                         //A CONTINUACIONELIMINAR EQUIVALENTE
-                        AVLTreeNode2String<Vehiculo> nodoEliminadoPlacas;
-                        if(nodoEliminado!=null)nodoEliminadoPlacas=arbolDeVehiculosPlacas.eliminarAVL(nodoEliminado.listaEquivalentes.top.key);
+                        //AVLTreeNode2String<Vehiculo> nodoEliminadoPlacas;
+                        //if(nodoEliminado!=null)nodoEliminadoPlacas=arbolDeVehiculosPlacas.eliminarAVL(nodoEliminado.listaEquivalentes.top.key);
                         
                         if(nodoEliminado!=null){
                             return nodoEliminado.key;
@@ -420,8 +420,8 @@ public class AdministrarVehiculo {
                         if(nodoAEliminar!=null){
                             //System.out.println(nodoAEliminar.identificador);
                             AVLTreeNode2String<Vehiculo> nodoEliminado =arbolDePlacas.eliminarAVL(nodoAEliminar);
-                            AVLTreeNode2String<Vehiculo> nodoEliminadoPlacas;
-                            if(nodoEliminado!=null)nodoEliminadoPlacas=arbolDeVehiculosPlacas.eliminarAVL(nodoEliminado.listaEquivalentes.top.key);
+                            //AVLTreeNode2String<Vehiculo> nodoEliminadoPlacas;
+                            //if(nodoEliminado!=null)nodoEliminadoPlacas=arbolDeVehiculosPlacas.eliminarAVL(nodoEliminado.listaEquivalentes.top.key);
                             if(nodoEliminado!=null){
                                 return nodoEliminado.key;
                             }

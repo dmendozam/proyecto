@@ -142,6 +142,11 @@ public class AlquilarPanel extends javax.swing.JPanel {
     
     private void alquilarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilarBotonActionPerformed
         // TODO add your handling code here:
+        
+        //este long para hacer la prueba de tiempo
+        long inicio = System.currentTimeMillis(); 
+        long fin;
+        
         String marca= marcaTF.getText();
         String referencia= referenciaTF.getText();
         /*int cantidadVehiculos= admivehi.size();
@@ -177,11 +182,25 @@ public class AlquilarPanel extends javax.swing.JPanel {
         
         //Vehiculo alquilado=colaMarca.dequeue();
         if(vehiculoAEliminar==null){
-                JOptionPane.showMessageDialog(this, "No hay un vehiculo de esta marca y referencia disponible para alquilar");
+            
+            //nuevo tiempo al acabar
+            fin = System.currentTimeMillis();
+            //calculo e impresion del tiempo
+            double tiempo = (double) (fin - inicio);
+            System.out.println(tiempo +" mili"); //imprimir tiempo
+            
+            JOptionPane.showMessageDialog(this, "No hay un vehiculo de esta marca y referencia disponible para alquilar");
         }
         else{
             //admivehi.agregarVehiculoArbolAlquilados(vehiculoAEliminar);
             admivehi.agregarVehiculoArbolAlquilados(vehiculoAEliminar);
+            
+            //nuevo tiempo al acabar
+            fin = System.currentTimeMillis();
+            //calculo e impresion del tiempo
+            double tiempo = (double) (fin - inicio);
+            System.out.println(tiempo +" mili"); //imprimir tiempo
+            
             JOptionPane.showMessageDialog(this,vehiculoAEliminar.getMarca()+" "+vehiculoAEliminar.getReferencia()+" "+vehiculoAEliminar.getPlaca());
         }
         
