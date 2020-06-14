@@ -112,7 +112,7 @@ public class BinarySearchTree_AVL2<T> {
     }
     public void insertarAVL(AVLTreeNode2String nodo){
         AVLTreeNode2String insertado =insertar(nodo);
-        System.out.println(insertado);
+        //System.out.println(insertado);
         //rebalance(insertado);
         
     }

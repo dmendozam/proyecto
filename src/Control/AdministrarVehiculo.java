@@ -124,7 +124,7 @@ public class AdministrarVehiculo {
             arbolDeVehiculos.insertarAVL(new AVLTreeNode2String(nuevaMarca, v.getMarca()));
             //System.out.println("hola3");
             
-            arbolDeVehiculosPlacas.insertarAVL(insertadoPlaca);
+            //arbolDeVehiculosPlacas.insertarAVL(insertadoPlaca);
             
             sizeArbol++;
         }

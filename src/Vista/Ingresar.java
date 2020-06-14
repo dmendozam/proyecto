@@ -141,7 +141,7 @@ public class Ingresar extends javax.swing.JFrame {
         //Leer el archivo
         
         try{
-            Scanner input = new Scanner(new File("MOCK_DATA_1000.txt"));
+            Scanner input = new Scanner(new File("MOCK_DATA_10000.txt"));
             int numeroPlaca=0;
             
             

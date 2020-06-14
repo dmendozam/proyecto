@@ -7,6 +7,7 @@ package Vista;
 
 import Control.AdministrarVehiculo;
 import Estructuras.LinkedList;
+import Estructuras.Stack;
 import Modelo.Vehiculo;
 import static Vista.Ingresar.princi;
 import javax.swing.JOptionPane;
@@ -247,6 +248,9 @@ public class AgregarPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        //este long para hacer la prueba de tiempo
+        long inicio = System.currentTimeMillis(); 
+        long fin;
         try{
             String placa = placaField.getText();
             Float kilom = Float.parseFloat(kilomField.getText());
@@ -256,10 +260,42 @@ public class AgregarPanel extends javax.swing.JPanel {
             int cilind = Integer.parseInt(cilindField.getText());
             int puestos = Integer.parseInt(puestosField.getText());
             Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
+            Stack<Vehiculo> pilaVehiculos = admivehi.buscarVehiculoArbolPlaca2(placa); //busca carros con esa placa
+            int cont = 0;
+            if(!pilaVehiculos.isEmpty()){
+                
+                //nuevo tiempo al acabar
+                fin = System.currentTimeMillis();
+                //calculo e impresion del tiempo
+                double tiempo = (double) (fin - inicio);
+                System.out.println(tiempo +" mili"); //imprimir tiempo
+                
+                JOptionPane.showMessageDialog(this,"Ya existe un vehículo con la placa " + placa);
+            }else{
+                admivehi.agregarVehiculoArbol(vehiculo);
+                Stack<Vehiculo> pilaVehiculosRevision = admivehi.buscarVehiculoArbolPlaca2(placa); //busca carros con esa placa
+                if(!pilaVehiculosRevision.isEmpty()){
+                    //nuevo tiempo al acabar
+                    fin = System.currentTimeMillis();
+                    //calculo e impresion del tiempo
+                    double tiempo = (double) (fin - inicio);
+                    System.out.println(tiempo +" mili"); //imprimir tiempo
+                    
+                    JOptionPane.showMessageDialog(this,"Vehículo agregado correctamente");
+                }else{
+                    //nuevo tiempo al acabar
+                    fin = System.currentTimeMillis();
+                    //calculo e impresion del tiempo
+                    double tiempo = (double) (fin - inicio);
+                    System.out.println(tiempo +" mili"); //imprimir tiempo
+                    
+                    JOptionPane.showMessageDialog(this,"Vehículo no agregado");
+                }
+            }
             //lista.pushBack(vehiculo);
             //size=admivehi.size();
-            admivehi.agregarVehiculoArbol(vehiculo);
-            JOptionPane.showMessageDialog(this,"Vehículo agregado correctamente");
+            //admivehi.agregarVehiculoArbol(vehiculo);
+            //JOptionPane.showMessageDialog(this,"Vehículo agregado correctamente");
             //admivehi.agregarVehiculo(vehiculo);
             //admiVehi.agregarVehiculo(vehiculo);
             

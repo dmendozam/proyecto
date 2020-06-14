@@ -285,6 +285,10 @@ public class BuscarPanel extends javax.swing.JPanel {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+        //este long para hacer la prueba de tiempo
+        long inicio = System.currentTimeMillis(); 
+        long fin;
+        
         int column = jTable1.getColumnModel().getColumnIndexAtX(evt.getX());
         int row = evt.getY()/jTable1.getRowHeight();
         
@@ -302,6 +306,8 @@ public class BuscarPanel extends javax.swing.JPanel {
                         }
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
                         AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
+                        //Stack<Vehiculo> vehiPlaca = admivehi.buscarVehiculoArbolPlaca2(v.getPlaca());
+                        //Vehiculo vehi = vehiPlaca.pop();
                         /*if(vehiPlaca!=null){
                             AVLTreeNode2String<Vehiculo> vehiArbDeArb = (AVLTreeNode2String) vehiPlaca.listaEquivalentes.top.key;
                             AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolReferencias=new AVLTreeNode2String();
@@ -315,10 +321,17 @@ public class BuscarPanel extends javax.swing.JPanel {
                                 }
                             }
                         }*/
+                        //admivehi.borrarVehiculoArbolConPlaca(vehi.getMarca(), vehi.getReferencia(), vehi.getPlaca());
                         admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
-                        //admivehi.arbolDeVehiculosPlacas.eliminar(vehiPlaca);
+                        admivehi.arbolDeVehiculosPlacas.eliminar(vehiPlaca);
                         admivehi.agregarVehiculoArbol(v);
                         setAdministrarVehiculo(admivehi);
+                        
+                        //nuevo tiempo al acabar
+                        fin = System.currentTimeMillis();
+                        //calculo e impresion del tiempo
+                        double tiempo = (double) (fin - inicio);
+                        System.out.println(tiempo +" mili"); //imprimir tiempo
                     }
 
                     if("Si".equals(alquilado)){
@@ -335,6 +348,8 @@ public class BuscarPanel extends javax.swing.JPanel {
                         }
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
                         AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
+                        //Stack<Vehiculo> vehiPlaca = admivehi.buscarVehiculoArbolPlaca2(v.getPlaca());
+                        //Vehiculo vehi = vehiPlaca.pop();
                         /*if(vehiPlaca!=null){
                             AVLTreeNode2String<Vehiculo> vehiArbDeArb = (AVLTreeNode2String) vehiPlaca.listaEquivalentes.top.key;
                             AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolReferencias=new AVLTreeNode2String();
@@ -350,10 +365,17 @@ public class BuscarPanel extends javax.swing.JPanel {
                             }
                             
                         }*/
+                        //admivehi.borrarVehiculoArbolConPlaca(vehi.getMarca(), vehi.getReferencia(), vehi.getPlaca());
                         admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
-                        //admivehi.arbolDeVehiculosPlacas.eliminar(vehiPlaca);
+                        admivehi.arbolDeVehiculosPlacas.eliminar(vehiPlaca);
                         setAdministrarVehiculo(admivehi);
                         modelo.removeRow(row);
+                        
+                        //nuevo tiempo al acabar
+                        fin = System.currentTimeMillis();
+                        //calculo e impresion del tiempo
+                        double tiempo = (double) (fin - inicio);
+                        System.out.println(tiempo +" mili"); //imprimir tiempo
                     }
                     
                     if("Si".equals(alquilado)){
