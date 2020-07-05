@@ -260,7 +260,7 @@ public class AgregarPanel extends javax.swing.JPanel {
             int cilind = Integer.parseInt(cilindField.getText());
             int puestos = Integer.parseInt(puestosField.getText());
             Vehiculo vehiculo = new Vehiculo(kilom,year,marca,ref,cilind,placa,puestos);
-            Stack<Vehiculo> pilaVehiculos = admivehi.buscarVehiculoArbolPlaca2(placa); //busca carros con esa placa
+            Stack<Vehiculo> pilaVehiculos = admivehi.buscarHashPlaca(placa);//busca carros con esa placa
             int cont = 0;
             if(!pilaVehiculos.isEmpty()){
                 
@@ -272,7 +272,8 @@ public class AgregarPanel extends javax.swing.JPanel {
                 
                 JOptionPane.showMessageDialog(this,"Ya existe un vehículo con la placa " + placa);
             }else{
-                admivehi.agregarVehiculoArbol(vehiculo);
+                admivehi.agregarVehiculoHashPlaca(vehiculo);
+                        
                 Stack<Vehiculo> pilaVehiculosRevision = admivehi.buscarVehiculoArbolPlaca2(placa); //busca carros con esa placa
                 if(!pilaVehiculosRevision.isEmpty()){
                     //nuevo tiempo al acabar
