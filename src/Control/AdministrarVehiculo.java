@@ -665,7 +665,7 @@ public class AdministrarVehiculo {
         Stack<Vehiculo> busqueda = new Stack<>();
         NodoHash<HashArray<Vehiculo>> sentinela=hashMarca.get((int) hashCode(marca),marca,0);
         if(sentinela==null){
-            return null;
+            return busqueda;
         }
         else{
             HashArray<Vehiculo> ha = sentinela.key;
@@ -681,7 +681,7 @@ public class AdministrarVehiculo {
         Stack<Vehiculo> busqueda = new Stack<>();
         NodoHash<HashArray<Vehiculo>> sentinela=hashReferencia.get((int) hashCode(referencia),referencia,0);
         if(sentinela==null){
-            return null;
+            return busqueda;
         }
         else{
             HashArray<Vehiculo> ha=sentinela.key;
