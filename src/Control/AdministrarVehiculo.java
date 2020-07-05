@@ -518,7 +518,7 @@ public class AdministrarVehiculo {
         for(int i = 0; i<n; i++){
             hashCode = hashCode + ((int)(arreglo[i])*(int)(Math.pow(3, n-(i+1))));
         }
-        return hashCode;
+        return Math.abs(hashCode);
     }  
     public int letraANumero(String ide){
         return 1;
