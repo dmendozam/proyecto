@@ -142,7 +142,7 @@ public class Ingresar extends javax.swing.JFrame {
         long inicio = System.currentTimeMillis();
         try{
             //Scanner input = new Scanner(new File("MOCK_DATA_1.txt"));
-            Scanner input = new Scanner(new File("MOCK_DATA_10000.txt"));
+            Scanner input = new Scanner(new File("MOCK_DATA_100000.txt"));
             int numeroPlaca=0;
             
             
@@ -216,7 +216,7 @@ public class Ingresar extends javax.swing.JFrame {
                 //System.out.println(vehiculo.getReferencia()+vehiculo.getMarca());
                 //System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
                 admivehi.agregarVehiculo(vehiculo);  //No quitar
-                admivehi.agregarVehiculoArbol(vehiculo);
+                //admivehi.agregarVehiculoArbol(vehiculo);
                 admivehi.agregarVehiculoHashMarca(vehiculo);
                 
             }
@@ -230,18 +230,23 @@ public class Ingresar extends javax.swing.JFrame {
         System.out.println("Tiempo: " + (fin-inicio));
         princi.setListaVehiculos(listaVehiculos);
         princi.setAdministrarVehiculos(admivehi);
+        /*System.err.println("sizeHash"+" "+admivehi.sizeHash);
+        int cantive=0;
         for(int k=0;k<admivehi.hashMarca.capacidad;k++){
             if(admivehi.hashMarca.arrprin[k]!=null){
-                System.out.print(admivehi.hashMarca.arrprin[k].identificador+" ");
+                System.out.print("La marca es "+admivehi.hashMarca.arrprin[k].identificador+" ");
                 for(int h=0;h<admivehi.hashMarca.arrprin[k].key.capacidad;h++){
-                    if(admivehi.hashMarca.arrprin[k].key.arrprin[h]!=null)System.out.println(admivehi.hashMarca.arrprin[k].key.arrprin[h].key.getReferencia()+" "+admivehi.hashMarca.arrprin[k].key.arrprin[h].key.getPlaca());
+                    if(admivehi.hashMarca.arrprin[k].key.arrprin[h]!=null){
+                        cantive++;
+                        System.out.println(cantive+" "+admivehi.hashMarca.arrprin[k].key.arrprin[h].key.getReferencia()+" "+admivehi.hashMarca.arrprin[k].key.arrprin[h].key.getPlaca());
+                    }
                 }
             }
             else{
                 System.out.println("null");
             }
             }
-        
+        */
         
         
         
