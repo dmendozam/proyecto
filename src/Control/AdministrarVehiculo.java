@@ -27,6 +27,10 @@ public class AdministrarVehiculo {
     public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosPlacas;
     public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosMarcas;
     public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosReferencias;
+    public HashArray<HashArray<Vehiculo>> hashMarca;
+    public HashArray<HashArray<Vehiculo>> hashReferencia;
+    
+    
     
     
     
@@ -477,5 +481,55 @@ public class AdministrarVehiculo {
     public int sizeArbol(){
         return sizeArbol;
     }
-    
+    public int letraANumero(String ide){
+        return 1;
+    }
+    public void agregarVehiculoHashMarca(Vehiculo insertado){
+        if(hashMarca.get(letraANumero(insertado.getMarca()),insertado.getMarca(),0)==null){
+            //crear hash marca
+            HashArray<Vehiculo> hashMarcaIngresar=new HashArray(10);
+            hashMarcaIngresar.insert(insertado,letraANumero(insertado.getPlaca()),0,insertado.getPlaca());
+            hashMarca.insert(hashMarcaIngresar,letraANumero(insertado.getMarca()),0,insertado.getMarca());
+        }
+        else{
+            //ya existe hash marca
+            hashMarca.get(letraANumero(insertado.getMarca()),insertado.getMarca(),0).key.insert(insertado, letraANumero(insertado.getPlaca()),0, insertado.getPlaca());
+            
+        }
+    }
+    public Vehiculo eliminarVehiculosHashMarcaPlaca(String marca,String placa){
+        NodoHash<HashArray<Vehiculo>> sentinela=hashMarca.get(letraANumero(marca),marca,0);
+        if(sentinela==null){
+            return null;
+        }
+        else{
+            HashArray<Vehiculo> ha=sentinela.key;
+            Vehiculo eliminado=ha.delete(letraANumero(placa), placa,0).key;
+            return eliminado;
+        }
+    }
+    public void agregarVehiculoHashReferencia(Vehiculo insertado){
+        if(hashReferencia.get(letraANumero(insertado.getReferencia()),insertado.getReferencia(),0)==null){
+            //crear hash marca
+            HashArray<Vehiculo> hashReferenciaIngresar=new HashArray(10);
+            hashReferenciaIngresar.insert(insertado,letraANumero(insertado.getPlaca()),0,insertado.getPlaca());
+            hashReferencia.insert(hashReferenciaIngresar,letraANumero(insertado.getReferencia()),0,insertado.getReferencia());
+        }
+        else{
+            //ya existe hash marca
+            hashReferencia.get(letraANumero(insertado.getReferencia()),insertado.getReferencia(),0).key.insert(insertado, letraANumero(insertado.getPlaca()),0, insertado.getPlaca());
+            
+        }
+    }
+    public Vehiculo eliminarVehiculosHashReferenciaPlaca(String referencia,String placa){
+        NodoHash<HashArray<Vehiculo>> sentinela=hashReferencia.get(letraANumero(referencia),referencia,0);
+        if(sentinela==null){
+            return null;
+        }
+        else{
+            HashArray<Vehiculo> ha=sentinela.key;
+            Vehiculo eliminado=ha.delete(letraANumero(placa), placa,0).key;
+            return eliminado;
+        }
+    }
 }
