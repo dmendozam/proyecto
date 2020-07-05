@@ -524,16 +524,17 @@ public class AdministrarVehiculo {
         return 1;
     }
     public void agregarVehiculoHashMarca(Vehiculo insertado){
-        System.out.println( hashCode(insertado.getMarca()));
-        if(hashMarca.get((int) hashCode(insertado.getMarca()),insertado.getMarca(),0)==null){  //casteo to int
+        //System.out.println( hashCode(insertado.getMarca()));
+        if(null==hashMarca.get( hashCode(insertado.getMarca()),insertado.getMarca(),0)){  //casteo to int
             //crear hash marca
+            System.out.println("sin");
             HashArray<Vehiculo> hashMarcaIngresar=new HashArray(10);
-            hashMarcaIngresar.insert(insertado, (int) hashCode(insertado.getPlaca()),0,insertado.getPlaca());
-            hashMarca.insert(hashMarcaIngresar, (int) hashCode(insertado.getMarca()),0,insertado.getMarca());
+            hashMarcaIngresar.insert(insertado,  hashCode(insertado.getPlaca()),0,insertado.getPlaca());
+            hashMarca.insert(hashMarcaIngresar,  hashCode(insertado.getMarca()),0,insertado.getMarca());
         }
         else{
             //ya existe hash marca
-            hashMarca.get((int) hashCode(insertado.getMarca()),insertado.getMarca(),0).key.insert(insertado, (int) hashCode(insertado.getPlaca()),0, insertado.getPlaca());
+            hashMarca.get(hashCode(insertado.getMarca()),insertado.getMarca(),0).key.insert(insertado,  hashCode(insertado.getPlaca()),0, insertado.getPlaca());
             
         }
     }
