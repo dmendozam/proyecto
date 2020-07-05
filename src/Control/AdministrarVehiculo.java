@@ -59,15 +59,24 @@ public class AdministrarVehiculo {
     }
     private void llenarVehiculosIniciales(){
         
-        agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "m",7));
+        //agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "m",7));
         
-        agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "t",5));
+        //agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "t",5));
         //System.out.println("hola");
-        agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "f",5));
-        agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "s",5));
-        agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "a",7));
-        agregarVehiculoArbol(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
-        agregarVehiculoArbol(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
+        //agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "f",5));
+        //agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "s",5));
+        //agregarVehiculoArbol(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "a",7));
+        //agregarVehiculoArbol(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
+        //agregarVehiculoArbol(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
+        
+        
+        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "m",7));
+        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "t",5));
+        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "f",5));
+        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "s",5));
+        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "a",7));
+        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
+        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
         
         
         //System.out.println(hola.key.getMarca()+hola.key.getReferencia()+hola.key.getPlaca());
@@ -84,11 +93,11 @@ public class AdministrarVehiculo {
         this.listaDeVehiculos.pushBack(v);
         
     }
-    /*
+    
     public void agregarVehiculoHashPlaca(Vehiculo v){
-        this.tablaHashPlacas.insertHash(codigo(v.getPlaca()),v); //********
+        this.tablaHashPlacas.insertHash((int) hashCode(v.getPlaca()),v); 
     }
-    */
+    
     public void agregarVehiculoArbol(Vehiculo v){
         AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolReferencias=new AVLTreeNode2String();
         
@@ -174,16 +183,16 @@ public class AdministrarVehiculo {
             return null;
         }
     }
-    /*
+    
     public Vehiculo buscarVehiculoHashPlaca(String placa){
-        int pos = this.tablaHashPlacas.search(codigo(placa), placa);//*****************+
+        int pos = this.tablaHashPlacas.search((int) hashCode(placa), placa);
         if(pos != -1){
             return this.tablaHashPlacas.retornar(pos);
         }else{
             return null;
         }
     }
-    */
+    
     public Stack<Vehiculo> buscarVehiculoArbolMarca (String marca){
         Stack<Vehiculo> busqueda= new Stack<>();
         AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias=arbolDeVehiculos.contains(marca);
@@ -484,12 +493,12 @@ public class AdministrarVehiculo {
             return null;
         }
     }
-    /*
+    
     public Vehiculo borrarVehiculoHashPlacas(String placa){
-        Vehiculo v = this.tablaHashPlacas.delete(codigo(placa), placa);//****************
+        Vehiculo v = this.tablaHashPlacas.delete((int) hashCode(placa), placa);
         return v;
     }
-    */
+    
     public void editarVehiculo(Vehiculo v){
         Vehiculo a_editar=buscarVehiculo(v);
     }
@@ -502,54 +511,64 @@ public class AdministrarVehiculo {
     public int sizeArbol(){
         return sizeArbol;
     }
+    public long hashCode(String string){
+        char[] arreglo = string.toCharArray();
+        long hashCode = 0;
+        int n = arreglo.length;
+        for(int i = 0; i<n; i++){
+            hashCode = hashCode + ((int)(arreglo[i])*(long)(Math.pow(31, n-(i+1))));
+        }
+        return hashCode;
+    }  
     public int letraANumero(String ide){
         return 1;
     }
     public void agregarVehiculoHashMarca(Vehiculo insertado){
-        if(hashMarca.get(letraANumero(insertado.getMarca()),insertado.getMarca(),0)==null){
+        System.out.println( hashCode(insertado.getMarca()));
+        if(hashMarca.get((int) hashCode(insertado.getMarca()),insertado.getMarca(),0)==null){  //casteo to int
             //crear hash marca
             HashArray<Vehiculo> hashMarcaIngresar=new HashArray(10);
-            hashMarcaIngresar.insert(insertado,letraANumero(insertado.getPlaca()),0,insertado.getPlaca());
-            hashMarca.insert(hashMarcaIngresar,letraANumero(insertado.getMarca()),0,insertado.getMarca());
+            hashMarcaIngresar.insert(insertado, (int) hashCode(insertado.getPlaca()),0,insertado.getPlaca());
+            hashMarca.insert(hashMarcaIngresar, (int) hashCode(insertado.getMarca()),0,insertado.getMarca());
         }
         else{
             //ya existe hash marca
-            hashMarca.get(letraANumero(insertado.getMarca()),insertado.getMarca(),0).key.insert(insertado, letraANumero(insertado.getPlaca()),0, insertado.getPlaca());
+            hashMarca.get((int) hashCode(insertado.getMarca()),insertado.getMarca(),0).key.insert(insertado, (int) hashCode(insertado.getPlaca()),0, insertado.getPlaca());
             
         }
     }
     public Vehiculo eliminarVehiculosHashMarcaPlaca(String marca,String placa){
-        NodoHash<HashArray<Vehiculo>> sentinela=hashMarca.get(letraANumero(marca),marca,0);
+        NodoHash<HashArray<Vehiculo>> sentinela=hashMarca.get((int) hashCode(marca),marca,0);
         if(sentinela==null){
             return null;
         }
         else{
             HashArray<Vehiculo> ha=sentinela.key;
-            Vehiculo eliminado=ha.delete(letraANumero(placa), placa,0).key;
+            Vehiculo eliminado=ha.delete((int) hashCode(placa), placa,0).key;
             return eliminado;
         }
     }
     public void agregarVehiculoHashReferencia(Vehiculo insertado){
-        if(hashReferencia.get(letraANumero(insertado.getReferencia()),insertado.getReferencia(),0)==null){
+        if(hashReferencia.get((int) hashCode(insertado.getReferencia()),insertado.getReferencia(),0)==null){
             //crear hash marca
             HashArray<Vehiculo> hashReferenciaIngresar=new HashArray(10);
-            hashReferenciaIngresar.insert(insertado,letraANumero(insertado.getPlaca()),0,insertado.getPlaca());
-            hashReferencia.insert(hashReferenciaIngresar,letraANumero(insertado.getReferencia()),0,insertado.getReferencia());
+            hashReferenciaIngresar.insert(insertado, (int) hashCode(insertado.getPlaca()),0,insertado.getPlaca());
+            hashReferencia.insert(hashReferenciaIngresar, (int) hashCode(insertado.getReferencia()),0,insertado.getReferencia());
         }
         else{
             //ya existe hash marca
-            hashReferencia.get(letraANumero(insertado.getReferencia()),insertado.getReferencia(),0).key.insert(insertado, letraANumero(insertado.getPlaca()),0, insertado.getPlaca());
+            hashReferencia.get((int) hashCode(insertado.getReferencia()),insertado.getReferencia(),0).key.insert(insertado, (int) hashCode(insertado.getPlaca()),0, insertado.getPlaca());
             
         }
     }
     public Vehiculo eliminarVehiculosHashReferenciaPlaca(String referencia,String placa){
-        NodoHash<HashArray<Vehiculo>> sentinela=hashReferencia.get(letraANumero(referencia),referencia,0);
+        NodoHash<HashArray<Vehiculo>> sentinela=hashReferencia.get((int) hashCode(referencia),referencia,0);
         if(sentinela==null){
             return null;
         }
         else{
             HashArray<Vehiculo> ha=sentinela.key;
-            Vehiculo eliminado=ha.delete(letraANumero(placa), placa,0).key;
+            Vehiculo eliminado=ha.delete((int) hashCode(placa), placa,0).key;
             return eliminado;
         }
     }
