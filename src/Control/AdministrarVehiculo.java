@@ -27,11 +27,10 @@ public class AdministrarVehiculo {
     public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosPlacas;
     public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosMarcas;
     public BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosReferencias;
+    
+    
     public HashArray<HashArray<Vehiculo>> hashMarca;
     public HashArray<HashArray<Vehiculo>> hashReferencia;
-    
-    
-    
     public HashTablePlacas tablaHashPlacas;
     
     
@@ -571,5 +570,17 @@ public class AdministrarVehiculo {
             Vehiculo eliminado=ha.delete((int) hashCode(placa), placa,0).key;
             return eliminado;
         }
+    }
+    public void agregarVehiculoHash(Vehiculo vehiculo){
+        agregarVehiculoHashPlaca(vehiculo);
+        agregarVehiculoHashMarca(vehiculo);
+        agregarVehiculoHashReferencia(vehiculo);
+    }
+    public Vehiculo buscarHashPlaca(String placa){
+        int pos = tablaHashPlacas.search(hashCode(placa), placa);
+        if (pos==-1){
+            return null;
+        }
+        return tablaHashPlacas.retornar(pos);
     }
 }
