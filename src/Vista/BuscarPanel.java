@@ -202,16 +202,15 @@ public class BuscarPanel extends javax.swing.JPanel {
             String valor = jTextFieldValor.getText().replace(' ', '-');
             switch (tipo){
                 case "placa":
-//                    pilaVehiculos = admivehi.buscarVehiculoArbolPlacas(valor);
-//                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosPlaca(valor);
-                    Vehiculo resultado = admivehi.buscarVehiculoHashPlaca(valor);
+                    pilaVehiculos = admivehi.buscarHashPlaca(valor);
+                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosPlaca(valor);     
                     break;
                 case "marca":
-                    pilaVehiculos = admivehi.buscarVehiculoArbolMarca(valor);
+                    pilaVehiculos = admivehi.buscarHashMarca(valor);
                     pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosMarca(valor);
                     break;
                 case "modelo":
-                    pilaVehiculos = admivehi.buscarVehiculoArbolModelo(valor);
+                    pilaVehiculos = admivehi.buscarHashReferencia(valor);
                     pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosModelo(valor);
             }
             int coincidencias=pilaVehiculos.size()+pilaVehiculos2.size();
