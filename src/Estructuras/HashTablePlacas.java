@@ -53,7 +53,7 @@ public class HashTablePlacas {
     public void insertHash(int key, Vehiculo vehi){ 
         rehashing(); 
         // get index from first hash 
-        int index = hash1(key); 
+        int index = Math.abs(hash1(key)); 
         // if collision occurs 
         if (this.hashTable[index] != null){ 
             // get index2 from second hash 
@@ -61,7 +61,7 @@ public class HashTablePlacas {
             int i = 1; 
             while (1==1) { 
                 // get newIndex 
-                int newIndex = (index + i * index2) % this.size;   
+                int newIndex = Math.abs((index + i * index2) % this.size);   
                 if (this.hashTable[newIndex] == null){ 
                     this.hashTable[newIndex] = vehi; 
                     break; 
