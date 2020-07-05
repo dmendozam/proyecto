@@ -44,6 +44,8 @@ public class AdministrarVehiculo {
         arbolDeVehiculosPlacas= new BinarySearchTree_AVL2<>();
         arbolDeVehiculosMarcas= new BinarySearchTree_AVL2<>();
         arbolDeVehiculosReferencias= new BinarySearchTree_AVL2<>();
+        hashMarca= new HashArray<>(10);
+        hashReferencia= new HashArray<>(10);
         
         
         
@@ -78,7 +80,17 @@ public class AdministrarVehiculo {
         agregarVehiculoHashMarca(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
         agregarVehiculoHashMarca(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
         
-        
+        for(int k=0;k<hashMarca.capacidad;k++){
+            if(hashMarca.arrprin[k]!=null){
+                System.out.print(hashMarca.arrprin[k].identificador+" ");
+                for(int h=0;h<hashMarca.arrprin[k].key.capacidad;h++){
+                    if(hashMarca.arrprin[k].key.arrprin[h]!=null)System.out.println(hashMarca.arrprin[k].key.arrprin[h].key.getReferencia()+" "+hashMarca.arrprin[k].key.arrprin[h].key.getPlaca());
+                }
+            }
+            else{
+                System.out.println("null");
+            }
+        }
         //System.out.println(hola.key.getMarca()+hola.key.getReferencia()+hola.key.getPlaca());
         //System.out.println(hola2);
         
@@ -524,10 +536,11 @@ public class AdministrarVehiculo {
         return 1;
     }
     public void agregarVehiculoHashMarca(Vehiculo insertado){
-        //System.out.println( hashCode(insertado.getMarca()));
-        if(null==hashMarca.get( hashCode(insertado.getMarca()),insertado.getMarca(),0)){  //casteo to int
+        //System.out.println(hashMarca.get((int)hashCode(insertado.getMarca()),insertado.getMarca(),0));
+        System.out.println(hashCode(insertado.getMarca())+" "+insertado.getMarca()+" "+0);
+        if(hashMarca.get(hashCode(insertado.getMarca()),insertado.getMarca(),0)==null){  //casteo to int
             //crear hash marca
-            System.out.println("sin");
+            //System.out.println("sin");
             HashArray<Vehiculo> hashMarcaIngresar=new HashArray(10);
             hashMarcaIngresar.insert(insertado,  hashCode(insertado.getPlaca()),0,insertado.getPlaca());
             hashMarca.insert(hashMarcaIngresar,  hashCode(insertado.getMarca()),0,insertado.getMarca());

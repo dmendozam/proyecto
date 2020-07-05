@@ -13,14 +13,15 @@ import Modelo.Vehiculo;
  */
 public class HashArray<T> {
     public NodoHash <T> arrprin[];
-    int capacidad;
-    int tamano;
+    public int capacidad;
+    public int tamano;
     //tolerancia 0.75
     public HashArray(int capacidad) {
         this.capacidad = capacidad;
         this.arrprin = new NodoHash[capacidad];
         this.tamano = 0;
     }
+    
     public void ampliar(){
         if(tamano/capacidad>0.75){
             NodoHash<T> copia[]=new NodoHash[capacidad*2];
@@ -31,7 +32,7 @@ public class HashArray<T> {
             this.arrprin=copia;
         }
     }
-    public void insert(T insertado,long hashCode,int prevcolision,String identificador){
+    public void insert(T insertado,int hashCode,int prevcolision,String identificador){
         int posi=hashFunction(hashCode);
         int colision=prevcolision;
         if(arrprin[posi]==null){
@@ -54,19 +55,19 @@ public class HashArray<T> {
             }
         }
     }
-    public int hashFunction(long hashCode){
-        return (int) (hashCode%this.capacidad);
+    public int hashFunction(int hashCode){
+        return  (hashCode%this.capacidad);
     }
-    public int hashFunction2(long hashCode,int capacidad){
-        return (int) (primo(capacidad)-(hashCode%primo(capacidad)));
+    public int hashFunction2(int hashCode,int capacidad){
+        return  (primo(capacidad)-(hashCode%primo(capacidad)));
     }
     
     public int primo(int capacidad){
         //y aqui que
         return 7;
     }
-    public NodoHash<T> get(long  hashCode,String identificador,int prevcolision){
-        System.out.println("posi");
+    public NodoHash<T> get(int  hashCode,String identificador,int prevcolision){
+        //System.out.println("posi");
         int posi=hashFunction(hashCode);
         
         int colision=prevcolision;
