@@ -31,7 +31,10 @@ public class AdministrarVehiculo {
     
     public HashArray<HashArray<Vehiculo>> hashMarca;
     public HashArray<HashArray<Vehiculo>> hashReferencia;
+    
+    
     public HashTablePlacas tablaHashPlacas;
+    public HashTablePlacas tablaHashAlquilados;
     
     
     
@@ -94,7 +97,11 @@ public class AdministrarVehiculo {
     }
     
     public void agregarVehiculoHashPlaca(Vehiculo v){
-        this.tablaHashPlacas.insertHash((int) hashCode(v.getPlaca()),v); 
+        this.tablaHashPlacas.insertHash(hashCode(v.getPlaca()),v); 
+    }
+    
+    public void agregarVehiculoHashAlquilados(Vehiculo v){
+        this.tablaHashAlquilados.insertHash(hashCode(v.getPlaca()),v); 
     }
     
     public void agregarVehiculoArbol(Vehiculo v){
@@ -184,9 +191,18 @@ public class AdministrarVehiculo {
     }
     
     public Vehiculo buscarVehiculoHashPlaca(String placa){
-        int pos = this.tablaHashPlacas.search((int) hashCode(placa), placa);
+        int pos = this.tablaHashPlacas.search(hashCode(placa), placa);
         if(pos != -1){
             return this.tablaHashPlacas.retornar(pos);
+        }else{
+            return null;
+        }
+    }
+    
+    public Vehiculo buscarVehiculoHashAlquilados(String placa){
+        int pos = this.tablaHashAlquilados.search(hashCode(placa), placa);
+        if(pos != -1){
+            return this.tablaHashAlquilados.retornar(pos);
         }else{
             return null;
         }
@@ -494,7 +510,12 @@ public class AdministrarVehiculo {
     }
     
     public Vehiculo borrarVehiculoHashPlacas(String placa){
-        Vehiculo v = this.tablaHashPlacas.delete((int) hashCode(placa), placa);
+        Vehiculo v = this.tablaHashPlacas.delete(hashCode(placa), placa);
+        return v;
+    }
+    
+    public Vehiculo borrarVehiculoHashAlquilados(String placa){
+        Vehiculo v = this.tablaHashAlquilados.delete(hashCode(placa), placa);
         return v;
     }
     
@@ -576,11 +597,56 @@ public class AdministrarVehiculo {
         agregarVehiculoHashMarca(vehiculo);
         agregarVehiculoHashReferencia(vehiculo);
     }
-    public Vehiculo buscarHashPlaca(String placa){
+    public Stack<Vehiculo> buscarHashPlaca(String placa){
+        Stack<Vehiculo> busqueda = new Stack<>();
         int pos = tablaHashPlacas.search(hashCode(placa), placa);
         if (pos==-1){
+            return busqueda;
+        }
+        busqueda.push(tablaHashPlacas.retornar(pos));
+        return busqueda;
+    }
+    public Stack<Vehiculo> buscarHashMarca(String marca){
+        Stack<Vehiculo> busqueda = new Stack<>();
+        NodoHash<HashArray<Vehiculo>> sentinela=hashMarca.get((int) hashCode(marca),marca,0);
+        if(sentinela==null){
             return null;
         }
-        return tablaHashPlacas.retornar(pos);
+        else{
+            HashArray<Vehiculo> ha = sentinela.key;
+            for(int i=0; i<ha.arrprin.length; i++){
+                if(ha.arrprin[i]!=null){
+                    busqueda.push(ha.arrprin[i].key);
+                }
+            }
+            return busqueda;
+        }
+    }
+    
+    public boolean esPrimo(int numero){
+        for(int i=2; i<numero; i++){
+            if(numero%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public int primoMayor(int numero){
+        boolean esPrimo=false;
+        while(!esPrimo){
+            numero++;
+            esPrimo=esPrimo(numero);
+        }
+        return numero;
+    }
+    
+    public int primoMenor(int numero){
+        boolean esPrimo=false;
+        while(!esPrimo){
+            numero--;
+            esPrimo=esPrimo(numero);
+        }
+        return numero;
     }
 }

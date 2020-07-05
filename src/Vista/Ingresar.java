@@ -216,7 +216,8 @@ public class Ingresar extends javax.swing.JFrame {
                 //System.out.println(vehiculo.getReferencia()+vehiculo.getMarca());
                 //System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
                 admivehi.agregarVehiculo(vehiculo);  //No quitar
-                admivehi.agregarVehiculoArbol(vehiculo);
+                //admivehi.agregarVehiculoArbol(vehiculo);
+                admivehi.agregarVehiculoHash(vehiculo);
                 
             }
             input.close();

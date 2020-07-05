@@ -195,96 +195,26 @@ public class BuscarPanel extends javax.swing.JPanel {
             modelo.removeRow(i);
         }
         long inicio = System.currentTimeMillis();
-//        Stack<Vehiculo> pilaVehiculos = new Stack<>();
-//        Stack<Vehiculo> pilaVehiculos2 = new Stack<>();
-//        if(tipo!=null){
-//            
-//            String valor = jTextFieldValor.getText().replace(' ', '-');
-//            switch (tipo){
-//                case "placa":
-//                    pilaVehiculos = admivehi.buscarVehiculoArbolPlacas(valor);
-//                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosPlaca(valor);
-//                    break;
-//                case "marca":
-//                    pilaVehiculos = admivehi.buscarVehiculoArbolMarca(valor);
-//                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosMarca(valor);
-//                    break;
-//                case "modelo":
-//                    pilaVehiculos = admivehi.buscarVehiculoArbolModelo(valor);
-//                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosModelo(valor);
-//            }
-//            int coincidencias=pilaVehiculos.size()+pilaVehiculos2.size();
-//            
-//            System.out.println(coincidencias + " coincidencias");
-//            if(coincidencias==0){
-//                JOptionPane.showMessageDialog(this, "No se encontraron coincidencias");
-//            }else{
-//                this.jTable1.setVisible(true);
-//                
-//                while(!pilaVehiculos.isEmpty()){
-//                    Vehiculo vehic = pilaVehiculos.pop();
-//                    Object [] Datos = new Object[10];
-//                    JButton btn_editar = new JButton("Editar");
-//                    btn_editar.setName("editar");
-//                    JButton btn_eliminar = new JButton("Eliminar");
-//                    btn_eliminar.setName("eliminar");
-//                    Datos[0] = vehic.getPlaca();
-//                    Datos[1] = vehic.getMarca();
-//                    Datos[2] = vehic.getReferencia();
-//                    Datos[3] = String.valueOf(vehic.getYear());
-//                    Datos[4] = String.valueOf(vehic.getKilometraje());
-//                    Datos[5] = String.valueOf(vehic.getCilindraje());
-//                    Datos[6] = String.valueOf(vehic.getPuestos());
-//                    Datos[7] = "No";
-//                    Datos[8] = btn_editar;
-//                    Datos[9] = btn_eliminar;
-//                            
-//                    modelo.addRow(Datos);
-//                }
-//                while(!pilaVehiculos2.isEmpty()){
-//                    Vehiculo vehic = pilaVehiculos2.pop();
-//                    Object[] Datos = new Object[10];
-//                    JButton btn_editar = new JButton("Editar");
-//                    btn_editar.setName("editar");
-//                    JButton btn_eliminar = new JButton("Eliminar");
-//                    btn_eliminar.setName("eliminar");
-//                    Datos[0] = vehic.getPlaca();
-//                    Datos[1] = vehic.getMarca();
-//                    Datos[2] = vehic.getReferencia();
-//                    Datos[3] = String.valueOf(vehic.getYear());
-//                    Datos[4] = String.valueOf(vehic.getKilometraje());
-//                    Datos[5] = String.valueOf(vehic.getCilindraje());
-//                    Datos[6] = String.valueOf(vehic.getPuestos());
-//                    Datos[7] = "Si";
-//                    Datos[8] = btn_editar;
-//                    Datos[9] = btn_eliminar;
-//                    
-//                    modelo.addRow(Datos);
-//                }
-//            }     
-//        }else{
-//            JOptionPane.showMessageDialog(this, "Escoja la variable por la que desea Buscar");
-//        }
-
-        Queue<Vehiculo> colaVehiculos = new Queue<>();
-        Queue<Vehiculo> colaVehiculos2 = new Queue<>();
+        Stack<Vehiculo> pilaVehiculos = new Stack<>();
+        Stack<Vehiculo> pilaVehiculos2 = new Stack<>();
         if(tipo!=null){
             
             String valor = jTextFieldValor.getText().replace(' ', '-');
             switch (tipo){
                 case "placa":
-                    colaVehiculos = admivehi.buscarVehiculoArbolPlaca2_2(valor);
-                    colaVehiculos2 = admivehi.buscarVehiculoAlquiladosPlaca_2(valor);
+//                    pilaVehiculos = admivehi.buscarVehiculoArbolPlacas(valor);
+//                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosPlaca(valor);
+                    Vehiculo resultado = admivehi.buscarVehiculoHashPlaca(valor);
                     break;
                 case "marca":
-                    colaVehiculos = admivehi.buscarVehiculoArbolMarca_2(valor);
-                    colaVehiculos2 = admivehi.buscarVehiculoAlquiladosMarca_2(valor);
+                    pilaVehiculos = admivehi.buscarVehiculoArbolMarca(valor);
+                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosMarca(valor);
                     break;
                 case "modelo":
-                    colaVehiculos = admivehi.buscarVehiculoArbolModelo_2(valor);
-                    colaVehiculos2 = admivehi.buscarVehiculoAlquiladosModelo_2(valor);
+                    pilaVehiculos = admivehi.buscarVehiculoArbolModelo(valor);
+                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosModelo(valor);
             }
-            int coincidencias=colaVehiculos.lista.size()+colaVehiculos2.lista.size();
+            int coincidencias=pilaVehiculos.size()+pilaVehiculos2.size();
             
             System.out.println(coincidencias + " coincidencias");
             if(coincidencias==0){
@@ -292,8 +222,8 @@ public class BuscarPanel extends javax.swing.JPanel {
             }else{
                 this.jTable1.setVisible(true);
                 
-                while(!colaVehiculos.isEmpty()){
-                    Vehiculo vehic = colaVehiculos.dequeue();
+                while(!pilaVehiculos.isEmpty()){
+                    Vehiculo vehic = pilaVehiculos.pop();
                     Object [] Datos = new Object[10];
                     JButton btn_editar = new JButton("Editar");
                     btn_editar.setName("editar");
@@ -312,8 +242,8 @@ public class BuscarPanel extends javax.swing.JPanel {
                             
                     modelo.addRow(Datos);
                 }
-                while(!colaVehiculos2.isEmpty()){
-                    Vehiculo vehic = colaVehiculos2.dequeue();
+                while(!pilaVehiculos2.isEmpty()){
+                    Vehiculo vehic = pilaVehiculos2.pop();
                     Object[] Datos = new Object[10];
                     JButton btn_editar = new JButton("Editar");
                     btn_editar.setName("editar");
@@ -336,6 +266,77 @@ public class BuscarPanel extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(this, "Escoja la variable por la que desea Buscar");
         }
+
+//        Queue<Vehiculo> colaVehiculos = new Queue<>();
+//        Queue<Vehiculo> colaVehiculos2 = new Queue<>();
+//        if(tipo!=null){
+//            
+//            String valor = jTextFieldValor.getText().replace(' ', '-');
+//            switch (tipo){
+//                case "placa":
+//                    colaVehiculos = admivehi.buscarVehiculoArbolPlaca2_2(valor);
+//                    colaVehiculos2 = admivehi.buscarVehiculoAlquiladosPlaca_2(valor);
+//                    break;
+//                case "marca":
+//                    colaVehiculos = admivehi.buscarVehiculoArbolMarca_2(valor);
+//                    colaVehiculos2 = admivehi.buscarVehiculoAlquiladosMarca_2(valor);
+//                    break;
+//                case "modelo":
+//                    colaVehiculos = admivehi.buscarVehiculoArbolModelo_2(valor);
+//                    colaVehiculos2 = admivehi.buscarVehiculoAlquiladosModelo_2(valor);
+//            }
+//            int coincidencias=colaVehiculos.lista.size()+colaVehiculos2.lista.size();
+//            
+//            System.out.println(coincidencias + " coincidencias");
+//            if(coincidencias==0){
+//                JOptionPane.showMessageDialog(this, "No se encontraron coincidencias");
+//            }else{
+//                this.jTable1.setVisible(true);
+//                
+//                while(!colaVehiculos.isEmpty()){
+//                    Vehiculo vehic = colaVehiculos.dequeue();
+//                    Object [] Datos = new Object[10];
+//                    JButton btn_editar = new JButton("Editar");
+//                    btn_editar.setName("editar");
+//                    JButton btn_eliminar = new JButton("Eliminar");
+//                    btn_eliminar.setName("eliminar");
+//                    Datos[0] = vehic.getPlaca();
+//                    Datos[1] = vehic.getMarca();
+//                    Datos[2] = vehic.getReferencia();
+//                    Datos[3] = String.valueOf(vehic.getYear());
+//                    Datos[4] = String.valueOf(vehic.getKilometraje());
+//                    Datos[5] = String.valueOf(vehic.getCilindraje());
+//                    Datos[6] = String.valueOf(vehic.getPuestos());
+//                    Datos[7] = "No";
+//                    Datos[8] = btn_editar;
+//                    Datos[9] = btn_eliminar;
+//                            
+//                    modelo.addRow(Datos);
+//                }
+//                while(!colaVehiculos2.isEmpty()){
+//                    Vehiculo vehic = colaVehiculos2.dequeue();
+//                    Object[] Datos = new Object[10];
+//                    JButton btn_editar = new JButton("Editar");
+//                    btn_editar.setName("editar");
+//                    JButton btn_eliminar = new JButton("Eliminar");
+//                    btn_eliminar.setName("eliminar");
+//                    Datos[0] = vehic.getPlaca();
+//                    Datos[1] = vehic.getMarca();
+//                    Datos[2] = vehic.getReferencia();
+//                    Datos[3] = String.valueOf(vehic.getYear());
+//                    Datos[4] = String.valueOf(vehic.getKilometraje());
+//                    Datos[5] = String.valueOf(vehic.getCilindraje());
+//                    Datos[6] = String.valueOf(vehic.getPuestos());
+//                    Datos[7] = "Si";
+//                    Datos[8] = btn_editar;
+//                    Datos[9] = btn_eliminar;
+//                    
+//                    modelo.addRow(Datos);
+//                }
+//            }     
+//        }else{
+//            JOptionPane.showMessageDialog(this, "Escoja la variable por la que desea Buscar");
+//        }
         long fin = System.currentTimeMillis();
         System.out.println("Tiempo busqueda: " + (fin-inicio));
     }//GEN-LAST:event_jButton1ActionPerformed
