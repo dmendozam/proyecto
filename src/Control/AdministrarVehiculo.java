@@ -47,9 +47,15 @@ public class AdministrarVehiculo {
         arbolDeVehiculosMarcas= new BinarySearchTree_AVL2<>();
         arbolDeVehiculosReferencias= new BinarySearchTree_AVL2<>();
         
+        tablaHashPlacas = new HashTablePlacas();
+        tablaHashAlquilados = new HashTablePlacas();
         
         
         llenarVehiculosIniciales();
+        for(int i = 0; i < this.tablaHashPlacas.size; i++){
+            System.out.println(tablaHashPlacas.retornar(i));
+        }
+        
     }
     public AdministrarVehiculo(LinkedList<Vehiculo> listaDeVehiculos,LinkedList<Vehiculo> vehiculosAlquilados, BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeVehiculos,BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosAlquilados) {
         this.listaDeVehiculos = listaDeVehiculos;
@@ -72,23 +78,36 @@ public class AdministrarVehiculo {
         //agregarVehiculoArbol(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
         
         
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "m",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "t",5));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "f",5));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "s",5));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "a",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
+        //agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "m",7));
+        //agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "t",5));
+        //agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "f",5));
+        //agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "s",5));
+        //agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "a",7));
+        //agregarVehiculoHashMarca(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
+        //agregarVehiculoHashMarca(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
+        
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "m",7));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "t",5));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "f",5));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "s",5));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "a",7));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "e",7));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "u",5));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "l",5));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "q",5));
+        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "p",7));
         
         
         //System.out.println(hola.key.getMarca()+hola.key.getReferencia()+hola.key.getPlaca());
-        //System.out.println(hola2);
+        //System.out.println("hola2");
         
     }
     public Vehiculo buscarVehiculo(Vehiculo v){ //Busqueda Binaria
     
-    
-    return v;
+        
+        return v;
     }
     public void agregarVehiculo(Vehiculo v){
         //char letra = v.getReferencia().charAt(0);
@@ -543,6 +562,7 @@ public class AdministrarVehiculo {
     public int letraANumero(String ide){
         return 1;
     }
+    
     public void agregarVehiculoHashMarca(Vehiculo insertado){
         System.out.println( hashCode(insertado.getMarca()));
         if(hashMarca.get((int) hashCode(insertado.getMarca()),insertado.getMarca(),0)==null){  //casteo to int
@@ -597,6 +617,7 @@ public class AdministrarVehiculo {
         agregarVehiculoHashMarca(vehiculo);
         agregarVehiculoHashReferencia(vehiculo);
     }
+    
     public Stack<Vehiculo> buscarHashPlaca(String placa){
         Stack<Vehiculo> busqueda = new Stack<>();
         int pos = tablaHashPlacas.search(hashCode(placa), placa);

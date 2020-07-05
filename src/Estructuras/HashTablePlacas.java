@@ -13,9 +13,9 @@ import Modelo.Vehiculo;
  */
 public class HashTablePlacas {
     
-    public Vehiculo[] hashTable = new Vehiculo[10]; 
-    public int size = 10;
-    public int cant = 0;
+    public Vehiculo[] hashTable; 
+    public int size;
+    public int cant;
     public int primo;
 
     public HashTablePlacas(Vehiculo[] hashTable, int size, int cant, int primo) {
@@ -32,41 +32,38 @@ public class HashTablePlacas {
             hashTable[i] = null; 
         }
         this.primo = 7;
+        this.cant = 0;
     }
     
     public boolean isFull() { 
-        return (cant == size); 
+        return (cant == this.size); 
     } 
   
     // primera funcion hash 
     public int hash1(int key){ 
-        return (key % size); 
+        return (key % this.size); 
     } 
   
     // segunda funcion hash 
     public int hash2(int key){ 
-        return (primo - (key % primo)); //********
+        return (this.primo - (key % this.primo));
     } 
-  
+    
     // function to insert key into hash table 
     public void insertHash(int key, Vehiculo vehi){ 
-        // if hash table is full 
-        if (isFull()){
-            //rehashing(key);
-            return; 
-        }
+        rehashing(); 
         // get index from first hash 
         int index = hash1(key); 
         // if collision occurs 
-        if (hashTable[index] != null){ 
+        if (this.hashTable[index] != null){ 
             // get index2 from second hash 
             int index2 = hash2(key); 
             int i = 1; 
-            while (i==1) { 
+            while (1==1) { 
                 // get newIndex 
-                int newIndex = (index + i * index2) % size;   
-                if (hashTable[newIndex] == null){ 
-                    hashTable[newIndex] = vehi; 
+                int newIndex = (index + i * index2) % this.size;   
+                if (this.hashTable[newIndex] == null){ 
+                    this.hashTable[newIndex] = vehi; 
                     break; 
                 } 
                 i++; 
@@ -74,20 +71,26 @@ public class HashTablePlacas {
         } 
         // if no collision occurs 
         else{
-            hashTable[index] = vehi; 
+            this.hashTable[index] = vehi; 
         }
         cant++; 
     } 
-    /*
-    public void rehashing(int key){
-        this.size = primoMayor(this.size*2);//***
-        Vehiculo[] copia = this.hashTable;
-        this.hashTable = new Vehiculo[this.size];
-        for(int i = 0; i<size;i++){
-            insertHash(key, copia[i]);
+    
+    public void rehashing(){
+        double factor = (double) this.cant/this.size;
+        if (factor >= 0.75){    
+            int sizeOld = this.size;
+            this.size = primoMayor(sizeOld*2);
+            Vehiculo[] copia = this.hashTable;
+            this.hashTable = new Vehiculo[this.size];
+            this.cant=0;
+            this.primo = primoMenor(this.size);
+            for(int i = 0; i< sizeOld; i++){
+                insertHash(hashCode(copia[i].getPlaca()), copia[i]);
+            }
         }
     }
-    */
+    
     // function to search key in hash table 
     public int search(int key, String placa){ 
         int index1 = hash1(key); 
@@ -118,16 +121,45 @@ public class HashTablePlacas {
     public Vehiculo retornar(int i){
         return this.hashTable[i];
     }
-  
-    // function to display the hash table 
-    /*public void displayHash() { 
-        for (int i = 0; i < size; i++) { 
-            if (hashTable[i] != null){ 
-                //cout << i << " --> "<< hashTable[i] << endl;***********
+    
+    public boolean esPrimo(int numero){
+        for(int i=2; i<numero; i++){
+            if(numero%i==0){
+                return false;
             }
-            else{
-                //cout << i << endl;*************
-            } 
-        } 
-    } */
+            
+        }
+        return true;
+    }
+    
+    public int primoMayor(int numero){
+        boolean esPrimo=false;
+        while(!esPrimo){
+            numero++;
+            esPrimo=esPrimo(numero);
+        }
+        return numero;
+    }
+    
+    public int primoMenor(int numero){
+        boolean esPrimo=false;
+        while(!esPrimo){
+            numero--;
+            esPrimo=esPrimo(numero);
+        }
+        return numero;
+    }
+    
+    public int hashCode(String string){
+        char[] arreglo = string.toCharArray();
+        int hashCode = 0;
+        int n = arreglo.length;
+        for(int i = 0; i<n; i++){
+            hashCode = hashCode + ((int)(arreglo[i])*(int)(Math.pow(3, n-(i+1))));
+        }
+        return Math.abs(hashCode);
+    }  
+    public int letraANumero(String ide){
+        return 1;
+    }
 } 
