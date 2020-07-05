@@ -102,4 +102,23 @@ public class HashArray<T> {
         }
     }
     
+    public NodoHash<T> find(int  hashCode,String identificador,int prevcolision){
+        int posi=hashFunction(hashCode);
+        int colision=prevcolision;
+        if(arrprin[posi]==null){
+            return null;
+        }
+        else{
+            if(arrprin[posi].identificador.equals(identificador)){
+                NodoHash coincide= arrprin[posi];
+                return coincide;
+            }
+            else{
+                colision++;
+                int newHashCode=(hashFunction(hashCode)+colision*hashFunction2(hashCode, capacidad))%this.capacidad;
+                return get(newHashCode,identificador,colision);
+            }
+        }
+    }
+    
 }
