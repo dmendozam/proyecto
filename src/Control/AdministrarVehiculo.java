@@ -80,11 +80,11 @@ public class AdministrarVehiculo {
         this.listaDeVehiculos.pushBack(v);
         
     }
-    /*
+    
     public void agregarVehiculoHashPlaca(Vehiculo v){
-        this.tablaHashPlacas.insertHash(codigo(v.getPlaca()),v); //********
+        this.tablaHashPlacas.insertHash((int) hashCode(v.getPlaca()),v); 
     }
-    */
+    
     public void agregarVehiculoArbol(Vehiculo v){
         AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolReferencias=new AVLTreeNode2String();
         
@@ -170,16 +170,16 @@ public class AdministrarVehiculo {
             return null;
         }
     }
-    /*
+    
     public Vehiculo buscarVehiculoHashPlaca(String placa){
-        int pos = this.tablaHashPlacas.search(codigo(placa), placa);//*****************+
+        int pos = this.tablaHashPlacas.search((int) hashCode(placa), placa);
         if(pos != -1){
             return this.tablaHashPlacas.retornar(pos);
         }else{
             return null;
         }
     }
-    */
+    
     public Stack<Vehiculo> buscarVehiculoArbolMarca (String marca){
         Stack<Vehiculo> busqueda= new Stack<>();
         AVLTreeNode2String<BinarySearchTree_AVL2> nodoArbolDeReferencias=arbolDeVehiculos.contains(marca);
@@ -480,12 +480,12 @@ public class AdministrarVehiculo {
             return null;
         }
     }
-    /*
+    
     public Vehiculo borrarVehiculoHashPlacas(String placa){
-        Vehiculo v = this.tablaHashPlacas.delete(codigo(placa), placa);//****************
+        Vehiculo v = this.tablaHashPlacas.delete((int) hashCode(placa), placa);
         return v;
     }
-    */
+    
     public void editarVehiculo(Vehiculo v){
         Vehiculo a_editar=buscarVehiculo(v);
     }

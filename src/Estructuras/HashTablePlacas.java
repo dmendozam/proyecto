@@ -80,7 +80,7 @@ public class HashTablePlacas {
     } 
     /*
     public void rehashing(int key){
-        this.size = primoMenor(this.size*2);//***
+        this.size = primoMayor(this.size*2);//***
         Vehiculo[] copia = this.hashTable;
         this.hashTable = new Vehiculo[this.size];
         for(int i = 0; i<size;i++){
