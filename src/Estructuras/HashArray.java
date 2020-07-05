@@ -187,7 +187,7 @@ public class HashArray<T> {
             }
             else{
                 colision++;
-                int newHashCode=(hashFunction(hashCode)+colision*hashFunction2(hashCode, capacidad))%this.capacidad;
+                int newHashCode=(hashFunction(hashCode)+colision*hashFunction2(hashCode))%this.capacidad;
                 return get(newHashCode,identificador,colision);
             }
         }

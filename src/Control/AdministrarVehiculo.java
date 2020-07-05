@@ -55,9 +55,16 @@ public class AdministrarVehiculo {
         
         
         llenarVehiculosIniciales();
+        
+        /*
         for(int i = 0; i < this.tablaHashPlacas.size; i++){
-            System.out.println(tablaHashPlacas.retornar(i));
+            if(tablaHashPlacas.retornar(i) != null){
+                System.out.println(tablaHashPlacas.retornar(i).getMarca());
+            }else{
+                System.out.println("null");
+            }
         }
+        */
         
     }
     public AdministrarVehiculo(LinkedList<Vehiculo> listaDeVehiculos,LinkedList<Vehiculo> vehiculosAlquilados, BinarySearchTree_AVL2<BinarySearchTree_AVL2> arbolDeVehiculos,BinarySearchTree_AVL2<Vehiculo> arbolDeVehiculosAlquilados) {
@@ -131,7 +138,7 @@ public class AdministrarVehiculo {
     }
     
     public void agregarVehiculoHashPlaca(Vehiculo v){
-        //this.tablaHashPlacas.insertHash(hashCode(v.getPlaca()),v); 
+        this.tablaHashPlacas.insertHash(hashCode(v.getPlaca()),v); 
     }
     
     public void agregarVehiculoHashAlquilados(Vehiculo v){

@@ -142,7 +142,7 @@ public class Ingresar extends javax.swing.JFrame {
         long inicio = System.currentTimeMillis();
         try{
             //Scanner input = new Scanner(new File("MOCK_DATA_1.txt"));
-            Scanner input = new Scanner(new File("MOCK_DATA_100000.txt"));
+            Scanner input = new Scanner(new File("MOCK_DATA_10000.txt"));
             int numeroPlaca=0;
             
             
@@ -217,7 +217,8 @@ public class Ingresar extends javax.swing.JFrame {
                 //System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
                 admivehi.agregarVehiculo(vehiculo);  //No quitar
                 //admivehi.agregarVehiculoArbol(vehiculo);
-                admivehi.agregarVehiculoHashMarca(vehiculo);
+                //admivehi.agregarVehiculoHashMarca(vehiculo);
+                admivehi.agregarVehiculoHashPlaca(vehiculo);
                 
             }
             input.close();
@@ -226,6 +227,7 @@ public class Ingresar extends javax.swing.JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        
         long fin = System.currentTimeMillis();
         System.out.println("Tiempo: " + (fin-inicio));
         princi.setListaVehiculos(listaVehiculos);

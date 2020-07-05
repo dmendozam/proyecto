@@ -77,7 +77,7 @@ public class HashTablePlacas {
     } 
     
     public void rehashing(){
-        double factor = (double) this.cant/this.size;
+        double factor = (double)this.cant/(double)this.size;
         if (factor >= 0.75){    
             int sizeOld = this.size;
             this.size = primoMayor(sizeOld*2);
@@ -86,7 +86,9 @@ public class HashTablePlacas {
             this.cant=0;
             this.primo = primoMenor(this.size);
             for(int i = 0; i< sizeOld; i++){
-                insertHash(hashCode(copia[i].getPlaca()), copia[i]);
+                if(copia[i] != null){
+                    insertHash(hashCode(copia[i].getPlaca()), copia[i]);
+                }
             }
         }
     }
