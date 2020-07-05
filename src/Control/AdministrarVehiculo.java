@@ -606,6 +606,15 @@ public class AdministrarVehiculo {
         busqueda.push(tablaHashPlacas.retornar(pos));
         return busqueda;
     }
+    public Stack<Vehiculo> buscarAlquiladosHashPlaca(String placa){
+        Stack<Vehiculo> busqueda = new Stack<>();
+        int pos = tablaHashAlquilados.search(hashCode(placa), placa);
+        if (pos==-1){
+            return busqueda;
+        }
+        busqueda.push(tablaHashPlacas.retornar(pos));
+        return busqueda;
+    }
     public Stack<Vehiculo> buscarHashMarca(String marca){
         Stack<Vehiculo> busqueda = new Stack<>();
         NodoHash<HashArray<Vehiculo>> sentinela=hashMarca.get((int) hashCode(marca),marca,0);
@@ -614,6 +623,22 @@ public class AdministrarVehiculo {
         }
         else{
             HashArray<Vehiculo> ha = sentinela.key;
+            for(int i=0; i<ha.arrprin.length; i++){
+                if(ha.arrprin[i]!=null){
+                    busqueda.push(ha.arrprin[i].key);
+                }
+            }
+            return busqueda;
+        }
+    }
+    public Stack<Vehiculo> buscarHashReferencia(String referencia){
+        Stack<Vehiculo> busqueda = new Stack<>();
+        NodoHash<HashArray<Vehiculo>> sentinela=hashReferencia.get((int) hashCode(referencia),referencia,0);
+        if(sentinela==null){
+            return null;
+        }
+        else{
+            HashArray<Vehiculo> ha=sentinela.key;
             for(int i=0; i<ha.arrprin.length; i++){
                 if(ha.arrprin[i]!=null){
                     busqueda.push(ha.arrprin[i].key);
