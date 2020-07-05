@@ -477,5 +477,13 @@ public class AdministrarVehiculo {
     public int sizeArbol(){
         return sizeArbol;
     }
-    
+    public long hashCode(String string){
+        char[] arreglo = string.toCharArray();
+        long hashCode = 0;
+        int n = arreglo.length;
+        for(int i = 0; i<n; i++){
+            hashCode = hashCode + ((int)(arreglo[i])*(long)(Math.pow(31, n-(i+1))));
+        }
+        return hashCode;
+    }  
 }
