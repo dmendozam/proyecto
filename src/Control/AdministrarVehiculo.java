@@ -96,29 +96,29 @@ public class AdministrarVehiculo {
         //agregarVehiculoHashMarca(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
         //agregarVehiculoHashMarca(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
         
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "m",7));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "t",5));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "f",5));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "s",5));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "a",7));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "e",7));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "u",5));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "l",5));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "q",5));
-        agregarVehiculoHashPlaca(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "p",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "m",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "t",5));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "f",5));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "s",5));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "a",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Cheverolet", "Sail", 800, "ZZZ996",5));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Cheverolet", "Spark", 1200, "ZZZ995",5));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "e",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "u",5));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "l",5));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "q",5));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Fortuner", 2100, "p",7));
         
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "q",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "w",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "e",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "r",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "y",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "tt",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "yy",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "aa",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "mm",7));
-        agregarVehiculoHashMarca(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "op",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "q",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "w",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "e",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "r",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "y",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "tt",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "yy",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "aa",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "mm",7));
+        agregarVehiculoHash(new Vehiculo(0, 0, "Toyota", "Prado", 4500, "op",7));
         
         
         

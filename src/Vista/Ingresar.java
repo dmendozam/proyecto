@@ -31,7 +31,7 @@ public class Ingresar extends javax.swing.JFrame {
     private AdministrarUsuario admiusu;
     public static Principal princi;
     public static AdministrarVehiculo admivehi;
-    public static LinkedList<Vehiculo> listaVehiculos = new LinkedList<>();
+    //public static LinkedList<Vehiculo> listaVehiculos = new LinkedList<>();
     public Ingresar() {
         initComponents();
         usu= new Usuario();        
@@ -142,7 +142,7 @@ public class Ingresar extends javax.swing.JFrame {
         long inicio = System.currentTimeMillis();
         try{
             //Scanner input = new Scanner(new File("MOCK_DATA_1.txt"));
-            Scanner input = new Scanner(new File("MOCK_DATA_Mis1000000.txt"));
+            Scanner input = new Scanner(new File("MOCK_DATA_10000.txt"));
             int numeroPlaca=0;
             
             
@@ -215,10 +215,10 @@ public class Ingresar extends javax.swing.JFrame {
                 //listaVehiculos.pushFront(vehiculo);
                 //System.out.println(vehiculo.getReferencia()+vehiculo.getMarca());
                 //System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
-                admivehi.agregarVehiculo(vehiculo);  //No quitar
+                //admivehi.agregarVehiculo(vehiculo);  //No quitar
                 //admivehi.agregarVehiculoArbol(vehiculo);
                 //admivehi.agregarVehiculoHashMarca(vehiculo);
-                admivehi.agregarVehiculoHashPlaca(vehiculo);
+                admivehi.agregarVehiculoHash(vehiculo);
                 
             }
             input.close();
@@ -230,7 +230,7 @@ public class Ingresar extends javax.swing.JFrame {
         
         long fin = System.currentTimeMillis();
         System.out.println("Tiempo: " + (fin-inicio));
-        princi.setListaVehiculos(listaVehiculos);
+        //princi.setListaVehiculos(listaVehiculos);
         princi.setAdministrarVehiculos(admivehi);
         /*System.err.println("sizeHash"+" "+admivehi.sizeHash);
         int cantive=0;
