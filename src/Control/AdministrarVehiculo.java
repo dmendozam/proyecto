@@ -31,8 +31,8 @@ public class AdministrarVehiculo {
     public HashArray<HashArray<Vehiculo>> hashReferencia;
     
     
-    
     public HashTablePlacas tablaHashPlacas;
+    public HashTablePlacas tablaHashAlquilados;
     
     
     
@@ -95,7 +95,11 @@ public class AdministrarVehiculo {
     }
     
     public void agregarVehiculoHashPlaca(Vehiculo v){
-        this.tablaHashPlacas.insertHash((int) hashCode(v.getPlaca()),v); 
+        this.tablaHashPlacas.insertHash(hashCode(v.getPlaca()),v); 
+    }
+    
+    public void agregarVehiculoHashAlquilados(Vehiculo v){
+        this.tablaHashAlquilados.insertHash(hashCode(v.getPlaca()),v); 
     }
     
     public void agregarVehiculoArbol(Vehiculo v){
@@ -185,9 +189,18 @@ public class AdministrarVehiculo {
     }
     
     public Vehiculo buscarVehiculoHashPlaca(String placa){
-        int pos = this.tablaHashPlacas.search((int) hashCode(placa), placa);
+        int pos = this.tablaHashPlacas.search(hashCode(placa), placa);
         if(pos != -1){
             return this.tablaHashPlacas.retornar(pos);
+        }else{
+            return null;
+        }
+    }
+    
+    public Vehiculo buscarVehiculoHashAlquilados(String placa){
+        int pos = this.tablaHashAlquilados.search(hashCode(placa), placa);
+        if(pos != -1){
+            return this.tablaHashAlquilados.retornar(pos);
         }else{
             return null;
         }
@@ -495,7 +508,12 @@ public class AdministrarVehiculo {
     }
     
     public Vehiculo borrarVehiculoHashPlacas(String placa){
-        Vehiculo v = this.tablaHashPlacas.delete((int) hashCode(placa), placa);
+        Vehiculo v = this.tablaHashPlacas.delete(hashCode(placa), placa);
+        return v;
+    }
+    
+    public Vehiculo borrarVehiculoHashAlquilados(String placa){
+        Vehiculo v = this.tablaHashAlquilados.delete(hashCode(placa), placa);
         return v;
     }
     
