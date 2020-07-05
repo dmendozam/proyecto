@@ -217,6 +217,7 @@ public class Ingresar extends javax.swing.JFrame {
                 //System.out.println(listaVehiculos.size() + " " + listaVehiculos.topFront().getPlaca() + " " + listaVehiculos.topFront().getMarca());
                 admivehi.agregarVehiculo(vehiculo);  //No quitar
                 admivehi.agregarVehiculoArbol(vehiculo);
+                admivehi.agregarVehiculoHashMarca(vehiculo);
                 
             }
             input.close();
@@ -229,6 +230,17 @@ public class Ingresar extends javax.swing.JFrame {
         System.out.println("Tiempo: " + (fin-inicio));
         princi.setListaVehiculos(listaVehiculos);
         princi.setAdministrarVehiculos(admivehi);
+        for(int k=0;k<admivehi.hashMarca.capacidad;k++){
+            if(admivehi.hashMarca.arrprin[k]!=null){
+                System.out.print(admivehi.hashMarca.arrprin[k].identificador+" ");
+                for(int h=0;h<admivehi.hashMarca.arrprin[k].key.capacidad;h++){
+                    if(admivehi.hashMarca.arrprin[k].key.arrprin[h]!=null)System.out.println(admivehi.hashMarca.arrprin[k].key.arrprin[h].key.getReferencia()+" "+admivehi.hashMarca.arrprin[k].key.arrprin[h].key.getPlaca());
+                }
+            }
+            else{
+                System.out.println("null");
+            }
+            }
         
         
         

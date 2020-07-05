@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Estructuras;
+import Control.AdministrarVehiculo;
 
 import Modelo.Vehiculo;
 
@@ -21,15 +22,36 @@ public class HashArray<T> {
         this.arrprin = new NodoHash[capacidad];
         this.tamano = 0;
     }
-    
+    public int hashCode(String string){
+        char[] arreglo = string.toCharArray();
+        int hashCode = 0;
+        int n = arreglo.length;
+        for(int i = 0; i<n; i++){
+            hashCode = hashCode + ((int)(arreglo[i])*(int)(Math.pow(3, n-(i+1))));
+        }
+        return Math.abs(hashCode);
+    }  
     public void ampliar(){
-        if(tamano/capacidad>0.75){
-            NodoHash<T> copia[]=new NodoHash[capacidad*2];
-            for(int i=0;i<this.tamano;i++){
-                copia[i]=this.arrprin[i];
+        double balance=(double)tamano/(double)capacidad;
+        if(balance>0.8){
+            //System.out.println(balance);
+            //System.out.println("Ampliando");
+            NodoHash<T> arrprinneu[]=new NodoHash[capacidad*2]; //copia vacia
+            //System.out.println("Tamaño arrpri"+" "+arrprinneu.length);
+            NodoHash<T> arrprincopia[]=arrprin; //copia arrprin
+            //System.out.println("Tamaño arrpriold"+" "+arrprincopia.length);
+            this.arrprin=arrprinneu;
+            this.tamano=0;
+            int cappre=this.capacidad;
+            this.capacidad=cappre*2;
+            for(int l=0;l<cappre;l++){
+                if(arrprincopia[l]!=null){
+                    insert(arrprincopia[l].key,hashCode(arrprincopia[l].identificador),0,arrprincopia[l].identificador);
+                }
+                
             }
-            this.capacidad=capacidad*2;
-            this.arrprin=copia;
+            
+            //System.out.println("Ampliado "+this.capacidad);
         }
     }
     public void insert(T insertado,int hashCode,int prevcolision,String identificador){
@@ -39,6 +61,7 @@ public class HashArray<T> {
            arrprin[posi]=new NodoHash<T>(insertado, identificador);
            tamano++;
            ampliar();
+           System.out.println("Insertado");
         }
         else{
             //colision
@@ -46,7 +69,7 @@ public class HashArray<T> {
                 //arrprin[posi].key[arrprin[posi].size]=insertado;
                 //arrprin[posi].size++;
                 //ya existe marca o referencia
-                return;
+                
             }
             else{
                 colision++;
@@ -64,12 +87,13 @@ public class HashArray<T> {
     
     public int primo(int capacidad){
         //y aqui que
+        
         return 7;
     }
     public NodoHash<T> get(int  hashCode,String identificador,int prevcolision){
         //System.out.println("posi");
-        int posi=hashFunction(hashCode);
-        
+        int posi=hashFunction(hashCode);        
+        //System.out.print(posi+" "+hashCode);
         int colision=prevcolision;
         if(arrprin[posi]==null){
             return null;
@@ -81,6 +105,7 @@ public class HashArray<T> {
             else{
                 colision++;
                 int newHashCode=(hashFunction(hashCode)+colision*hashFunction2(hashCode, capacidad))%this.capacidad;
+                System.out.println("newHC"+newHashCode);
                 return get(newHashCode,identificador,colision);
             }
         }
