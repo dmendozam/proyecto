@@ -677,6 +677,11 @@ public class AdministrarVehiculo {
             return busqueda;
         }
     }
+    
+    public Stack<Vehiculo> buscarAlquiladosHashMarca(String valor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     public Stack<Vehiculo> buscarHashReferencia(String referencia){
         Stack<Vehiculo> busqueda = new Stack<>();
         NodoHash<HashArray<Vehiculo>> sentinela=hashReferencia.get((int) hashCode(referencia),referencia,0);
@@ -692,6 +697,10 @@ public class AdministrarVehiculo {
             }
             return busqueda;
         }
+    }
+    
+    public Stack<Vehiculo> buscarAlquiladosHashModelo(String valor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public boolean esPrimo(int numero){
@@ -720,5 +729,6 @@ public class AdministrarVehiculo {
         }
         return numero;
     }
+
     
 }
