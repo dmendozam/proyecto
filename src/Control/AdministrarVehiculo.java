@@ -12,6 +12,7 @@ import Modelo.Usuario;
 import Modelo.Vehiculo;
 import java.util.ArrayList;
 import Estructuras.*;
+import Vista.AlquilarPanel;
 
 /**
  *
@@ -665,7 +666,7 @@ public class AdministrarVehiculo {
         if (pos==-1){
             return busqueda;
         }
-        busqueda.push(tablaHashPlacas.retornar(pos));
+        busqueda.push(tablaHashAlquilados.retornar(pos));
         return busqueda;
     }
     public Stack<Vehiculo> buscarHashMarca(String marca){
@@ -684,6 +685,21 @@ public class AdministrarVehiculo {
             return busqueda;
         }
     }
+    
+    public Stack<Vehiculo> buscarAlquiladosHashMarca(String valor) {
+        Stack<Vehiculo> busqueda = new Stack<>();
+        int n = tablaHashAlquilados.hashTable.length;
+        for(int i=0; i<n; i++){
+            Vehiculo vehiculo = tablaHashAlquilados.hashTable[i];
+            if(vehiculo!=null){
+                if(vehiculo.getMarca().equals(valor)){
+                    busqueda.push(vehiculo);
+                }
+            }
+        }
+        return busqueda;
+    }
+    
     public Stack<Vehiculo> buscarHashReferencia(String referencia){
         Stack<Vehiculo> busqueda = new Stack<>();
         NodoHash<HashArray<Vehiculo>> sentinela=hashReferencia.get((int) hashCode(referencia),referencia,0);
@@ -699,6 +715,20 @@ public class AdministrarVehiculo {
             }
             return busqueda;
         }
+    }
+    
+    public Stack<Vehiculo> buscarAlquiladosHashModelo(String valor) {
+        Stack<Vehiculo> busqueda = new Stack<>();
+        int n = tablaHashAlquilados.hashTable.length;
+        for(int i=0; i<n; i++){
+            Vehiculo vehiculo = tablaHashAlquilados.hashTable[i];
+            if(vehiculo!=null){
+                if(vehiculo.getReferencia().equals(valor)){
+                    busqueda.push(vehiculo);
+                }
+            }
+        }
+        return busqueda;
     }
     
     public boolean esPrimo(int numero){
@@ -727,5 +757,6 @@ public class AdministrarVehiculo {
         }
         return numero;
     }
+
     
 }
