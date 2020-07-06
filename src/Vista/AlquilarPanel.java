@@ -147,7 +147,7 @@ public class AlquilarPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this,vehiculoAEliminar.getMarca()+" "+vehiculoAEliminar.getReferencia()+" "+vehiculoAEliminar.getPlaca());
         }
         else{
-            JOptionPane.showMessageDialog(this, "No hay un vehiculo con esta marca, referencia y placa disponible para alquilar");
+            JOptionPane.showMessageDialog(this, "No hay un vehiculo con esta placa disponible para alquilar");
         }
     }//GEN-LAST:event_alquilarPlacaBotonActionPerformed
 
