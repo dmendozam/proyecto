@@ -372,7 +372,7 @@ public class BuscarPanel extends javax.swing.JPanel {
                 if(btn.getName().equals("editar")){
                     String alquilado = String.valueOf(jTable1.getValueAt(row, 7));
                     if("No".equals(alquilado)){
-                        int selection = JOptionPane.showConfirmDialog(null, "¿Realmente desea editar este vehículo?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                        int selection = JOptionPane.showConfirmDialog(null, "¿Realmente desea editar este vehículo?", "Confirmar edición", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                         if(selection == 0){
                             inicio = System.currentTimeMillis();
                             String[] datos = new String[8];
