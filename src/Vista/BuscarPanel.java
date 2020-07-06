@@ -207,11 +207,11 @@ public class BuscarPanel extends javax.swing.JPanel {
                     break;
                 case "marca":
                     pilaVehiculos = admivehi.buscarHashMarca(valor);
-                    //pilaVehiculos2 = admivehi.buscarAlquiladosHashMarca(valor);
+                    pilaVehiculos2 = admivehi.buscarAlquiladosHashMarca(valor);
                     break;
                 case "modelo":
                     pilaVehiculos = admivehi.buscarHashReferencia(valor);
-                    //pilaVehiculos2 = admivehi.buscarAlquiladosHashModelo(valor);
+                    pilaVehiculos2 = admivehi.buscarAlquiladosHashModelo(valor);
             }
             int coincidencias=pilaVehiculos.size()+pilaVehiculos2.size();
             

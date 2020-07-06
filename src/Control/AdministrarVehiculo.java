@@ -12,6 +12,7 @@ import Modelo.Usuario;
 import Modelo.Vehiculo;
 import java.util.ArrayList;
 import Estructuras.*;
+import Vista.AlquilarPanel;
 
 /**
  *
@@ -686,7 +687,17 @@ public class AdministrarVehiculo {
     }
     
     public Stack<Vehiculo> buscarAlquiladosHashMarca(String valor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Stack<Vehiculo> busqueda = new Stack<>();
+        int n = tablaHashAlquilados.hashTable.length;
+        for(int i=0; i<n; i++){
+            Vehiculo vehiculo = tablaHashAlquilados.hashTable[i];
+            if(vehiculo!=null){
+                if(vehiculo.getMarca().equals(valor)){
+                    busqueda.push(vehiculo);
+                }
+            }
+        }
+        return busqueda;
     }
     
     public Stack<Vehiculo> buscarHashReferencia(String referencia){
@@ -707,7 +718,17 @@ public class AdministrarVehiculo {
     }
     
     public Stack<Vehiculo> buscarAlquiladosHashModelo(String valor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Stack<Vehiculo> busqueda = new Stack<>();
+        int n = tablaHashAlquilados.hashTable.length;
+        for(int i=0; i<n; i++){
+            Vehiculo vehiculo = tablaHashAlquilados.hashTable[i];
+            if(vehiculo!=null){
+                if(vehiculo.getReferencia().equals(valor)){
+                    busqueda.push(vehiculo);
+                }
+            }
+        }
+        return busqueda;
     }
     
     public boolean esPrimo(int numero){
