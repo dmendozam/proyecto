@@ -203,7 +203,7 @@ public class BuscarPanel extends javax.swing.JPanel {
             switch (tipo){
                 case "placa":
                     pilaVehiculos = admivehi.buscarHashPlaca(valor);
-                    pilaVehiculos2 = admivehi.buscarVehiculoAlquiladosPlaca(valor);     
+                    pilaVehiculos2 = admivehi.buscarAlquiladosHashPlaca(valor);     
                     break;
                 case "marca":
                     pilaVehiculos = admivehi.buscarHashMarca(valor);
