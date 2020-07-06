@@ -138,8 +138,10 @@ public class AlquilarPanel extends javax.swing.JPanel {
         String placa=placaTF.getText();
         Vehiculo vehiculoAEliminar= admivehi.borrarVehiculoHashPlacas(placa);
         if(vehiculoAEliminar!=null){
+                        //JOptionPane.showMessageDialog(this,vehiculoAEliminar.getMarca()+" "+vehiculoAEliminar.getReferencia()+" "+vehiculoAEliminar.getPlaca());
+
             Vehiculo eliminadoMarca=admivehi.eliminarVehiculosHashMarcaPlaca(vehiculoAEliminar.getMarca(), vehiculoAEliminar.getPlaca());
-            Vehiculo eliminadoReferencia=admivehi.eliminarVehiculosHashMarcaPlaca(vehiculoAEliminar.getMarca(), vehiculoAEliminar.getPlaca());
+            Vehiculo eliminadoReferencia=admivehi.eliminarVehiculosHashReferenciaPlaca(vehiculoAEliminar.getReferencia(), vehiculoAEliminar.getPlaca());
         
             admivehi.agregarVehiculoHashAlquilados(vehiculoAEliminar);
             JOptionPane.showMessageDialog(this,vehiculoAEliminar.getMarca()+" "+vehiculoAEliminar.getReferencia()+" "+vehiculoAEliminar.getPlaca());

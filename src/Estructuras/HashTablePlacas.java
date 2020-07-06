@@ -98,12 +98,17 @@ public class HashTablePlacas {
         int index1 = hash1(key); 
         int index2 = hash2(key);
         int i = 0;
-        while (hashTable[(index1 + i * index2) % size].getPlaca() != placa) { 
-            if (hashTable[(index1 + i * index2) % size] == null) { 
-                return -1; 
+        if(hashTable[(index1 + i * index2) % size] != null){
+            while (hashTable[(index1 + i * index2) % size]!=null) { 
+                if (hashTable[(index1 + i * index2) % size].getPlaca().equals(placa)) { 
+                    return (index1 + i * index2) % size;
+                }
+                i++; 
             }
-            i++; 
-        } 
+        }
+        else{
+            return -1;
+        }
         int pos = (index1 + i * index2) % size;
         return pos;
     } 

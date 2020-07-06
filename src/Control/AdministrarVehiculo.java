@@ -603,13 +603,13 @@ public class AdministrarVehiculo {
         sizeHash++;
     }
     public Vehiculo eliminarVehiculosHashMarcaPlaca(String marca,String placa){
-        NodoHash<HashArray<Vehiculo>> sentinela=hashMarca.get((int) hashCode(marca),marca,0);
+        NodoHash<HashArray<Vehiculo>> sentinela=hashMarca.get( hashCode(marca),marca,0);
         if(sentinela==null){
             return null;
         }
         else{
-            HashArray<Vehiculo> ha=sentinela.key;
-            Vehiculo eliminado=ha.delete((int) hashCode(placa), placa,0).key;
+            System.out.println(hashCode(placa)+" "+placa);
+            Vehiculo eliminado=sentinela.key.delete(hashCode(placa), placa,0).key;
             return eliminado;
         }
     }
