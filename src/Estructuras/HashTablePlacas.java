@@ -161,7 +161,7 @@ public class HashTablePlacas {
         int hashCode = 0;
         int n = arreglo.length;
         for(int i = 0; i<n; i++){
-            hashCode = hashCode + ((int)(arreglo[i])*(int)(Math.pow(3, n-(i+1))));
+            hashCode = hashCode + ((int)(arreglo[i])*(int)(Math.pow(31, n-(i+1))));
         }
         return Math.abs(hashCode);
     }  
