@@ -99,18 +99,17 @@ public class HashTablePlacas {
         int index2 = hash2(key);
         int i = 0;
         if(hashTable[(index1 + i * index2) % size] != null){
-            while (hashTable[(index1 + i * index2) % size]!=null) { 
+            while (hashTable[(index1 + i * index2) % size] != null) { 
                 if (hashTable[(index1 + i * index2) % size].getPlaca().equals(placa)) { 
-                    return (index1 + i * index2) % size;
+                    return (index1 + i * index2) % size; 
                 }
                 i++; 
             }
+            return -1;
         }
         else{
             return -1;
         }
-        int pos = (index1 + i * index2) % size;
-        return pos;
     } 
     
     public Vehiculo delete(int key, String placa){
