@@ -577,7 +577,7 @@ public class AdministrarVehiculo {
         int hashCode = 0;
         int n = arreglo.length;
         for(int i = 0; i<n; i++){
-            hashCode = hashCode + ((int)(arreglo[i])*(int)(Math.pow(3, n-(i+1))));
+            hashCode = hashCode + ((int)(arreglo[i])*(int)(Math.pow(31, n-(i+1))));
         }
         return Math.abs(hashCode);
     }  
@@ -608,7 +608,7 @@ public class AdministrarVehiculo {
             return null;
         }
         else{
-            System.out.println(hashCode(placa)+" "+placa);
+            System.out.println(sentinela.identificador);
             Vehiculo eliminado=sentinela.key.delete(hashCode(placa), placa,0).key;
             return eliminado;
         }

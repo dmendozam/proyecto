@@ -154,22 +154,37 @@ public class HashArray<T> {
         }
     }
     public NodoHash<T> delete(int  hashCode,String identificador,int prevcolision){
+        
         int posi=hashFunction(hashCode);
+        
         int colision=prevcolision;
         if(arrprin[posi]==null){
             return null;
         }
+        
         else{
+            
             if(arrprin[posi].identificador.equals(identificador)){
+                
                 NodoHash eliminado= arrprin[posi];
                 arrprin[posi]=null;
                 return eliminado;
             }
             else{
+                
                 colision++;
                 //int newHashCode=(hashFunction(hashCode)+colision*hashFunction2(hashCode, capacidad))%this.capacidad;
-                int newHashCode=(hashFunction(hashCode)+colision)%this.capacidad;
-                return get(newHashCode,identificador,colision);
+                int newHashCode;
+                //newHashCode=(hashFunction(hashCode)+colision*hashFunction2(hashCode))%this.capacidad;
+                if(colision>1){
+                     newHashCode=(hashFunction(hashCode)+colision*hashFunction2(hashCode))%this.capacidad;
+                }
+                
+                else{ 
+                    
+                    newHashCode=(hashFunction(hashCode)+colision)%this.capacidad;}
+                    System.out.println("aca");
+                    return delete(newHashCode,identificador,colision);
             }
         }
     }

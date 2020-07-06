@@ -232,6 +232,7 @@ public class Ingresar extends javax.swing.JFrame {
         System.out.println("Tiempo: " + (fin-inicio));
         //princi.setListaVehiculos(listaVehiculos);
         princi.setAdministrarVehiculos(admivehi);
+        
         /*System.err.println("sizeHash"+" "+admivehi.sizeHash);
         int cantive=0;
         for(int k=0;k<admivehi.hashMarca.capacidad;k++){
