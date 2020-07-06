@@ -665,7 +665,7 @@ public class AdministrarVehiculo {
         if (pos==-1){
             return busqueda;
         }
-        busqueda.push(tablaHashPlacas.retornar(pos));
+        busqueda.push(tablaHashAlquilados.retornar(pos));
         return busqueda;
     }
     public Stack<Vehiculo> buscarHashMarca(String marca){
