@@ -377,7 +377,9 @@ public class BuscarPanel extends javax.swing.JPanel {
                             datos[i] = String.valueOf(jTable1.getValueAt(row, i));
                         }
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
-                        AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
+                        admivehi.borrarVehiculoHash(v);
+                        admivehi.agregarVehiculoHash(v);
+                        //AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
                         //Stack<Vehiculo> vehiPlaca = admivehi.buscarVehiculoArbolPlaca2(v.getPlaca());
                         //Vehiculo vehi = vehiPlaca.pop();
                         /*if(vehiPlaca!=null){
@@ -394,9 +396,9 @@ public class BuscarPanel extends javax.swing.JPanel {
                             }
                         }*/
                         //admivehi.borrarVehiculoArbolConPlaca(vehi.getMarca(), vehi.getReferencia(), vehi.getPlaca());
-                        admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
-                        admivehi.arbolDeVehiculosPlacas.eliminar(vehiPlaca);
-                        admivehi.agregarVehiculoArbol(v);
+                        //admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
+                        //admivehi.arbolDeVehiculosPlacas.eliminar(vehiPlaca);
+                        //admivehi.agregarVehiculoArbol(v);
                         setAdministrarVehiculo(admivehi);
                         
                         //nuevo tiempo al acabar
@@ -419,7 +421,8 @@ public class BuscarPanel extends javax.swing.JPanel {
                             datos[i] = String.valueOf(jTable1.getValueAt(row, i));
                         }
                         Vehiculo v = new Vehiculo(Float.valueOf(datos[4]),Integer.valueOf(datos[3]),datos[1],datos[2],Integer.valueOf(datos[5]),datos[0],Integer.valueOf(datos[6]));
-                        AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
+                        admivehi.borrarVehiculoHash(v);
+                        //AVLTreeNode2String<Vehiculo> vehiPlaca = admivehi.arbolDeVehiculosPlacas.contains(v.getPlaca());
                         //Stack<Vehiculo> vehiPlaca = admivehi.buscarVehiculoArbolPlaca2(v.getPlaca());
                         //Vehiculo vehi = vehiPlaca.pop();
                         /*if(vehiPlaca!=null){
@@ -438,8 +441,8 @@ public class BuscarPanel extends javax.swing.JPanel {
                             
                         }*/
                         //admivehi.borrarVehiculoArbolConPlaca(vehi.getMarca(), vehi.getReferencia(), vehi.getPlaca());
-                        admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
-                        admivehi.arbolDeVehiculosPlacas.eliminar(vehiPlaca);
+                        //admivehi.borrarVehiculoArbolConPlaca(vehiPlaca.key.getMarca(), vehiPlaca.key.getReferencia(), vehiPlaca.key.getPlaca());
+                        //admivehi.arbolDeVehiculosPlacas.eliminar(vehiPlaca);
                         setAdministrarVehiculo(admivehi);
                         modelo.removeRow(row);
                         

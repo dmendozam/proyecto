@@ -550,6 +550,13 @@ public class AdministrarVehiculo {
         }
     }
     
+    public Vehiculo borrarVehiculoHash(Vehiculo vehi){
+        Vehiculo v = borrarVehiculoHashPlacas(vehi.getPlaca());
+        eliminarVehiculosHashMarcaPlaca(vehi.getMarca(), vehi.getPlaca());
+        eliminarVehiculosHashReferenciaPlaca(vehi.getReferencia(), vehi.getPlaca());
+        return v;
+    }
+    
     public Vehiculo borrarVehiculoHashPlacas(String placa){
         Vehiculo v = this.tablaHashPlacas.delete(hashCode(placa), placa);
         return v;

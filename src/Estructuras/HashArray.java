@@ -108,7 +108,7 @@ public class HashArray<T> {
                 int newHashCode;
                 //newHashCode=(hashFunction(hashCode)+colision*hashFunction2(hashCode))%this.capacidad;
                 
-                if(colision>1){
+                if(colision>5){
                      newHashCode=(hashFunction(hashCode)+colision*hashFunction2(hashCode))%this.capacidad;
                 }
                 
