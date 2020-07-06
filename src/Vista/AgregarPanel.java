@@ -272,9 +272,8 @@ public class AgregarPanel extends javax.swing.JPanel {
                 
                 JOptionPane.showMessageDialog(this,"Ya existe un vehículo con la placa " + placa);
             }else{
-                admivehi.agregarVehiculoHashPlaca(vehiculo);
-                        
-                Stack<Vehiculo> pilaVehiculosRevision = admivehi.buscarVehiculoArbolPlaca2(placa); //busca carros con esa placa
+                admivehi.agregarVehiculoHash(vehiculo);
+                Stack<Vehiculo> pilaVehiculosRevision = admivehi.buscarHashPlaca(placa); //busca carros con esa placa
                 if(!pilaVehiculosRevision.isEmpty()){
                     //nuevo tiempo al acabar
                     fin = System.currentTimeMillis();
@@ -283,6 +282,7 @@ public class AgregarPanel extends javax.swing.JPanel {
                     System.out.println(tiempo +" mili"); //imprimir tiempo
                     
                     JOptionPane.showMessageDialog(this,"Vehículo agregado correctamente");
+                    System.out.println(pilaVehiculosRevision.pop().getMarca());
                 }else{
                     //nuevo tiempo al acabar
                     fin = System.currentTimeMillis();
