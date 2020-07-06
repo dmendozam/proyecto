@@ -358,7 +358,7 @@ public class BuscarPanel extends javax.swing.JPanel {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         //este long para hacer la prueba de tiempo
-        long inicio = System.currentTimeMillis(); 
+        long inicio; 
         long fin;
         
         int column = jTable1.getColumnModel().getColumnIndexAtX(evt.getX());
@@ -374,6 +374,7 @@ public class BuscarPanel extends javax.swing.JPanel {
                     if("No".equals(alquilado)){
                         int selection = JOptionPane.showConfirmDialog(null, "¿Realmente desea eliminar este vehículo?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                         if(selection == 0){
+                            inicio = System.currentTimeMillis();
                             String[] datos = new String[8];
                             for(int i=0; i<8; i++){
                                 datos[i] = String.valueOf(jTable1.getValueAt(row, i));
@@ -423,6 +424,7 @@ public class BuscarPanel extends javax.swing.JPanel {
                     if("No".equals(alquilado)){
                         int selection = JOptionPane.showConfirmDialog(null, "¿Realmente desea eliminar este vehículo?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                         if(selection == 0){
+                            inicio = System.currentTimeMillis();
                             String[] datos = new String[8];
                             for(int i=0; i<8; i++){
                                 datos[i] = String.valueOf(jTable1.getValueAt(row, i));

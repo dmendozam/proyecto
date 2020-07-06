@@ -135,6 +135,8 @@ public class AlquilarPanel extends javax.swing.JPanel {
 
     private void alquilarPlacaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilarPlacaBotonActionPerformed
         // TODO add your handling code here:
+        long inicio = System.currentTimeMillis();
+        long fin;
         String placa=placaTF.getText();
         Vehiculo vehiculoAEliminar= admivehi.borrarVehiculoHashPlacas(placa);
         if(vehiculoAEliminar!=null){
@@ -144,6 +146,10 @@ public class AlquilarPanel extends javax.swing.JPanel {
             Vehiculo eliminadoReferencia=admivehi.eliminarVehiculosHashReferenciaPlaca(vehiculoAEliminar.getReferencia(), vehiculoAEliminar.getPlaca());
         
             admivehi.agregarVehiculoHashAlquilados(vehiculoAEliminar);
+            fin = System.currentTimeMillis();
+            //calculo e impresion del tiempo
+            double tiempo = (double) (fin - inicio);
+            System.out.println(tiempo +" mili"); //imprimir tiempo 
             JOptionPane.showMessageDialog(this,vehiculoAEliminar.getMarca()+" "+vehiculoAEliminar.getReferencia()+" "+vehiculoAEliminar.getPlaca());
         }
         else{
